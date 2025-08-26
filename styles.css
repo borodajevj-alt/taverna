@@ -247,51 +247,14 @@ body{
   .gallery{grid-template-columns:1fr}
 }
 
-/* ===== Mobile tweaks for device previews inside HERO ===== */
-@media (max-width: 900px){
-  /* Чуть уменьшим экраны и добавим отступы */
-  .device-previews { margin-top: 10px; }
-  .device.desktop .screen { height: 200px; }
-  .device.phone .screen   { height: 220px; }
-}
-
+/* На телефоне показываем только "dt", убираем текстовое название */
 @media (max-width: 720px){
-  /* Делаем горизонтальный свайп, чтобы "двигать" блок внутри секции */
-  .device-previews{
-    display: flex;
-    gap: 14px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 6px;
-    margin: 8px -8px 0;      /* лёгкий выход за края для полноэкранного вида */
-    padding-inline: 8px;
+  .logo-text{
+    display: none;
   }
-  .device-previews .device{
-    min-width: 82%;          /* карточки крупные, но вписываются в блок */
-    max-width: 420px;
-    margin: 0;
-    scroll-snap-align: center;
-    flex: 0 0 auto;
+  .logo-mark{
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
   }
-
-  /* Компактнее устройства, чтобы не “давили” текст */
-  .device .screen{ height: 200px; }
-  .device.desktop .screen{ height: 180px; }
-  .device.phone .screen{ height: 200px; }
-
-  /* Переставим порядок: сначала десктоп, затем телефон */
-  .device-previews .device.desktop{ order: 1; }
-  .device-previews .device.phone{ order: 2; }
-
-  /* Чуть уменьшим подпись под устройством */
-  .device .cap{ font-size: 12px; padding-top: 4px; }
-}
-
-@media (max-width: 480px){
-  /* Ещё компактнее на очень маленьких экранах */
-  .device-previews .device{ min-width: 88%; }
-  .device .screen{ height: 180px; }
-  .device.desktop .screen{ height: 160px; }
-  .device.phone .screen{ height: 180px; }
 }
