@@ -258,3 +258,64 @@ body{
     font-size: 15px;
   }
 }
+
+
+/* ===== Testimonials — desktop stays grid ===== */
+.quotes{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.quote{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.10);
+  padding: 20px 18px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+  position: relative;
+}
+.quote p{font-size:16px; line-height:1.6; margin:0;}
+.quote footer{margin-top:12px; color:#cfe1ff; opacity:.9}
+
+/* Декоративная кавычка */
+.quote::before{
+  content: "“";
+  position: absolute;
+  left: 14px;
+  top: -14px;
+  font-size: 44px;
+  line-height: 1;
+  background: linear-gradient(135deg,var(--brand),var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: .7;
+}
+
+/* ===== Mobile makeover: horizontal snap carousel ===== */
+@media (max-width: 720px){
+  .quotes{
+    display: flex;                 /* вместо grid */
+    overflow-x: auto;
+    gap: 14px;
+    scroll-snap-type: x mandatory; /* свайп по одной карточке */
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 12px 12px;
+    margin-inline: -12px;          /* карточки “во весь экран” */
+  }
+  .quote{
+    flex: 0 0 auto;
+    min-width: 85%;
+    max-width: 520px;
+    scroll-snap-align: center;
+    padding: 18px 16px 20px;
+    border-radius: 16px;
+  }
+  .quote p{font-size:15px; line-height:1.55}
+  .quote::before{font-size:36px; top:-10px; left:10px}
+}
+
+/* Очень узкие экраны — ещё чуть шире карточка */
+@media (max-width: 480px){
+  .quote{ min-width: 92%; }
+}
