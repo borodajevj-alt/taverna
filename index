@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>designTaverna — AI • Web • Marketing</title>
+  <meta name="description" content="designTaverna — сайты под ключ, ИИ-агенты, SMM и маркетинг. Красивые анимации, быстрый код, поддержка 4 языков." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23fff' d='M50 10 85 30v40L50 90 15 70V30z'/%3E%3Cpath fill='%2300b3ff' d='M50 20 78 36v28L50 80 22 64V36z'/%3E%3C/svg%3E">
+</head>
+
+<body>
+  <!-- Floating background decorations -->
+  <div class="bg-orbs">
+    <span class="orb orb1"></span>
+    <span class="orb orb2"></span>
+    <span class="orb orb3"></span>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="designTaverna home">
+        <span class="logo-mark">dt</span>
+        <span class="logo-text">designTaverna</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="burger" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul id="primary-menu" class="menu">
+          <li><a data-i18n="nav.home" href="#home">Home</a></li>
+          <li><a data-i18n="nav.services" href="#services">Services</a></li>
+          <li><a data-i18n="nav.packages" href="#packages">Packages</a></li>
+          <li><a data-i18n="nav.process" href="#process">Process</a></li>
+          <li><a data-i18n="nav.portfolio" href="#portfolio">Portfolio</a></li>
+          <li><a data-i18n="nav.contact" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="lang-switch" role="group" aria-label="Language switcher">
+        <button class="lang active" data-lang="en">EN</button>
+        <button class="lang" data-lang="ru">RU</button>
+        <button class="lang" data-lang="et">ET</button>
+        <button class="lang" data-lang="lv">LV</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1 data-i18n="hero.title">Transform your business with AI + Design</h1>
+          <p class="lead" data-i18n="hero.subtitle">
+            We create stunning, animated websites, build custom AI agents, and run performance marketing that actually converts.
+          </p>
+          <div class="cta">
+            <a href="#contact" class="btn btn-primary" data-i18n="hero.cta_primary">Get a quote</a>
+            <a href="#portfolio" class="btn btn-ghost" data-i18n="hero.cta_secondary">See work</a>
+          </div>
+          <ul class="trust">
+            <li>⚡ <span data-i18n="hero.point1">Fast, optimized code</span></li>
+            <li>🎯 <span data-i18n="hero.point2">ROI-driven marketing</span></li>
+            <li>🤖 <span data-i18n="hero.point3">Production AI agents</span></li>
+          </ul>
+        </div>
+
+        <!-- Device previews -->
+        <div class="device-previews">
+          <div class="device desktop reveal">
+            <div class="screen">
+              <div class="skeleton hero-skeleton"></div>
+            </div>
+            <span class="cap" data-i18n="hero.preview_desktop">Desktop design</span>
+          </div>
+          <div class="device phone reveal">
+            <div class="screen">
+              <div class="skeleton phone-skeleton"></div>
+            </div>
+            <span class="cap" data-i18n="hero.preview_phone">Mobile with burger menu</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="services.title">What we can do for you</h2>
+        <p class="section-lead" data-i18n="services.lead">
+          Full-cycle delivery: from brand and UI motion to code, deployment, SMM and AI automation.
+        </p>
+
+        <div class="grid cards">
+          <article class="card reveal">
+            <div class="icon">{</div>
+            <h3 data-i18n="services.web_title">Web & Apps (any stack)</h3>
+            <p data-i18n="services.web_text">
+              SPA, landing pages, e-commerce, dashboards. Clean, accessible, blazing fast.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">📈</div>
+            <h3 data-i18n="services.marketing_title">Marketing</h3>
+            <p data-i18n="services.marketing_text">
+              Performance ads, SEO, analytics, funnels & CRO to grow revenue, not just clicks.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">💬</div>
+            <h3 data-i18n="services.smm_title">SMM</h3>
+            <p data-i18n="services.smm_text">
+              Strategy, content systems, creatives, community management, reporting.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">🤖</div>
+            <h3 data-i18n="services.agents_title">AI Agents</h3>
+            <p data-i18n="services.agents_text">
+              Sales/chat agents, RAG knowledge bases, automations, back-office copilots.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">✨</div>
+            <h3 data-i18n="services.ai_title">All things AI</h3>
+            <p data-i18n="services.ai_text">
+              Text, image & video generation, fine-tuning, workflows, integrations.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">🎨</div>
+            <h3 data-i18n="services.brand_title">Designs • Sites turn-key</h3>
+            <p data-i18n="services.brand_text">
+              Identity, UI kits, motion, copy — and deployment on your domain.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section id="packages" class="section alt">
+      <div class="container">
+        <h2 class="section-title" data-i18n="packages.title">Packages</h2>
+        <p class="section-lead" data-i18n="packages.lead">
+          Choose a starting point — we customize each package to your goals and language markets.
+        </p>
+
+        <div class="grid pricing">
+          <article class="price-card reveal">
+            <h3 data-i18n="packages.starter">Starter</h3>
+            <p class="price">€590</p>
+            <ul class="features">
+              <li data-i18n="packages.s1">Landing 1–3 sections with animations</li>
+              <li data-i18n="packages.s2">Basic SEO + analytics</li>
+              <li data-i18n="packages.s3">1 language</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline" data-i18n="packages.cta">Start</a>
+          </article>
+
+          <article class="price-card featured reveal">
+            <div class="badge" data-i18n="packages.popular">Popular</div>
+            <h3 data-i18n="packages.pro">Pro</h3>
+            <p class="price">€1,490</p>
+            <ul class="features">
+              <li data-i18n="packages.p1">Full site 6–10 sections + CMS</li>
+              <li data-i18n="packages.p2">AI agent (FAQ/sales)</li>
+              <li data-i18n="packages.p3">Up to 4 languages</li>
+              <li data-i18n="packages.p4">Performance & accessibility audit</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary" data-i18n="packages.cta">Start</a>
+          </article>
+
+          <article class="price-card reveal">
+            <h3 data-i18n="packages.elite">Elite</h3>
+            <p class="price">€3,900+</p>
+            <ul class="features">
+              <li data-i18n="packages.e1">Custom design system + motion</li>
+              <li data-i18n="packages.e2">Advanced AI automations</li>
+              <li data-i18n="packages.e3">Growth marketing & SMM</li>
+              <li data-i18n="packages.e4">Dedicated support</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline" data-i18n="packages.cta">Start</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="process.title">How we build</h2>
+        <div class="timeline">
+          <div class="step reveal">
+            <span class="num">1</span>
+            <h3 data-i18n="process.d1">Discover</h3>
+            <p data-i18n="process.t1">Goals, audience, languages, success metrics.</p>
+          </div>
+          <div class="step reveal">
+            <span class="num">2</span>
+            <h3 data-i18n="process.d2">Design</h3>
+            <p data-i18n="process.t2">Brand, UI, micro-interactions, copy, IA.</p>
+          </div>
+          <div class="step reveal">
+            <span class="num">3</span>
+            <h3 data-i18n="process.d3">Build</h3>
+            <p data-i18n="process.t3">Accessible, fast code + CMS + integrations.</p>
+          </div>
+          <div class="step reveal">
+            <span class="num">4</span>
+            <h3 data-i18n="process.d4">Launch</h3>
+            <p data-i18n="process.t4">Domains, SEO, analytics, QA across devices.</p>
+          </div>
+          <div class="step reveal">
+            <span class="num">5</span>
+            <h3 data-i18n="process.d5">Grow</h3>
+            <p data-i18n="process.t5">SMM, ads, A/B tests; iterate with data.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="section alt">
+      <div class="container">
+        <h2 class="section-title" data-i18n="portfolio.title">Selected work</h2>
+        <p class="section-lead" data-i18n="portfolio.lead">A few recent builds. Motion-heavy, multi-language, SEO friendly.</p>
+
+        <div class="grid gallery">
+          <figure class="shot reveal">
+            <div class="thumb shimmer"></div>
+            <figcaption>FinTech Dashboard • React</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <div class="thumb shimmer"></div>
+            <figcaption>Streaming Landing • Next.js</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <div class="thumb shimmer"></div>
+            <figcaption>E-commerce • Headless</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <div class="thumb shimmer"></div>
+            <figcaption>AI Agent • Sales Copilot</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="testimonials.title">Loved by clients</h2>
+        <div class="grid quotes">
+          <blockquote class="quote reveal">
+            <p data-i18n="testimonials.q1">“They shipped a beautiful site in two weeks and our conversion doubled.”</p>
+            <footer>— Maya, DTC brand</footer>
+          </blockquote>
+          <blockquote class="quote reveal">
+            <p data-i18n="testimonials.q2">“AI agent answers 70% of chats. Support load went way down.”</p>
+            <footer>— Alex, SaaS</footer>
+          </blockquote>
+          <blockquote class="quote reveal">
+            <p data-i18n="testimonials.q3">“Multilingual content and SEO gave us traffic from 3 new markets.”</p>
+            <footer>— Anu, Marketplace</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="container contact-grid">
+        <div>
+          <h2 class="section-title" data-i18n="contact.title">Tell us about your project</h2>
+          <p data-i18n="contact.lead">We’ll reply within 24 hours with options and timelines.</p>
+          <ul class="contact-list">
+            <li>✉️ hello@designtaverna.com</li>
+            <li>🌍 Riga • Tallinn • London</li>
+          </ul>
+        </div>
+
+        <form class="contact-form" aria-label="Contact form" onsubmit="event.preventDefault(); alert(currentDict.form.sent);">
+          <label>
+            <span data-i18n="form.name">Your name</span>
+            <input required type="text" name="name" placeholder="John / Jana" />
+          </label>
+          <label>
+            <span data-i18n="form.email">Email</span>
+            <input required type="email" name="email" placeholder="you@example.com" />
+          </label>
+          <label>
+            <span data-i18n="form.budget">Budget (EUR)</span>
+            <input type="text" name="budget" placeholder="e.g. 1500" />
+          </label>
+          <label>
+            <span data-i18n="form.msg">Project details</span>
+            <textarea name="message" rows="4" placeholder="Scope, deadlines, languages…"></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit" data-i18n="form.send">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="y"></span> designTaverna</p>
+      <nav aria-label="Footer">
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#packages" data-i18n="nav.packages">Packages</a>
+        <a href="#process" data-i18n="nav.process">Process</a>
+        <a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Scripts: menu, reveal animations, i18n -->
+  <script>
+    // Burger menu
+    const burger = document.querySelector('.burger');
+    const menu = document.getElementById('primary-menu');
+    burger.addEventListener('click', () => {
+      const expanded = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', !expanded);
+      menu.classList.toggle('open');
+    });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver(entries => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          observer.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // i18n dictionary
+    const dict = {
+      en: {
+        nav:{home:"Home",services:"Services",packages:"Packages",process:"Process",portfolio:"Portfolio",contact:"Contact"},
+        hero:{
+          title:"Transform your business with AI + Design",
+          subtitle:"We create stunning, animated websites, build custom AI agents, and run performance marketing that actually converts.",
+          cta_primary:"Get a quote", cta_secondary:"See work",
+          point1:"Fast, optimized code", point2:"ROI-driven marketing", point3:"Production AI agents",
+          preview_desktop:"Desktop design", preview_phone:"Mobile with burger menu"
+        },
+        services:{
+          title:"What we can do for you",
+          lead:"Full-cycle delivery: from brand and UI motion to code, deployment, SMM and AI automation.",
+          web_title:"Web & Apps (any stack)",
+          web_text:"SPA, landing pages, e-commerce, dashboards. Clean, accessible, blazing fast.",
+          marketing_title:"Marketing",
+          marketing_text:"Performance ads, SEO, analytics, funnels & CRO to grow revenue, not just clicks.",
+          smm_title:"SMM",
+          smm_text:"Strategy, content systems, creatives, community management, reporting.",
+          agents_title:"AI Agents",
+          agents_text:"Sales/chat agents, RAG knowledge bases, automations, back-office copilots.",
+          ai_title:"All things AI",
+          ai_text:"Text, image & video generation, fine-tuning, workflows, integrations.",
+          brand_title:"Designs • Sites turn-key",
+          brand_text:"Identity, UI kits, motion, copy — and deployment on your domain."
+        },
+        packages:{
+          title:"Packages",
+          lead:"Choose a starting point — we customize each package to your goals and language markets.",
+          starter:"Starter", pro:"Pro", elite:"Elite", popular:"Popular", cta:"Start",
+          s1:"Landing 1–3 sections with animations", s2:"Basic SEO + analytics", s3:"1 language",
+          p1:"Full site 6–10 sections + CMS", p2:"AI agent (FAQ/sales)", p3:"Up to 4 languages", p4:"Performance & accessibility audit",
+          e1:"Custom design system + motion", e2:"Advanced AI automations", e3:"Growth marketing & SMM", e4:"Dedicated support"
+        },
+        process:{title:"How we build", d1:"Discover", d2:"Design", d3:"Build", d4:"Launch", d5:"Grow",
+          t1:"Goals, audience, languages, success metrics.", t2:"Brand, UI, micro-interactions, copy, IA.",
+          t3:"Accessible, fast code + CMS + integrations.", t4:"Domains, SEO, analytics, QA across devices.",
+          t5:"SMM, ads, A/B tests; iterate with data."
+        },
+        portfolio:{title:"Selected work", lead:"A few recent builds. Motion-heavy, multi-language, SEO friendly."},
+        testimonials:{title:"Loved by clients", q1:"“They shipped a beautiful site in two weeks and our conversion doubled.”", q2:"“AI agent answers 70% of chats. Support load went way down.”", q3:"“Multilingual content and SEO gave us traffic from 3 new markets.”"},
+        contact:{title:"Tell us about your project", lead:"We’ll reply within 24 hours with options and timelines."},
+        form:{name:"Your name", email:"Email", budget:"Budget (EUR)", msg:"Project details", send:"Send", sent:"Thanks! We’ll get back to you shortly."}
+      },
+      ru: {
+        nav:{home:"Главная",services:"Услуги",packages:"Пакеты",process:"Процесс",portfolio:"Работы",contact:"Контакты"},
+        hero:{
+          title:"Ускорим ваш бизнес: ИИ + дизайн",
+          subtitle:"Делаем красивые анимированные сайты, внедряем кастомных ИИ-агентов и запускаем маркетинг, который приносит прибыль.",
+          cta_primary:"Получить смету", cta_secondary:"Смотреть работы",
+          point1:"Быстрый оптимизированный код", point2:"Маркетинг под ROI", point3:"Боевые ИИ-агенты",
+          preview_desktop:"Десктоп-дизайн", preview_phone:"Мобильная версия с бургер-меню"
+        },
+        services:{
+          title:"Что мы сделаем для вас",
+          lead:"Полный цикл: бренд и motion-UI → код → деплой → SMM и автоматизация на ИИ.",
+          web_title:"Веб и приложения (любой стек)",
+          web_text:"SPAs, лендинги, магазины, админки. Чисто, доступно, очень быстро.",
+          marketing_title:"Маркетинг",
+          marketing_text:"Performance-реклама, SEO, аналитика, воронки, CRO — рост выручки, а не кликов.",
+          smm_title:"SMM",
+          smm_text:"Стратегия, контент-системы, креативы, комьюнити, отчётность.",
+          agents_title:"ИИ-агенты",
+          agents_text:"Продажи/чат, базы знаний (RAG), автоматизации, офисные копилоты.",
+          ai_title:"Всё про ИИ",
+          ai_text:"Текст, изображения, видео, дообучение, пайплайны, интеграции.",
+          brand_title:"Дизайн • Сайты под ключ",
+          brand_text:"Айдентика, UI-киты, анимации, тексты — и выкладка на ваш домен."
+        },
+        packages:{
+          title:"Пакеты",
+          lead:"Выберите старт — мы адаптируем под ваши цели и рынки/языки.",
+          starter:"Старт", pro:"Про", elite:"Элита", popular:"Хит", cta:"Начать",
+          s1:"Лендинг 1–3 секции с анимацией", s2:"Базовые SEO + аналитика", s3:"1 язык",
+          p1:"Сайт 6–10 секций + CMS", p2:"ИИ-агент (FAQ/продажи)", p3:"До 4 языков", p4:"Аудит скорости и доступности",
+          e1:"Собственная дизайн-система + motion", e2:"Продвинутые автоматизации ИИ", e3:"Рост-маркетинг и SMM", e4:"Выделенная поддержка"
+        },
+        process:{title:"Как мы работаем", d1:"Исследуем", d2:"Проектируем", d3:"Разрабатываем", d4:"Запускаем", d5:"Растим",
+          t1:"Цели, аудитория, языки, метрики успеха.", t2:"Бренд, UI, микровзаимодействия, контент, IA.",
+          t3:"Доступный быстрый код + CMS + интеграции.", t4:"Домены, SEO, аналитика, QA на устройствах.",
+          t5:"SMM, реклама, A/B-тесты. Дальше — итерации по данным."
+        },
+        portfolio:{title:"Работы", lead:"Недавние проекты: много анимации, мультиязычность, дружественно к SEO."},
+        testimonials:{title:"Нас любят клиенты", q1:"«За две недели выкатили красивый сайт — конверсия удвоилась.»", q2:"«ИИ-агент закрывает 70% чатов. Нагрузка на саппорт упала.»", q3:"«Мультиязычный контент дал трафик из 3 новых рынков.»"},
+        contact:{title:"Расскажите о проекте", lead:"Ответим в течение 24 часов с вариантами и сроками."},
+        form:{name:"Ваше имя", email:"Email", budget:"Бюджет (EUR)", msg:"О проекте", send:"Отправить", sent:"Спасибо! Скоро свяжемся."}
+      },
+      et: {
+        nav:{home:"Avaleht",services:"Teenused",packages:"Paketid",process:"Protsess",portfolio:"Tööd",contact:"Kontakt"},
+        hero:{
+          title:"Muudame sinu äri: AI + disain",
+          subtitle:"Loome animatsioonidega veebid, ehitame AI-agente ja teeme turundust, mis toob tulu.",
+          cta_primary:"Küsi pakkumist", cta_secondary:"Vaata töid",
+          point1:"Kiire optimeeritud kood", point2:"Tulemuspõhine turundus", point3:"Tootmiskõlblikud AI-agendid",
+          preview_desktop:"Töölaua disain", preview_phone:"Mobiil koos burger-menüüga"
+        },
+        services:{
+          title:"Mida teeme",
+          lead:"Täistsükkel: bränd ja motion-UI → kood → deploy → SMM ja AI-automatiseerimine.",
+          web_title:"Veeb & rakendused",
+          web_text:"SPA, landing, e-pood, haldus. Puhas, ligipääsetav, väga kiire.",
+          marketing_title:"Turundus",
+          marketing_text:"Reklaam, SEO, analüütika, lehtrid ja CRO — kasvab käive.",
+          smm_title:"Sotsiaalmeedia",
+          smm_text:"Strateegia, sisu, kogukond, raportid.",
+          agents_title:"AI agendid",
+          agents_text:"Müügi/vestluse agendid, RAG, automatiseerimine.",
+          ai_title:"Kõik AI-st",
+          ai_text:"Tekst, pilt, video, fine-tuning, töövood, integratsioonid.",
+          brand_title:"Disain • Veeb võtmed-kätte",
+          brand_text:"Identiteet, UI-komplektid, liikumine, copy – koos paigaldusega."
+        },
+        packages:{
+          title:"Paketid", lead:"Vali alguspunkt — kohandame keelte ja eesmärkide järgi.",
+          starter:"Starter", pro:"Pro", elite:"Eliit", popular:"Populaarne", cta:"Alusta",
+          s1:"1–3 sektsiooni landing animatsioonidega", s2:"Põhi-SEO + analüütika", s3:"1 keel",
+          p1:"Täissait 6–10 sektsiooni + CMS", p2:"AI agent (KKK/müük)", p3:"Kuni 4 keelt", p4:"Jõudluse ja ligipääsetavuse audit",
+          e1:"Custom disainsüsteem + motion", e2:"Täiustatud AI-automat.", e3:"Kasvuturundus & SMM", e4:"Pühendatud tugi"
+        },
+        process:{title:"Kuidas ehitame", d1:"Avastame", d2:"Disainime", d3:"Arendame", d4:"Käivitame", d5:"Kasvatame",
+          t1:"Eesmärgid, sihtgrupp, keeled, mõõdikud.", t2:"Bränd, UI, mikro-interaktsioonid, sisu.",
+          t3:"Kiire ja ligipääsetav kood + CMS + integratsioonid.", t4:"Domeenid, SEO, QA, analüütika.",
+          t5:"SMM, reklaamid, A/B testid ja iteratsioon."
+        },
+        portfolio:{title:"Valik töid", lead:"Värsked projektid — palju liikumist, mitmekeelne, SEO-sõbralik."},
+        testimonials:{title:"Kliendid kiidavad", q1:"“Kaunis sait kahe nädalaga; konversioon kahekordistus.”", q2:"“AI agent vastab 70% chatidest.”", q3:"“Mitmekeelsus tõi 3 uut turgu.”"},
+        contact:{title:"Räägi oma projektist", lead:"Vastame 24 h jooksul."},
+        form:{name:"Nimi", email:"E-post", budget:"Eelarve (EUR)", msg:"Kirjeldus", send:"Saada", sent:"Aitäh! Võtame peagi ühendust."}
+      },
+      lv: {
+        nav:{home:"Sākums",services:"Pakalpojumi",packages:"Pakas",process:"Process",portfolio:"Darbi",contact:"Kontakti"},
+        hero:{
+          title:"Pārveido savu biznesu ar AI un dizainu",
+          subtitle:"Veidojam animētās mājaslapas, AI aģentus un veiktspējas mārketingu, kas konvertē.",
+          cta_primary:"Saņemt piedāvājumu", cta_secondary:"Skatīt darbus",
+          point1:"Ātrs, optimizēts kods", point2:"ROI mērķēts mārketings", point3:"Produkcijas AI aģenti",
+          preview_desktop:"Darbvirsmas dizains", preview_phone:"Mobilā versija ar burger-izvēlni"
+        },
+        services:{
+          title:"Ko mēs darām",
+          lead:"Pilns cikls: zīmols un motion-UI → kods → izvietošana → SMM un AI automatizācija.",
+          web_title:"Web un lietotnes",
+          web_text:"SPA, landing, e-komercija, paneļi. Tīri, pieejami, ļoti ātri.",
+          marketing_title:"Mārketings",
+          marketing_text:"Reklāmas, SEO, analītika, piltuves un CRO — ieņēmumu izaugsmei.",
+          smm_title:"SMM",
+          smm_text:"Stratēģija, saturs, kopiena, atskaites.",
+          agents_title:"AI aģenti",
+          agents_text:"Pārdošanas/čata aģenti, RAG zināšanu bāzes, automatizācija.",
+          ai_title:"Viss par AI",
+          ai_text:"Teksts, attēli, video, fine-tuning, plūsmas, integrācijas.",
+          brand_title:"Dizains • Lapas līdz atslēgai",
+          brand_text:"Identitāte, UI komplekti, animācijas, copy – un izvietošana jūsu domēnā."
+        },
+        packages:{
+          title:"Pakas", lead:"Izvēlies startu — pielāgosim mērķiem un valodām.",
+          starter:"Start", pro:"Pro", elite:"Elites", popular:"Populāra", cta:"Sākt",
+          s1:"Landing 1–3 sekcijas ar animāciju", s2:"Pamata SEO + analītika", s3:"1 valoda",
+          p1:"Pilna lapa 6–10 sekcijas + CMS", p2:"AI aģents (FAQ/pārdošana)", p3:"Līdz 4 valodām", p4:"Veiktspējas un piekļūstamības audits",
+          e1:"Pielāgota dizaina sistēma + motion", e2:"Uzlabotas AI automatizācijas", e3:"Growth mārketings & SMM", e4:"Dedikēts atbalsts"
+        },
+        process:{title:"Kā veidojam", d1:"Izpēte", d2:"Dizains", d3:"Izstrāde", d4:"Palaišana", d5:"Izaugsme",
+          t1:"Mērķi, auditorija, valodas, KPI.", t2:"Zīmols, UI, mikro-mijiedarbības, saturs.",
+          t3:"Ātrs pieejams kods + CMS + integrācijas.", t4:"Domēni, SEO, analītika, QA.",
+          t5:"SMM, reklāmas, A/B testi, iterācijas."
+        },
+        portfolio:{title:"Darbi", lead:"Pēdējie projekti — kustība, vairāk valodu, SEO-draudzīgi."},
+        testimonials:{title:"Klienti mūs slavē", q1:"“Skaista lapa 2 nedēļās; konversija dubultojās.”", q2:"“AI aģents atbild 70% čatu.”", q3:"“Daudzvalodība atnesa 3 jaunus tirgus.”"},
+        contact:{title:"Pastāsti par projektu", lead:"Atbildēsim 24 stundu laikā."},
+        form:{name:"Vārds", email:"E-pasts", budget:"Budžets (EUR)", msg:"Apraksts", send:"Sūtīt", sent:"Paldies! Drīz sazināsimies."}
+      }
+    };
+
+    let currentDict = dict.en;
+
+    function setLang(lang){
+      if(!dict[lang]) return;
+      currentDict = dict[lang];
+      localStorage.setItem('dt-lang', lang);
+
+      document.querySelectorAll('[data-i18n]').forEach(node => {
+        const path = node.getAttribute('data-i18n').split('.');
+        let val = dict[lang];
+        for (const k of path) val = val?.[k];
+        if (typeof val === 'string') node.textContent = val;
+      });
+
+      document.querySelectorAll('.lang').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+      document.documentElement.lang = lang;
+    }
+
+    // init lang
+    setLang(localStorage.getItem('dt-lang') || 'en');
+    document.querySelectorAll('.lang').forEach(b => b.addEventListener('click', ()=> setLang(b.dataset.lang)));
+  </script>
+</body>
+</html>
