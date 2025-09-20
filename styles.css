@@ -505,3 +505,10 @@ body {
   }
 }
 
+.screen video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* чтобы не было чёрных полос */
+  border-radius: 12px;
+  display: block;
+}
