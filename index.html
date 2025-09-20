@@ -607,6 +607,7 @@
               // lv
         team:{ title:"Mūsu komanda", lead:"Senioru dizaineri, inženieri un mārketeri — viena komanda." }
       },
+
     };
 
     let currentDict = dict.en;
@@ -633,34 +634,32 @@
 
     // Back-to-top
 (function(){
-  const btn = document.getElementById('toTop');
-  if(!btn) return;
+  function init(){
+    const btn = document.getElementById('toTop');
+    if(!btn) return;
 
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let ticking = false;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function onScroll(){
-    if(ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
+    function toggle(){
       const y = window.pageYOffset || document.documentElement.scrollTop;
-      if (y > 400) btn.classList.add('show');
-      else btn.classList.remove('show');
-      ticking = false;
+      btn.classList.toggle('show', y > 300); // можно 300–400
+    }
+
+    window.addEventListener('scroll', toggle, { passive: true });
+    toggle();
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
     });
   }
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); // init state
-
-  btn.addEventListener('click', () => {
-    if(prefersReduced){
-      window.scrollTo(0,0);
-    }else{
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  });
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
+
 
   </script>
 
@@ -673,3 +672,4 @@
 
 </body>
 </html>
+
