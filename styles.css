@@ -493,3 +493,15 @@ body {
 @media (prefers-reduced-motion: reduce){
   .to-top{ transition: none; }
 }
+
+/* Hero device-previews: на телефонах в одну колонку */
+@media (max-width: 720px){
+  .device-previews{
+    grid-template-columns: 1fr; /* вместо 1fr 1fr */
+    gap: 16px;                  /* чуть плотнее */
+  }
+  .device.desktop .screen{
+    height: 240px;              /* можно 220–260; подогнал под мобильную ширину */
+  }
+}
+
