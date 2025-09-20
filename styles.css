@@ -309,27 +309,41 @@ body {
   opacity: .7;
 }
 
-/* ===== Mobile makeover: horizontal snap carousel ===== */
+/* ===== Testimonials: 1 слайд = 1 экран (мобайл) ===== */
 @media (max-width: 720px){
   .quotes{
-    display: flex;                 /* вместо grid */
+    display: flex;
+    gap: 16px;
     overflow-x: auto;
-    gap: 14px;
-    scroll-snap-type: x mandatory; /* свайп по одной карточке */
+    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    padding: 8px 12px 12px;
-    margin-inline: -12px;          /* карточки “во весь экран” */
+    overscroll-behavior-x: contain;
+
+    /* выводим карусель в край экрана, независимо от .container */
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+
+    /* внутренняя ширина, чтобы карточки не прилипали к краям */
+    padding: 0 16px 14px;
+
+    /* чтобы первая карточка красиво «прилипала» к левому краю */
+    scroll-padding-left: 16px;
+
+    /* скрыть скроллбар */
   }
+  .quotes::-webkit-scrollbar{ display: none; }
+  .quotes{ scrollbar-width: none; }
+
   .quote{
-    flex: 0 0 auto;
-    min-width: 85%;
-    max-width: 520px;
-    scroll-snap-align: center;
+    flex: 0 0 calc(100vw - 32px); /* ровно ширина экрана минус внутренние отступы */
+    scroll-snap-align: start;
     padding: 18px 16px 20px;
     border-radius: 16px;
   }
-  .quote p{font-size:15px; line-height:1.55}
-  .quote::before{font-size:36px; top:-10px; left:10px}
+
+  .quote p{ font-size: 15px; line-height: 1.55; }
+  .quote::before{ font-size: 36px; top: -10px; left: 10px; }
 }
 
 /* Очень узкие экраны — ещё чуть шире карточка */
@@ -449,6 +463,7 @@ body {
   .member{ padding: 18px; }
 }
 
+
 /* Back-to-top (mobile) */
 .to-top{
   position: fixed;
@@ -478,4 +493,3 @@ body {
 @media (prefers-reduced-motion: reduce){
   .to-top{ transition: none; }
 }
-
