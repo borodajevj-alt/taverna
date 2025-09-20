@@ -200,6 +200,15 @@
       </div>
     </section>
 
+    <!-- VIDEO BANNER -->
+<section id="promo-video" class="video-bleed">
+  <video class="promo-video" autoplay muted loop playsinline>
+    <source src="rollMain.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+
     <!-- PROCESS -->
     <section id="process" class="section">
       <div class="container">
@@ -236,6 +245,96 @@
         </div>
       </div>
     </section>
+
+    <!-- SMALL WORKS / EXTRAS -->
+<section id="extras" class="section alt extras">
+  <div class="container">
+    <h2 class="section-title" data-i18n="extras.title">We also do</h2>
+    <p class="section-lead" data-i18n="extras.lead">
+      Not only full packages — we help with small, useful tasks too.
+    </p>
+
+    <div class="grid cards extras-grid">
+      <article class="card reveal">
+        <div class="icon">📊</div>
+        <h3 data-i18n="extras.items.sheets.title">Excel & Google Sheets</h3>
+        <p data-i18n="extras.items.sheets.text">Smart spreadsheets for finance, planning and ops.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">📑</div>
+        <h3 data-i18n="extras.items.docs.title">Docs & Presentations</h3>
+        <p data-i18n="extras.items.docs.text">Beautiful PDFs, contracts, guides and decks.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">🌐</div>
+        <h3 data-i18n="extras.items.landing.title">Landing Pages</h3>
+        <p data-i18n="extras.items.landing.text">One-page sites for campaigns and quick launches.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">📘</div>
+        <h3 data-i18n="extras.items.templates.title">Templates & Playbooks</h3>
+        <p data-i18n="extras.items.templates.text">Checklists, brandbooks and step-by-step guides.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">📱</div>
+        <h3 data-i18n="extras.items.social.title">Social Media Design</h3>
+        <p data-i18n="extras.items.social.text">Posts, stories, banners and ad creatives.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">⚡</div>
+        <h3 data-i18n="extras.items.automation.title">Micro-automation</h3>
+        <p data-i18n="extras.items.automation.text">Bots, forms, Notion/CRM integrations.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">✉️</div>
+        <h3 data-i18n="extras.items.email.title">Email Campaigns</h3>
+        <p data-i18n="extras.items.email.text">Branded newsletter templates and setup.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">🖼️</div>
+        <h3 data-i18n="extras.items.aiimg.title">AI Images</h3>
+        <p data-i18n="extras.items.aiimg.text">Generated illustrations and photo edits.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">💳</div>
+        <h3 data-i18n="extras.items.print.title">Business Cards & Print</h3>
+        <p data-i18n="extras.items.print.text">Cards, flyers, posters — press-ready.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">🔍</div>
+        <h3 data-i18n="extras.items.research.title">Market Research</h3>
+        <p data-i18n="extras.items.research.text">Quick research and useful reports for your business.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">🚀</div>
+        <h3 data-i18n="extras.items.seo.title">SEO Basics</h3>
+        <p data-i18n="extras.items.seo.text">Keywords, meta and optimization for better reach.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon">🎬</div>
+        <h3 data-i18n="extras.items.video.title">Video Editing</h3>
+        <p data-i18n="extras.items.video.text">Short edits, reels and promo clips.</p>
+      </article>
+
+    </div>
+
+    <p class="lead extras-note" data-i18n="extras.note">
+      You don’t have to buy a full package — bring us any task, big or small. We’ll deliver and find a price that works for you.
+    </p>
+  </div>
+</section>
+
 
     <!-- PORTFOLIO -->
     <section id="portfolio" class="section alt">
@@ -478,7 +577,28 @@
         contact:{title:"Tell us about your project", lead:"We’ll reply within 24 hours with options and timelines."},
         form:{name:"Your name", email:"Email", budget:"Budget (EUR)", msg:"Project details", send:"Send", sent:"Thanks! We’ll get back to you shortly."},
               // en
-        team:{ title:"Our team", lead:"Senior designers, engineers and marketers working as one product crew." }
+        team:{ title:"Our team", lead:"Senior designers, engineers and marketers working as one product crew." },
+        extras:{
+  title:"We also do",
+  lead:"Not only full packages — we help with small, useful tasks too.",
+  note:"You don’t have to buy a full package — bring us any task, big or small. We’ll deliver and find a price that works for you.",
+  items:{
+    sheets:{title:"Excel & Google Sheets", text:"Smart spreadsheets for finance, planning and ops."},
+    docs:{title:"Docs & Presentations", text:"Beautiful PDFs, contracts, guides and decks."},
+    landing:{title:"Landing Pages", text:"One-page sites for campaigns and quick launches."},
+    templates:{title:"Templates & Playbooks", text:"Checklists, brandbooks and step-by-step guides."},
+    social:{title:"Social Media Design", text:"Posts, stories, banners and ad creatives."},
+    automation:{title:"Micro-automation", text:"Bots, forms, Notion/CRM integrations."},
+    email:{title:"Email Campaigns", text:"Branded newsletter templates and setup."},
+    aiimg:{title:"AI Images", text:"Generated illustrations and photo edits."},
+    print:{title:"Business Cards & Print", text:"Cards, flyers, posters — press-ready."},
+    research:{title:"Market Research", text:"Quick research and useful reports for your business."},
+seo:{title:"SEO Basics", text:"Keywords, meta and optimization for better reach."},
+video:{title:"Video Editing", text:"Short edits, reels and promo clips."}
+
+  }
+}
+
       },
       ru: {
         nav:{home:"Главная",services:"Услуги",packages:"Пакеты",process:"Процесс",portfolio:"Работы",contact:"Контакты"},
@@ -523,7 +643,28 @@
         contact:{title:"Расскажите о проекте", lead:"Ответим в течение 24 часов с вариантами и сроками."},
         form:{name:"Ваше имя", email:"Email", budget:"Бюджет (EUR)", msg:"О проекте", send:"Отправить", sent:"Спасибо! Скоро свяжемся."},
               // ru
-        team:{ title:"Наша команда", lead:"Синьоры дизайнеры, инженеры и маркетологи — одна продуктовая команда." }
+        team:{ title:"Наша команда", lead:"Синьоры дизайнеры, инженеры и маркетологи — одна продуктовая команда." },
+        extras:{
+  title:"Мы также делаем",
+  lead:"Не только большие пакеты — помогаем и с маленькими, полезными задачами.",
+  note:"Не обязательно брать целый пакет — приходите с любой задачей, большой или маленькой. Мы всё сделаем и подберём удобную цену.",
+  items:{
+    sheets:{title:"Excel и Google Sheets", text:"Умные таблицы для финансов, планирования и операционки."},
+    docs:{title:"Документы и презентации", text:"Красивые PDF, договоры, гайды и презентации."},
+    landing:{title:"Лендинги", text:"Одностраничники для акций и быстрых запусков."},
+    templates:{title:"Шаблоны и плейбуки", text:"Чек-листы, брендбуки и пошаговые инструкции."},
+    social:{title:"Дизайн для соцсетей", text:"Посты, сторис, баннеры и креативы для рекламы."},
+    automation:{title:"Микро-автоматизации", text:"Боты, формы, интеграции с Notion/CRM."},
+    email:{title:"Email-рассылки", text:"Фирменные шаблоны писем и настройка."},
+    aiimg:{title:"AI-изображения", text:"Сгенерированные иллюстрации и фото-обработка."},
+    print:{title:"Визитки и полиграфия", text:"Визитки, флаеры, постеры — готово к печати."},
+    research:{title:"Маркетинговые исследования", text:"Быстрый ресёрч и полезные отчёты для бизнеса."},
+seo:{title:"Базовое SEO", text:"Ключевые слова, мета и оптимизация для продвижения."},
+video:{title:"Видеомонтаж", text:"Короткие ролики, Reels и промо-клипы."}
+
+  }
+}
+
       },
       et: {
         nav:{home:"Avaleht",services:"Teenused",packages:"Paketid",process:"Protsess",portfolio:"Tööd",contact:"Kontakt"},
@@ -567,7 +708,28 @@
         contact:{title:"Räägi oma projektist", lead:"Vastame 24 h jooksul."},
         form:{name:"Nimi", email:"E-post", budget:"Eelarve (EUR)", msg:"Kirjeldus", send:"Saada", sent:"Aitäh! Võtame peagi ühendust."},
               // et
-        team:{ title:"Meie tiim", lead:"Kogenud disainerid, arendajad ja turundajad ühes rütmis." }
+        team:{ title:"Meie tiim", lead:"Kogenud disainerid, arendajad ja turundajad ühes rütmis." },
+        extras:{
+  title:"Teeme ka muud",
+  lead:"Lisaks täispakettidele aitame ka väikeste, kasulike ülesannetega.",
+  note:"Ei pea võtma tervet paketti — tule mistahes tööga, suure või väikesega. Leiame lahenduse ja sobiva hinnataseme.",
+  items:{
+    sheets:{title:"Excel & Google Sheets", text:"Targad tabelid finantsiks, planeerimiseks ja operatsioonideks."},
+    docs:{title:"Dokumendid & esitlused", text:"Kaunid PDF-id, lepingud, juhendid ja slaidid."},
+    landing:{title:"Landing-lehed", text:"Ühelehekulised kampaaniate ja kiirete lansseerimiste jaoks."},
+    templates:{title:"Mallid & playbookid", text:"Kontroll-loendid, brändiraamatud ja samm-sammult juhised."},
+    social:{title:"Sotsiaalmeedia disain", text:"Postitused, lood, bännerid ja reklaamikujundused."},
+    automation:{title:"Mikro-automatiseerimine", text:"Botid, vormid, Notion/CRM integratsioonid."},
+    email:{title:"E-kirjade kampaaniad", text:"Bränditud mallid ja seadistamine."},
+    aiimg:{title:"AI-pildid", text:"Genereeritud illustratsioonid ja fototöötlus."},
+    print:{title:"Visiitkaardid & trükk", text:"Kaardid, flaierid, plakatid — trükivalmis."},
+    research:{title:"Turuuuring", text:"Kiired uuringud ja kasulikud aruanded sinu ärile."},
+seo:{title:"SEO põhitõed", text:"Märksõnad, meta ja lihtne optimeerimine nähtavuse parandamiseks."},
+video:{title:"Videomontaaž", text:"Lühiklipid, reelsid ja reklaamvideod."}
+
+  }
+}
+
       },
       lv: {
         nav:{home:"Sākums",services:"Pakalpojumi",packages:"Pakas",process:"Process",portfolio:"Darbi",contact:"Kontakti"},
@@ -611,7 +773,28 @@
         contact:{title:"Pastāsti par projektu", lead:"Atbildēsim 24 stundu laikā."},
         form:{name:"Vārds", email:"E-pasts", budget:"Budžets (EUR)", msg:"Apraksts", send:"Sūtīt", sent:"Paldies! Drīz sazināsimies."},
               // lv
-        team:{ title:"Mūsu komanda", lead:"Senioru dizaineri, inženieri un mārketeri — viena komanda." }
+        team:{ title:"Mūsu komanda", lead:"Senioru dizaineri, inženieri un mārketeri — viena komanda." },
+        extras:{
+  title:"Mēs arī darām",
+  lead:"Ne tikai pilni paketi — palīdzam arī ar mazām, noderīgām lietām.",
+  note:"Nav jāņem viss pakets — nāc ar jebkuru uzdevumu, lielu vai mazu. Mēs to paveiksim un atradīsim ērtu cenu.",
+  items:{
+    sheets:{title:"Excel un Google Sheets", text:"Gudras tabulas finansēm, plānošanai un operācijām."},
+    docs:{title:"Dokumenti un prezentācijas", text:"Skaisti PDF, līgumi, rokasgrāmatas un slaidi."},
+    landing:{title:"Landing lapas", text:"Vienas lapas risinājumi kampaņām un ātriem startiem."},
+    templates:{title:"Veidnes un playbooki", text:"Kontrolsaraksti, brandbooki un soli-pa-solim norādes."},
+    social:{title:"Sociālo tīklu dizains", text:"Ieraksti, stāsti, baneri un reklāmas materiāli."},
+    automation:{title:"Mikro-automatizācija", text:"Boti, formas, Notion/CRM integrācijas."},
+    email:{title:"E-pasta kampaņas", text:"Zīmola veidnes un iestatīšana."},
+    aiimg:{title:"AI attēli", text:"Ģenerētas ilustrācijas un foto apstrāde."},
+    print:{title:"Vizītkartes un druka", text:"Kartītes, skrejlapas, plakāti — gatavs drukai."},
+    research:{title:"Tirgus izpēte", text:"Ātra izpēte un noderīgi pārskati jūsu biznesam."},
+seo:{title:"SEO pamati", text:"Atslēgvārdi, meta dati un optimizācija labākai sasniedzamībai."},
+video:{title:"Video montāža", text:"Īsi klipi, reels un promo video."}
+
+  }
+}
+
       },
 
     };
