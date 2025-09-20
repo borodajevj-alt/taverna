@@ -340,7 +340,10 @@ body {
 
 /* ===== Team ===== */
 .team-grid{
+  /* если вдруг в HTML нет класса .grid, включим сетку здесь */
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
 }
 
 .member{
@@ -356,12 +359,16 @@ body {
 }
 
 .member::after{
-  /* мягкий блик при ховере */
+  /* мягкий блик при ховере (без inset:) */
   content:"";
-  position:absolute; inset:-40% -20% auto -20%;
-  height:60%;
+  position:absolute;
+  top: -40%;
+  right: -20%;
+  left: -20%;
+  height: 60%;
   background: radial-gradient(40% 60% at 50% 0%, rgba(107,140,255,.22), transparent 60%);
-  opacity:.0; transition:opacity .25s ease, transform .25s ease;
+  opacity: 0;
+  transition: opacity .25s ease, transform .25s ease;
   transform: translateY(10px);
   pointer-events:none;
   z-index: -1;
@@ -372,8 +379,9 @@ body {
   border-color: rgba(0,209,255,.35);
   box-shadow: 0 30px 60px rgba(0,0,0,.28);
 }
-.member:hover::after{ opacity:.9; transform: translateY(0); }
+.member:hover::after{ opacity: .9; transform: translateY(0); }
 
+/* Аватар */
 .member .photo{
   width: 84px; height: 84px;
   border-radius: 18px;
@@ -385,20 +393,31 @@ body {
 }
 .member .photo .initials{ font-size: 22px; }
 
+/* Основной вариант */
 .member .photo.ring{
   background: linear-gradient(135deg, var(--brand), var(--accent));
   position: relative;
 }
-.member .photo.ring::before{
-  content:""; position:absolute; inset:-3px;
-  border-radius: 20px;
-  background:
-    linear-gradient(135deg, var(--brand), var(--accent)) padding-box,
-    linear-gradient(135deg, rgba(255,255,255,.35), rgba(255,255,255,0)) border-box;
-  -webkit-mask: 
-    linear-gradient(#000 0 0) padding-box, 
-    linear-gradient(#000 0 0) border-box;
-  -webkit-mask-composite: xor; mask-composite: exclude;
+
+/* Красивое «кольцо» — только там, где поддерживается */
+@supports (-webkit-mask: none) or (mask-composite: exclude){
+  .member .photo.ring::before{
+    content:""; position:absolute; inset:-3px;
+    border-radius: 20px;
+    background:
+      linear-gradient(135deg, var(--brand), var(--accent)) padding-box,
+      linear-gradient(135deg, rgba(255,255,255,.35), rgba(255,255,255,0)) border-box;
+    -webkit-mask:
+      linear-gradient(#000 0 0) padding-box,
+      linear-gradient(#000 0 0) border-box;
+    -webkit-mask-composite: xor; 
+    mask-composite: exclude;
+  }
+}
+
+/* Фолбэк, если @supports не сработал — просто светлая рамка */
+@supports not ((-webkit-mask: none) or (mask-composite: exclude)){
+  .member .photo.ring{ box-shadow: 0 12px 30px rgba(0,0,0,.35), 0 0 0 2px rgba(255,255,255,.18) inset; }
 }
 
 /* альтернативные мягкие градиенты для аватаров */
