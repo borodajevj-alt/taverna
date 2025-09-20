@@ -512,3 +512,61 @@ body {
   border-radius: 12px;
   display: block;
 }
+
+/* ===== Extras section ===== */
+.extras .section-title { margin-bottom: 6px; }
+.extras-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.extras .card { background: var(--panel); border:1px solid rgba(255,255,255,.12); }
+.extras .card .icon{
+  width:56px; height:56px; display:grid; place-items:center; font-size:24px;
+  border-radius:14px; background:linear-gradient(135deg,var(--brand),var(--accent));
+  color:#fff; margin-bottom:14px; box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+.extras .card:hover{
+  transform: translateY(-6px);
+  border-color: rgba(0,209,255,.35);
+  box-shadow: 0 22px 50px rgba(0,209,255,.22);
+}
+.extras .card h3{ margin:6px 0 8px; font-size:18px; }
+.extras .card p{ color:var(--muted); font-size:15px; }
+.extras-note{ margin-top:28px; text-align:center; }
+@media (max-width:720px){
+  .extras-grid{ grid-template-columns: 1fr; }
+}
+
+/* ===== Promo video (container width) ===== */
+.video-bleed{
+  width: min(1160px, 92vw);
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 20px 40px rgba(0,0,0,.35);
+  background: transparent; /* без черного фона */
+}
+
+.promo-video{
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: cover;
+  display: block;
+
+  /* 🔹 Маска: плавное растворение краёв */
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,1) 85%,   /* центр полностью виден */
+    rgba(0,0,0,0) 100%  /* к краям исчезает */
+  );
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+
+  mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,1) 85%,
+    rgba(0,0,0,0) 100%
+  );
+  mask-repeat: no-repeat;
+  mask-size: cover;
+}
