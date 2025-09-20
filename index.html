@@ -76,11 +76,11 @@
             </div>
             <span class="cap" data-i18n="hero.preview_desktop">Desktop design</span>
           </div>
-          <div class="device phone reveal">
+          <div class="device desktop reveal">
             <div class="screen">
-              <div class="skeleton phone-skeleton"></div>
+              <div class="skeleton hero-skeleton"></div>
             </div>
-            <span class="cap" data-i18n="hero.preview_phone">Mobile with burger menu</span>
+            <span class="cap" data-i18n="hero.preview_desktop">Desktop design</span>
           </div>
         </div>
       </div>
@@ -198,6 +198,9 @@
     <section id="process" class="section">
       <div class="container">
         <h2 class="section-title" data-i18n="process.title">How we build</h2>
+        <p class="section-lead" data-i18n="packages.lead">
+          Choose a starting point — we customize each package to your goals and language markets.
+        </p>
         <div class="timeline">
           <div class="step reveal">
             <span class="num">1</span>
@@ -254,6 +257,81 @@
         </div>
       </div>
     </section>
+
+    <!-- TEAM -->
+<section id="team" class="section">
+  <div class="container">
+    <h2 class="section-title" data-i18n="team.title">Our team</h2>
+    <p class="section-lead" data-i18n="team.lead">
+      Senior designers, engineers and marketers working as one product crew.
+    </p>
+
+    <div class="grid team-grid">
+      <!-- 1 -->
+      <article class="member reveal">
+        <div class="photo ring">
+          <span class="initials">JB</span>
+        </div>
+        <h3 class="name">Jaanek Borodajev</h3>
+        <p class="role">Creative Director • Motion & UX</p>
+        <ul class="tags">
+          <li>UI motion</li><li>Brand</li><li>Art-direction</li>
+        </ul>
+      </article>
+
+      <!-- 2 -->
+      <article class="member reveal">
+        <div class="photo gradient-1"><span class="initials">AK</span></div>
+        <h3 class="name">Anika K.</h3>
+        <p class="role">Lead Product Designer</p>
+        <ul class="tags">
+          <li>Design systems</li><li>Prototyping</li><li>Accessibility</li>
+        </ul>
+      </article>
+
+      <!-- 3 -->
+      <article class="member reveal">
+        <div class="photo gradient-2"><span class="initials">MS</span></div>
+        <h3 class="name">Mark S.</h3>
+        <p class="role">Full-Stack Engineer</p>
+        <ul class="tags">
+          <li>Next.js</li><li>Node</li><li>CMS</li>
+        </ul>
+      </article>
+
+      <!-- 4 -->
+      <article class="member reveal">
+        <div class="photo gradient-3"><span class="initials">EV</span></div>
+        <h3 class="name">Eva V.</h3>
+        <p class="role">AI Engineer</p>
+        <ul class="tags">
+          <li>RAG</li><li>Agents</li><li>Workflows</li>
+        </ul>
+      </article>
+
+      <!-- 5 -->
+      <article class="member reveal">
+        <div class="photo gradient-4"><span class="initials">DL</span></div>
+        <h3 class="name">Dainis L.</h3>
+        <p class="role">Growth & SEO</p>
+        <ul class="tags">
+          <li>SEO</li><li>Analytics</li><li>CRO</li>
+        </ul>
+      </article>
+
+      <!-- 6 -->
+      <article class="member reveal">
+        <div class="photo gradient-5"><span class="initials">NT</span></div>
+        <h3 class="name">Nora T.</h3>
+        <p class="role">SMM & Content</p>
+        <ul class="tags">
+          <li>Content ops</li><li>Ads</li><li>Reporting</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
 
     <!-- TESTIMONIALS -->
     <section class="section">
@@ -394,6 +472,9 @@
         contact:{title:"Tell us about your project", lead:"We’ll reply within 24 hours with options and timelines."},
         form:{name:"Your name", email:"Email", budget:"Budget (EUR)", msg:"Project details", send:"Send", sent:"Thanks! We’ll get back to you shortly."}
       },
+
+      // en
+        team:{ title:"Our team", lead:"Senior designers, engineers and marketers working as one product crew." },
       ru: {
         nav:{home:"Главная",services:"Услуги",packages:"Пакеты",process:"Процесс",portfolio:"Работы",contact:"Контакты"},
         hero:{
@@ -437,6 +518,8 @@
         contact:{title:"Расскажите о проекте", lead:"Ответим в течение 24 часов с вариантами и сроками."},
         form:{name:"Ваше имя", email:"Email", budget:"Бюджет (EUR)", msg:"О проекте", send:"Отправить", sent:"Спасибо! Скоро свяжемся."}
       },
+      // ru
+        team:{ title:"Наша команда", lead:"Синьоры дизайнеры, инженеры и маркетологи — одна продуктовая команда." },
       et: {
         nav:{home:"Avaleht",services:"Teenused",packages:"Paketid",process:"Protsess",portfolio:"Tööd",contact:"Kontakt"},
         hero:{
@@ -479,6 +562,8 @@
         contact:{title:"Räägi oma projektist", lead:"Vastame 24 h jooksul."},
         form:{name:"Nimi", email:"E-post", budget:"Eelarve (EUR)", msg:"Kirjeldus", send:"Saada", sent:"Aitäh! Võtame peagi ühendust."}
       },
+      // et
+        team:{ title:"Meie tiim", lead:"Kogenud disainerid, arendajad ja turundajad ühes rütmis." },
       lv: {
         nav:{home:"Sākums",services:"Pakalpojumi",packages:"Pakas",process:"Process",portfolio:"Darbi",contact:"Kontakti"},
         hero:{
@@ -520,7 +605,9 @@
         testimonials:{title:"Klienti mūs slavē", q1:"“Skaista lapa 2 nedēļās; konversija dubultojās.”", q2:"“AI aģents atbild 70% čatu.”", q3:"“Daudzvalodība atnesa 3 jaunus tirgus.”"},
         contact:{title:"Pastāsti par projektu", lead:"Atbildēsim 24 stundu laikā."},
         form:{name:"Vārds", email:"E-pasts", budget:"Budžets (EUR)", msg:"Apraksts", send:"Sūtīt", sent:"Paldies! Drīz sazināsimies."}
-      }
+      },
+      // lv
+        team:{ title:"Mūsu komanda", lead:"Senioru dizaineri, inženieri un mārketeri — viena komanda." }
     };
 
     let currentDict = dict.en;
@@ -544,6 +631,46 @@
     // init lang
     setLang(localStorage.getItem('dt-lang') || 'en');
     document.querySelectorAll('.lang').forEach(b => b.addEventListener('click', ()=> setLang(b.dataset.lang)));
+
+    // Back-to-top
+(function(){
+  const btn = document.getElementById('toTop');
+  if(!btn) return;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let ticking = false;
+
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.pageYOffset || document.documentElement.scrollTop;
+      if (y > 400) btn.classList.add('show');
+      else btn.classList.remove('show');
+      ticking = false;
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // init state
+
+  btn.addEventListener('click', () => {
+    if(prefersReduced){
+      window.scrollTo(0,0);
+    }else{
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+})();
+
   </script>
+
+  <!-- Back-to-top -->
+<button id="toTop" class="to-top" aria-label="Back to top" title="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+    <path fill="currentColor" d="M12 5l6 6h-4v8h-4v-8H6z"/>
+  </svg>
+</button>
+
 </body>
 </html>
