@@ -371,10 +371,6 @@ body{ padding-top: var(--header-h); }
   .contact-grid{grid-template-columns: 1fr}
 }
 @media (max-width:720px){
-  .nav .burger{display:block}
-  .nav .menu{position:absolute; right:16px; top:64px; flex-direction:column; background:rgba(12,14,24,.95);
-    border:1px solid rgba(255,255,255,.1); padding:10px; border-radius:14px; display:none; min-width:190px}
-  .nav .menu.open{display:flex}
   .cards, .pricing{grid-template-columns: 1fr}
   .timeline{grid-template-columns: repeat(2, 1fr)}
   .gallery{grid-template-columns: repeat(2, 1fr)}
@@ -384,6 +380,18 @@ body{ padding-top: var(--header-h); }
   .timeline::before{
     display: none;
   }
+
+  @media (max-width: 720px){
+  /* спрятать ссылки в шапке на мобилках */
+  .nav .menu{ display:none !important; }
+
+  /* на всякий — если кнопка бургера вдруг осталась в DOM */
+  .nav .burger{ display:none !important; }
+
+  /* чтобы не было лишнего отступа возле языков */
+  .nav .menu{ margin-right:0 !important; }
+}
+
 
   /* карточки — одна колонка, одинаковая ширина и высота */
   .timeline{
