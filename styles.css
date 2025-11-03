@@ -1087,10 +1087,7 @@ html[data-theme="light"] .extras-orbit .card{
 }
 
 /* ==== FIX горизонтального скролла от таймлайна на мобиле ==== */
-html, body{
-  max-width: 100%;
-  overflow-x: hidden;     /* жёсткий стоп внешнему скроллу */
-}
+
 
 @media (max-width: 720px){
   .timeline{
