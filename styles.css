@@ -533,7 +533,6 @@ body{ padding-top: var(--header-h); }
 }
 .to-top:hover{ box-shadow:0 18px 40px rgba(0,0,0,.45); }
 .to-top.show{ opacity:1; visibility:visible; transform:translateY(0); }
-@media (min-width:721px){ .to-top{ display:none; } }
 @media (prefers-reduced-motion: reduce){ .to-top{ transition:none; } }
 
 /* Hero device-previews: mobile 1 column */
@@ -1056,82 +1055,73 @@ html[data-theme="light"] .extras-orbit .card{
   will-change: transform, filter, opacity;
 }
 
-/* ==== FIX: компактные линии таймлайна на мобиле (не выходят за экран) ==== */
-@media (max-width: 720px){
-  .timeline{ overflow: hidden; } /* подстраховка от случайных вылетов */
-
-  /* немного места справа под номер и короткий коннектор */
-  .step{
-    max-width: 100%;
-    padding-right: 60px;
-  }
-
-  /* переопределяем ширину и позицию линий для всех карточек */
-  .step::after,
-  .step:nth-child(odd)::after,
-  .step:nth-child(even)::after{
-    left: auto !important;
-    right: 12px !important;
-    width: clamp(24px, 8vw, 36px) !important;   /* КОРОТКАЯ линия */
-    height: 2px;
-    transform: translateY(-50%) !important;     /* убираем scaleX(-1) у even */
-  }
-
-  /* номер шага фиксируем внутри карточки справа */
-  .step .num{
-    left: auto !important;
-    right: 8px !important;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-
-/* ==== FIX горизонтального скролла от таймлайна на мобиле ==== */
-
-
-@media (max-width: 720px){
-  .timeline{
-    position: relative;
-  }
-
-/* ==== FIX горизонтального скролла без скрытия кнопки вверх ==== */
-
-/* Оставляем стоп только по X для всей страницы */
-html, body{
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* Мобилка: укорачиваем коннектор и держим его внутри карточки */
-@media (max-width: 720px){
-  /* даем место справа под короткую линию и кружок */
-  .timeline .step{
-    padding-right: 72px;
-  }
-
-  /* короче и строго внутри — для всех вариантов */
-  .timeline .step::after,
-  .timeline .step:nth-child(odd)::after,
-  .timeline .step:nth-child(even)::after{
-    left: auto !important;
-    right: 16px !important;
-    width: clamp(24px, 10vw, 48px) !important;
-    height: 2px;
-    transform: translateY(-50%) !important; /* убираем scaleX(-1) */
-  }
-
-  /* кружок с номером тоже внутри */
-  .timeline .step .num{
-    left: auto !important;
-    right: 8px !important;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-
 /* Кнопка вверх всегда поверх всего */
 .to-top{
   z-index: 9999;
   pointer-events: auto;
 }
 
+/* === Timeline: мобильный фикс без горизонтального скролла,
+     с чередованием 1/2/3/4/5 слева/справа и короткими коннекторами === */
+
+/* Страховка от вылета псевдоэлементов за контейнер */
+#process .container{ overflow-x: hidden; }
+
+/* Обычное поведение на десктопе оставляем как есть */
+
+/* Мобильный вид */
+@media (max-width: 720px){
+
+  /* ВАЖНО: закрываем прошлый открытый медиа-блок корректно
+     (если его где-то не закрыли выше) и задаём свои правила */
+  .timeline{ 
+    position: relative;
+    overflow: visible;        /* нам нужно, чтобы кружок мог слегка высовываться */
+  }
+
+  .step{
+    max-width: 100%;
+    /* лёгкий запас внутри карточки, чтобы текст не упирался в кружок */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* КОРОТКИЕ линии, чуть за карту. 
+     Контейнер секции режет лишнее (overflow-x: hidden), 
+     так что горизонтального скролла не будет. */
+
+  /* нечётные — карточка слева, линия тянется вправо к «позвоночнику» */
+  .step:nth-child(odd)::after{
+    right: -12px;
+    left: auto;
+    width: clamp(28px, 8vw, 48px);
+    height: 2px;
+    transform: translateY(-50%);
+  }
+
+  /* чётные — карточка справа, линия тянется влево */
+  .step:nth-child(even)::after{
+    left: -12px;
+    right: auto;
+    width: clamp(28px, 8vw, 48px);
+    height: 2px;
+    transform: translateY(-50%) scaleX(-1);
+  }
+
+  /* Номера остаются чередующимися, но внутри края карты на 1–2px */
+  .step:nth-child(odd) .num{
+    right: -10px;  /* слегка наружу */
+    left: auto;
+  }
+  .step:nth-child(even) .num{
+    left: -10px;   /* слегка наружу */
+    right: auto;
+  }
+}
+
+/* Глобально запрещаем горизонтальный скролл страницы,
+   но НЕ трогаем вертикальный */
+html, body{
+  max-width: 100%;
+  overflow-x: hidden;
+}
