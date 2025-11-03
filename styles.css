@@ -1055,3 +1055,34 @@ html[data-theme="light"] .extras-orbit .card{
   transform-style: preserve-3d;
   will-change: transform, filter, opacity;
 }
+
+/* ==== FIX: компактные линии таймлайна на мобиле (не выходят за экран) ==== */
+@media (max-width: 720px){
+  .timeline{ overflow: hidden; } /* подстраховка от случайных вылетов */
+
+  /* немного места справа под номер и короткий коннектор */
+  .step{
+    max-width: 100%;
+    padding-right: 60px;
+  }
+
+  /* переопределяем ширину и позицию линий для всех карточек */
+  .step::after,
+  .step:nth-child(odd)::after,
+  .step:nth-child(even)::after{
+    left: auto !important;
+    right: 12px !important;
+    width: clamp(24px, 8vw, 36px) !important;   /* КОРОТКАЯ линия */
+    height: 2px;
+    transform: translateY(-50%) !important;     /* убираем scaleX(-1) у even */
+  }
+
+  /* номер шага фиксируем внутри карточки справа */
+  .step .num{
+    left: auto !important;
+    right: 8px !important;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
