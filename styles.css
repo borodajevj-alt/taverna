@@ -1113,14 +1113,6 @@ html, body{
     height: 2px;
     transform: translateY(-50%) !important;    /* убираем scaleX(-1) у even */
   }
-
-  /* кружок с номером — тоже ВНУТРИ карточки */
-  .timeline .step .num{
-    left: auto !important;
-    right: 8px !important;
-    top: 50%;
-    transform: translateY(-50%);
-  }
 }
 
 
