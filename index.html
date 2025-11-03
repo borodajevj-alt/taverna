@@ -874,31 +874,61 @@ video:{title:"Video montāža", text:"Īsi klipi, reels un promo video."}
     setLang(localStorage.getItem('dt-lang') || 'en');
     document.querySelectorAll('.lang').forEach(b => b.addEventListener('click', ()=> setLang(b.dataset.lang)));
 
-    // Back-to-top
-(function(){
-  function init(){
+// Back-to-top
+(function initToTop(){
+  const run = () => {
     const btn = document.getElementById('toTop');
-    if(!btn) return;
+    if (!btn) return;
 
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // надёжно получаем текущую прокрутку во всех браузерах
+    const getY = () => {
+      // window.pageYOffset — самый совместимый
+      if (typeof window.pageYOffset === 'number') return window.pageYOffset;
+      // дальше — корень документа (html) или body
+      const de = document.documentElement;
+      const db = document.body;
+      return (de && de.scrollTop) || (db && db.scrollTop) || 0;
+    };
 
-    function toggle(){
-      const y = window.pageYOffset || document.documentElement.scrollTop;
-      btn.classList.toggle('show', y > 300); // можно 300–400
-    }
+    // небольшой понижающий порог на мобильных, чтобы кнопка появлялась раньше
+    const isSmall = window.matchMedia('(max-width: 720px)').matches;
+    const THRESHOLD = isSmall ? 180 : 300;
 
-    window.addEventListener('scroll', toggle, { passive: true });
+    let ticking = false;
+    const toggle = () => {
+      const show = getY() > THRESHOLD;
+      btn.classList.toggle('show', show);
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(toggle);
+      }
+    };
+
+    // слушаем ВСЕ варианты, где может происходить прокрутка/изменение высоты в мобилах
+    window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    window.addEventListener('orientationchange', onScroll, { passive: true });
+
+    // первичная проверка
     toggle();
 
+    // клик — плавный скролл наверх (безопасно для reduce-motion)
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     btn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+      (document.scrollingElement || document.documentElement || document.body)
+        .scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
     });
-  }
+  };
 
-  if (document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', init);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run, { once: true });
   } else {
-    init();
+    run();
   }
 })();
 
