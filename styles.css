@@ -1121,7 +1121,4 @@ html[data-theme="light"] .extras-orbit .card{
 
 /* Глобально запрещаем горизонтальный скролл страницы,
    но НЕ трогаем вертикальный */
-html, body{
-  max-width: 100%;
-  overflow-x: hidden;
-}
+html, body { min-height: 100%; }   /* даём расти по содержимому */
