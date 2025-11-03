@@ -1092,24 +1092,46 @@ html[data-theme="light"] .extras-orbit .card{
 @media (max-width: 720px){
   .timeline{
     position: relative;
-    overflow: hidden;     /* обрезаем хвосты внутри таймлайна */
   }
 
-  /* даём место справа под номер и короткую линию */
+/* ==== FIX горизонтального скролла без скрытия кнопки вверх ==== */
+
+/* Оставляем стоп только по X для всей страницы */
+html, body{
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Мобилка: укорачиваем коннектор и держим его внутри карточки */
+@media (max-width: 720px){
+  /* даем место справа под короткую линию и кружок */
   .timeline .step{
     padding-right: 72px;
   }
 
-  /* КОРОТКАЯ линия строго внутри карточки (перебиваем все варианты) */
+  /* короче и строго внутри — для всех вариантов */
   .timeline .step::after,
   .timeline .step:nth-child(odd)::after,
   .timeline .step:nth-child(even)::after{
     left: auto !important;
     right: 16px !important;
-    width: clamp(28px, 12vw, 56px) !important; /* короче и безопасно */
+    width: clamp(24px, 10vw, 48px) !important;
     height: 2px;
-    transform: translateY(-50%) !important;    /* убираем scaleX(-1) у even */
+    transform: translateY(-50%) !important; /* убираем scaleX(-1) */
+  }
+
+  /* кружок с номером тоже внутри */
+  .timeline .step .num{
+    left: auto !important;
+    right: 8px !important;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
+/* Кнопка вверх всегда поверх всего */
+.to-top{
+  z-index: 9999;
+  pointer-events: auto;
+}
 
