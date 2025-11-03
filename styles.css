@@ -1086,3 +1086,41 @@ html[data-theme="light"] .extras-orbit .card{
   }
 }
 
+/* ==== FIX горизонтального скролла от таймлайна на мобиле ==== */
+html, body{
+  max-width: 100%;
+  overflow-x: hidden;     /* жёсткий стоп внешнему скроллу */
+}
+
+@media (max-width: 720px){
+  .timeline{
+    position: relative;
+    overflow: hidden;     /* обрезаем хвосты внутри таймлайна */
+  }
+
+  /* даём место справа под номер и короткую линию */
+  .timeline .step{
+    padding-right: 72px;
+  }
+
+  /* КОРОТКАЯ линия строго внутри карточки (перебиваем все варианты) */
+  .timeline .step::after,
+  .timeline .step:nth-child(odd)::after,
+  .timeline .step:nth-child(even)::after{
+    left: auto !important;
+    right: 16px !important;
+    width: clamp(28px, 12vw, 56px) !important; /* короче и безопасно */
+    height: 2px;
+    transform: translateY(-50%) !important;    /* убираем scaleX(-1) у even */
+  }
+
+  /* кружок с номером — тоже ВНУТРИ карточки */
+  .timeline .step .num{
+    left: auto !important;
+    right: 8px !important;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+
