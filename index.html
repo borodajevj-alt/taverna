@@ -51,47 +51,53 @@
 
   <main>
     <!-- HERO -->
-    <section id="home" class="hero">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <h1 data-i18n="hero.title">Transform your business with AI + Design</h1>
-          <p class="lead" data-i18n="hero.subtitle">
-            We create stunning, animated websites, build custom AI agents, and run performance marketing that actually converts.
-          </p>
-          <div class="cta">
-            <a href="#contact" class="btn btn-primary" data-i18n="hero.cta_primary">Get a quote</a>
-            <a href="#portfolio" class="btn btn-ghost" data-i18n="hero.cta_secondary">See work</a>
-          </div>
-          <ul class="trust">
-            <li>⚡ <span data-i18n="hero.point1">Fast, optimized code</span></li>
-            <li>🎯 <span data-i18n="hero.point2">ROI-driven marketing</span></li>
-            <li>🤖 <span data-i18n="hero.point3">Production AI agents</span></li>
-          </ul>
-        </div>
-
-        <!-- Device previews -->
-        <div class="device-previews">
-          <div class="device desktop reveal">
-<div class="screen">
-  <video autoplay muted loop playsinline poster="images/preview.jpg">
+<!-- HERO -->
+<section id="home" class="hero hero-video">
+  <!-- Background video -->
+  <video class="hero-bg" autoplay muted loop playsinline poster="images/preview.jpg">
     <source src="mainVideo.mp4" type="video/mp4">
-    Your browser does not support the video tag.
   </video>
-</div>
-            <span class="cap" data-i18n="hero.preview_desktop">Desktop design</span>
-          </div>
-          <div class="device desktop reveal">
-            <div class="screen">
-  <video autoplay muted loop playsinline poster="images/preview.jpg">
-    <source src="studioMain.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
-            <span class="cap" data-i18n="hero.preview_desktop">Desktop design</span>
-          </div>
-        </div>
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <h1 data-i18n="hero.title">Transform your business with AI + Design</h1>
+      <p class="lead" data-i18n="hero.subtitle">
+        We create stunning, animated websites, build custom AI agents, and run performance marketing that actually converts.
+      </p>
+
+      <div class="cta">
+        <a href="#contact" class="btn btn-primary" data-i18n="hero.cta_primary">Get a quote</a>
+        <a href="#portfolio" class="btn btn-ghost" data-i18n="hero.cta_secondary">See work</a>
       </div>
-    </section>
+
+      <ul class="trust">
+        <li>⚡ <span data-i18n="hero.point1">Fast, optimized code</span></li>
+        <li>🎯 <span data-i18n="hero.point2">ROI-driven marketing</span></li>
+        <li>🤖 <span data-i18n="hero.point3">Production AI agents</span></li>
+      </ul>
+    </div>
+
+    <!-- Optional: маленький “стеклянный” превью-блок справа (без второго видео) -->
+    <div class="hero-side reveal">
+  <div class="hero-side-card">
+    <div class="kicker" data-i18n="hero.side.kicker">Motion • UI • Dev</div>
+    <div class="big" data-i18n="hero.side.brand">designTaverna</div>
+    <div class="mini" data-i18n="hero.side.desc">AI agents • Websites • Marketing</div>
+
+    <div class="pills">
+      <span data-i18n="hero.side.p1">4 languages</span>
+      <span data-i18n="hero.side.p2">Fast</span>
+      <span data-i18n="hero.side.p3">SEO</span>
+      <span data-i18n="hero.side.p4">Analytics</span>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</section>
+
 
     <!-- SERVICES -->
     <section id="services" class="section">
@@ -153,96 +159,379 @@
       </div>
     </section>
 
-    <!-- PACKAGES -->
+<!-- PACKAGES -->
 <section id="packages" class="section alt">
   <div class="container">
+
+<div class="packages-head">
+  <div class="packages-text">
     <h2 class="section-title" data-i18n="packages.title">Packages</h2>
     <p class="section-lead" data-i18n="packages.lead">
-      Choose a starting point — we customize each package to your goals.  
-      All include 1 language, with more available at a friendly cost.
+      Choose a starting point — we customize each package to your goals. All include 1 language; extra languages are available at a friendly cost.
     </p>
+  </div>
+
+  <div class="packages-chips" aria-label="Packages highlights">
+    <span class="chip" data-i18n="packages.chip1">Starting points</span>
+    <span class="chip" data-i18n="packages.chip2">Customizable</span>
+    <span class="chip chip-accent" data-i18n="packages.chip3">1 language included</span>
+  </div>
+</div>
+
 
     <div class="grid pricing">
       <!-- Starter -->
       <article class="price-card reveal">
-        <h3 data-i18n="packages.starter">Starter</h3>
-        <p class="price">€600</p>
+        <div class="price-top">
+          <div class="price-left">
+            <h3 class="plan" data-i18n="packages.starter">Starter</h3>
+            <p class="plan-desc" data-i18n="packages.s_desc">Best for quick launch & MVPs.</p>
+          </div>
+
+          <div class="price-right">
+            <div class="from" data-i18n="packages.from">FROM</div>
+            <div class="price">€600</div>
+          </div>
+        </div>
+
         <ul class="features">
-          <li data-i18n="packages.s1">Landing 1–3 sections with animations</li>
-          <li data-i18n="packages.s2">Basic SEO + analytics</li>
-          <li data-i18n="packages.s3">1 language (extra languages optional)</li>
-          <li data-i18n="packages.s4">One-time project, no ongoing support</li>
+          <li data-i18n="packages.s1">Landing page (1–3 sections) with motion</li>
+          <li data-i18n="packages.s2">Responsive UI (desktop + mobile)</li>
+          <li data-i18n="packages.s3">Basic SEO + analytics setup</li>
+          <li data-i18n="packages.s4">One-time delivery (no subscription)</li>
         </ul>
-        <a href="#contact" class="btn btn-outline" data-i18n="packages.cta">Start</a>
+
+        <div class="price-foot">
+          <span class="note-pill" data-i18n="packages.lang_note">1 language included • extra languages optional</span>
+          <a href="#contact" class="btn btn-outline btn-fixed" data-i18n="packages.cta">Start</a>
+        </div>
       </article>
 
       <!-- Pro -->
       <article class="price-card featured reveal">
-        <div class="badge" data-i18n="packages.popular">Popular</div>
-        <h3 data-i18n="packages.pro">Pro</h3>
-        <p class="price">€1,490</p>
+        <span class="badge" data-i18n="packages.popular">Popular</span>
+
+        <div class="price-top">
+          <div class="price-left">
+            <h3 class="plan" data-i18n="packages.pro">Pro</h3>
+            <p class="plan-desc" data-i18n="packages.p_desc">Best for growing products & businesses.</p>
+          </div>
+
+          <div class="price-right">
+            <div class="from" data-i18n="packages.from">FROM</div>
+            <div class="price">€1,490</div>
+          </div>
+        </div>
+
         <ul class="features">
-          <li data-i18n="packages.p1">Full site 6–10 sections + CMS</li>
-          <li data-i18n="packages.p2">SEO optimization + speed audit</li>
-          <li data-i18n="packages.p3">3 months support included</li>
-          <li data-i18n="packages.p4">1 language (extra languages optional)</li>
+          <li data-i18n="packages.p1">Full website (6–10 sections) + CMS</li>
+          <li data-i18n="packages.p2">Advanced animations & interactions</li>
+          <li data-i18n="packages.p3">SEO optimization + performance audit</li>
+          <li data-i18n="packages.p4">Up to 3 months support included</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" data-i18n="packages.cta">Start</a>
+
+        <div class="price-foot">
+          <span class="note-pill" data-i18n="packages.lang_note">1 language included • extra languages optional</span>
+          <a href="#contact" class="btn btn-primary btn-fixed" data-i18n="packages.cta">Start</a>
+        </div>
       </article>
 
       <!-- Elite -->
       <article class="price-card reveal">
-        <h3 data-i18n="packages.elite">Elite</h3>
-        <p class="price">€3,900+</p>
+        <div class="price-top">
+          <div class="price-left">
+            <h3 class="plan" data-i18n="packages.elite">Elite</h3>
+            <p class="plan-desc" data-i18n="packages.e_desc">Best for scale, automation & growth.</p>
+          </div>
+
+          <div class="price-right">
+            <div class="from" data-i18n="packages.from">FROM</div>
+            <div class="price">€3,900+</div>
+          </div>
+        </div>
+
         <ul class="features">
-          <li data-i18n="packages.e1">Custom design system + motion</li>
-          <li data-i18n="packages.e2">Advanced AI automations</li>
-          <li data-i18n="packages.e3">Growth marketing & SMM</li>
-          <li data-i18n="packages.e4">3 months dedicated support</li>
-          <li data-i18n="packages.e5">1 language (extra languages optional)</li>
+          <li data-i18n="packages.e1">Custom design system + motion language</li>
+          <li data-i18n="packages.e2">AI automations & integrations</li>
+          <li data-i18n="packages.e3">Growth marketing & SMM setup</li>
+          <li data-i18n="packages.e4">Dedicated support (3 months)</li>
         </ul>
-        <a href="#contact" class="btn btn-outline" data-i18n="packages.cta">Start</a>
+
+        <div class="price-foot">
+          <span class="note-pill" data-i18n="packages.lang_note">1 language included • extra languages optional</span>
+          <a href="#contact" class="btn btn-outline btn-fixed" data-i18n="packages.cta">Start</a>
+        </div>
       </article>
     </div>
+
+    <div class="task-card reveal">
+      <div>
+        <h3 class="task-title" data-i18n="packages.task_title">Need a specific task?</h3>
+        <p class="task-text" data-i18n="packages.task_text">
+          You can order single tasks: AI agents, landing pages, redesigns, integrations, audits, marketing setups.
+        </p>
+      </div>
+      <div class="task-actions">
+        <a href="#contact" class="btn btn-ghost" data-i18n="packages.task_btn1">Describe task</a>
+        <a href="#portfolio" class="btn btn-outline" data-i18n="packages.task_btn2">See examples</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
-    <!-- PROCESS -->
-    <section id="process" class="section">
-      <div class="container">
-        <h2 class="section-title" data-i18n="process.title">How we build</h2>
 
-        <div class="timeline">
-          <div class="step reveal">
-            <span class="num">1</span>
-            <h3 data-i18n="process.d1">Discover</h3>
-            <p data-i18n="process.t1">Goals, audience, languages, success metrics.</p>
+
+    <!-- PROCESS -->
+<section id="process" class="section process-canvas">
+  <div class="container">
+    <div class="process-head">
+      <h2 class="section-title" data-i18n="process.title">How we build</h2>
+      <p class="section-lead" data-i18n="process.lead_v2">Clear steps. Predictable delivery. Measurable results.</p>
+    </div>
+
+    <div class="pc-wrap">
+      <!-- LEFT: big active card -->
+      <div class="pc-stage reveal">
+        <div class="pc-glow" aria-hidden="true"></div>
+
+        <div class="pc-top">
+          <div class="pc-pill">
+            <span class="pc-dot" aria-hidden="true"></span>
+            <span class="pc-pill-text">Step <span id="pcStep">1</span> / 5</span>
           </div>
-          <div class="step reveal">
-            <span class="num">2</span>
-            <h3 data-i18n="process.d2">Design</h3>
-            <p data-i18n="process.t2">Brand, UI, micro-interactions, copy, IA.</p>
+          <div class="pc-meta" id="pcMeta">Deliverable</div>
+        </div>
+
+        <h3 class="pc-title" id="pcTitle">Discover</h3>
+        <p class="pc-text" id="pcText">Goals, audience, languages, success metrics.</p>
+
+        <div class="pc-kpis" id="pcKpis">
+          <div class="kpi">
+            <div class="kpi-k">Output</div>
+            <div class="kpi-v">Brief + scope</div>
           </div>
-          <div class="step reveal">
-            <span class="num">3</span>
-            <h3 data-i18n="process.d3">Build</h3>
-            <p data-i18n="process.t3">Accessible, fast code + CMS + integrations.</p>
+          <div class="kpi">
+            <div class="kpi-k">Time</div>
+            <div class="kpi-v">1–2 days</div>
           </div>
-          <div class="step reveal">
-            <span class="num">4</span>
-            <h3 data-i18n="process.d4">Launch</h3>
-            <p data-i18n="process.t4">Domains, SEO, analytics, QA across devices.</p>
-          </div>
-          <div class="step reveal">
-            <span class="num">5</span>
-            <h3 data-i18n="process.d5">Grow</h3>
-            <p data-i18n="process.t5">SMM, ads, A/B tests; iterate with data.</p>
+          <div class="kpi">
+            <div class="kpi-k">You get</div>
+            <div class="kpi-v">Plan + estimate</div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- SMALL WORKS / EXTRAS -->
+        <div class="pc-cta">
+          <a href="#contact" class="btn btn-primary">Start a project</a>
+          <a href="#packages" class="btn btn-ghost">Pick a package</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: steps list -->
+      <div class="pc-list" role="list">
+  <button class="pc-item reveal active" type="button"
+    data-step="1"
+    data-title-i18n="process.d1"
+    data-text-i18n="process.t1"
+    data-meta-i18n="process.card.meta"
+    data-k1-i18n="process.card.k.s1"
+    data-k2-i18n="process.card.k.s2"
+    data-k3-i18n="process.card.k.s3"
+  >
+    <span class="pc-num">01</span>
+    <span class="pc-item-body">
+      <span class="pc-item-title" data-i18n="process.d1">Discover</span>
+      <span class="pc-item-sub" data-i18n="process.t1">Goals, audience, languages, success metrics.</span>
+    </span>
+    <span class="pc-arrow" aria-hidden="true">→</span>
+  </button>
+
+  <button class="pc-item reveal" type="button"
+    data-step="2"
+    data-title-i18n="process.d2"
+    data-text-i18n="process.t2"
+    data-meta-i18n="process.card.meta"
+    data-k1-i18n="process.card.k.d1"
+    data-k2-i18n="process.card.k.d2"
+    data-k3-i18n="process.card.k.d3"
+  >
+    <span class="pc-num">02</span>
+    <span class="pc-item-body">
+      <span class="pc-item-title" data-i18n="process.d2">Design</span>
+      <span class="pc-item-sub" data-i18n="process.t2">Brand, UI, micro-interactions, copy, IA.</span>
+    </span>
+    <span class="pc-arrow" aria-hidden="true">→</span>
+  </button>
+
+  <button class="pc-item reveal" type="button"
+    data-step="3"
+    data-title-i18n="process.d3"
+    data-text-i18n="process.t3"
+    data-meta-i18n="process.card.meta"
+    data-k1-i18n="process.card.k.b1"
+    data-k2-i18n="process.card.k.b2"
+    data-k3-i18n="process.card.k.b3"
+  >
+    <span class="pc-num">03</span>
+    <span class="pc-item-body">
+      <span class="pc-item-title" data-i18n="process.d3">Build</span>
+      <span class="pc-item-sub" data-i18n="process.t3">Accessible, fast code + CMS + integrations.</span>
+    </span>
+    <span class="pc-arrow" aria-hidden="true">→</span>
+  </button>
+
+  <button class="pc-item reveal" type="button"
+    data-step="4"
+    data-title-i18n="process.d4"
+    data-text-i18n="process.t4"
+    data-meta-i18n="process.card.meta"
+    data-k1-i18n="process.card.k.l1"
+    data-k2-i18n="process.card.k.l2"
+    data-k3-i18n="process.card.k.l3"
+  >
+    <span class="pc-num">04</span>
+    <span class="pc-item-body">
+      <span class="pc-item-title" data-i18n="process.d4">Launch</span>
+      <span class="pc-item-sub" data-i18n="process.t4">Domains, SEO, analytics, QA across devices.</span>
+    </span>
+    <span class="pc-arrow" aria-hidden="true">→</span>
+  </button>
+
+  <button class="pc-item reveal" type="button"
+    data-step="5"
+    data-title-i18n="process.d5"
+    data-text-i18n="process.t5"
+    data-meta-i18n="process.card.meta"
+    data-k1-i18n="process.card.k.g1"
+    data-k2-i18n="process.card.k.g2"
+    data-k3-i18n="process.card.k.g3"
+  >
+    <span class="pc-num">05</span>
+    <span class="pc-item-body">
+      <span class="pc-item-title" data-i18n="process.d5">Grow</span>
+      <span class="pc-item-sub" data-i18n="process.t5">SMM, ads, A/B tests; iterate with data.</span>
+    </span>
+    <span class="pc-arrow" aria-hidden="true">→</span>
+  </button>
+</div>
+
+
+  <!-- tiny JS for interactive canvas -->
+<script>
+  (function () {
+    const items   = document.querySelectorAll('.pc-item');
+    const stepEl  = document.getElementById('pcStep');
+    const titleEl = document.getElementById('pcTitle');
+    const textEl  = document.getElementById('pcText');
+    const metaEl  = document.getElementById('pcMeta');
+
+    const kpisEl  = document.getElementById('pcKpis');
+    const kpiV = () => (kpisEl ? kpisEl.querySelectorAll('.kpi .kpi-v') : []);
+
+    const pillTextEl = document.querySelector('.pc-pill-text'); // "Step X / 5"
+    const kpiK = () => (kpisEl ? kpisEl.querySelectorAll('.kpi .kpi-k') : []);
+
+    const TOTAL = 5;
+
+    function getLang() {
+      return document.documentElement.getAttribute('lang') || 'en';
+    }
+
+    function deepGet(obj, path) {
+      return path.split('.').reduce((o, k) => (o && o[k] != null ? o[k] : undefined), obj);
+    }
+
+    function format(str, vars) {
+      if (typeof str !== 'string') return '';
+      return str.replace(/\{(\w+)\}/g, (_, key) => (vars[key] != null ? vars[key] : `{${key}}`));
+    }
+
+    function t(key, vars) {
+      if (!key) return '';
+      const lang = getLang();
+
+      // Используем ТВОЙ dict (не window.I18N)
+      const root = (typeof dict !== 'undefined' && dict[lang]) ? dict[lang] : null;
+      if (!root) return key;
+
+      const val = deepGet(root, key);
+      if (typeof val !== 'string') return key;
+
+      return vars ? format(val, vars) : val;
+    }
+
+    function datasetI18n(btn, name, fallback) {
+      // name = "titleI18n" => ищем data-title-i18n
+      const key = btn.dataset[name];
+      if (key) return t(key);
+      // fallback на обычный data-title
+      const rawName = name.replace('I18n', ''); // title / text / meta / k1 / k2 / k3
+      const raw = btn.dataset[rawName];
+      if (raw != null && raw !== '') return raw;
+      return fallback ?? '';
+    }
+
+    function apply(btn) {
+      items.forEach(i => i.classList.toggle('active', i === btn));
+
+      const step = btn.dataset.step || '1';
+
+      stepEl.textContent  = step;
+      titleEl.textContent = datasetI18n(btn, 'titleI18n', '');
+      textEl.textContent  = datasetI18n(btn, 'textI18n', '');
+
+      // meta
+      metaEl.textContent  = datasetI18n(btn, 'metaI18n', t('process.card.meta') || 'Deliverable');
+
+      // KPI labels (Output/Time/You get) — тоже переводим
+      const [kOut, kTime, kGet] = kpiK();
+      if (kOut)  kOut.textContent  = t('process.card.out')  || 'Output';
+      if (kTime) kTime.textContent = t('process.card.time') || 'Time';
+      if (kGet)  kGet.textContent  = t('process.card.get')  || 'You get';
+
+      // KPI values
+      const [a, b, c] = kpiV();
+      if (a) a.textContent = datasetI18n(btn, 'k1I18n', '');
+      if (b) b.textContent = datasetI18n(btn, 'k2I18n', '');
+      if (c) c.textContent = datasetI18n(btn, 'k3I18n', '');
+
+      // Step pill text: "Step {n} / {total}"
+      if (pillTextEl) {
+        const tpl = t('process.card.step', { n: step, total: TOTAL }) || `Step ${step} / ${TOTAL}`;
+        pillTextEl.textContent = tpl;
+      }
+
+      // Buttons text (если хочешь чтобы и они переводились)
+      const btnPrimary = document.querySelector('.pc-cta .btn-primary');
+      const btnSecond  = document.querySelector('.pc-cta .btn-ghost');
+      if (btnPrimary) btnPrimary.textContent = t('process.card.buttons.primary') || btnPrimary.textContent;
+      if (btnSecond)  btnSecond.textContent  = t('process.card.buttons.secondary') || btnSecond.textContent;
+    }
+
+    items.forEach(btn => {
+      btn.addEventListener('click', () => apply(btn));
+      btn.addEventListener('mouseenter', () => {
+        if (window.matchMedia('(hover:hover)').matches) apply(btn);
+      });
+    });
+
+    // init
+    const active = document.querySelector('.pc-item.active') || items[0];
+    if (active) apply(active);
+
+    // Чтобы ты мог вызывать после setLang(...)
+    window.processSyncI18n = function () {
+      const current = document.querySelector('.pc-item.active') || items[0];
+      if (current) apply(current);
+    };
+  })();
+</script>
+
+
+</section>
+
+
+    <!-- SMALL WORKS / EXTRAS (stack + center swap, arrows, counter) -->
 <section id="extras" class="section alt extras">
   <div class="container">
     <h2 class="section-title" data-i18n="extras.title">We also do</h2>
@@ -250,78 +539,98 @@
       Not only full packages — we help with small, useful tasks too.
     </p>
 
-    <div class="extras-orbit">
-      <article class="card reveal" tabindex="0" style="--angle:-90deg">
-        <div class="icon">📊</div>
-        <h3 data-i18n="extras.items.sheets.title">Excel & Google Sheets</h3>
-        <p data-i18n="extras.items.sheets.text">Smart spreadsheets for finance, planning and ops.</p>
-      </article>
+    <!-- DESKTOP STACK (mobile stays your existing list via CSS media rules) -->
+    <div class="extras-stack" data-extras-stack>
+      <div class="extras-stack-top">
+        <div class="extras-counter" aria-live="polite">
+          <span class="extras-counter-now">1</span><span class="extras-counter-sep">/</span><span class="extras-counter-total">12</span>
+        </div>
 
-      <article class="card reveal" tabindex="0" style="--angle:-60deg">
-        <div class="icon">📑</div>
-        <h3 data-i18n="extras.items.docs.title">Docs & Presentations</h3>
-        <p data-i18n="extras.items.docs.text">Beautiful PDFs, contracts, guides and decks.</p>
-      </article>
+        <div class="extras-arrows" role="group" aria-label="Extras navigation">
+          <button class="extras-arrow prev" type="button" data-extras-prev aria-label="Previous">‹</button>
+          <button class="extras-arrow next" type="button" data-extras-next aria-label="Next">›</button>
+        </div>
+      </div>
 
-      <article class="card reveal" tabindex="0" style="--angle:-30deg">
-        <div class="icon">🌐</div>
-        <h3 data-i18n="extras.items.landing.title">Landing Pages</h3>
-        <p data-i18n="extras.items.landing.text">One-page sites for campaigns and quick launches.</p>
-      </article>
+      <div class="extras-stage" aria-label="Extras cards carousel">
+        <!-- LEFT PEEK -->
+        <article class="extras-card peek left" data-peek="left" aria-hidden="true"></article>
 
-      <article class="card reveal" tabindex="0" style="--angle:0deg">
-        <div class="icon">📘</div>
-        <h3 data-i18n="extras.items.templates.title">Templates & Playbooks</h3>
-        <p data-i18n="extras.items.templates.text">Checklists, brandbooks and step-by-step guides.</p>
-      </article>
+        <!-- CENTER ACTIVE -->
+        <article class="extras-card active" data-active tabindex="0"></article>
 
-      <article class="card reveal" tabindex="0" style="--angle:30deg">
-        <div class="icon">📱</div>
-        <h3 data-i18n="extras.items.social.title">Social Media Design</h3>
-        <p data-i18n="extras.items.social.text">Posts, stories, banners and ad creatives.</p>
-      </article>
+        <!-- RIGHT PEEK -->
+        <article class="extras-card peek right" data-peek="right" aria-hidden="true"></article>
 
-      <article class="card reveal" tabindex="0" style="--angle:60deg">
-        <div class="icon">⚡</div>
-        <h3 data-i18n="extras.items.automation.title">Micro-automation</h3>
-        <p data-i18n="extras.items.automation.text">Bots, forms, Notion/CRM integrations.</p>
-      </article>
+        <!-- BACK STACK (subtle) -->
+        <div class="extras-backstack" aria-hidden="true">
+          <div class="extras-backcard"></div>
+          <div class="extras-backcard"></div>
+        </div>
+      </div>
 
-      <article class="card reveal" tabindex="0" style="--angle:90deg">
-        <div class="icon">✉️</div>
-        <h3 data-i18n="extras.items.email.title">Email Campaigns</h3>
-        <p data-i18n="extras.items.email.text">Branded newsletter templates and setup.</p>
-      </article>
+      <!-- SOURCE LIST (hidden by your CSS on desktop if you want; JS reads it) -->
+      <div class="extras-source" data-extras-source hidden>
+        <article class="card" data-icon="📊">
+          <h3 data-i18n="extras.items.sheets.title">Excel & Google Sheets</h3>
+          <p data-i18n="extras.items.sheets.text">Smart spreadsheets for finance, planning and ops.</p>
+        </article>
 
-      <article class="card reveal" tabindex="0" style="--angle:120deg">
-        <div class="icon">🖼️</div>
-        <h3 data-i18n="extras.items.aiimg.title">AI Images</h3>
-        <p data-i18n="extras.items.aiimg.text">Generated illustrations and photo edits.</p>
-      </article>
+        <article class="card" data-icon="📑">
+          <h3 data-i18n="extras.items.docs.title">Docs & Presentations</h3>
+          <p data-i18n="extras.items.docs.text">Beautiful PDFs, contracts, guides and decks.</p>
+        </article>
 
-      <article class="card reveal" tabindex="0" style="--angle:150deg">
-        <div class="icon">💳</div>
-        <h3 data-i18n="extras.items.print.title">Business Cards & Print</h3>
-        <p data-i18n="extras.items.print.text">Cards, flyers, posters — press-ready.</p>
-      </article>
+        <article class="card" data-icon="🌐">
+          <h3 data-i18n="extras.items.landing.title">Landing Pages</h3>
+          <p data-i18n="extras.items.landing.text">One-page sites for campaigns and quick launches.</p>
+        </article>
 
-      <article class="card reveal" tabindex="0" style="--angle:180deg">
-        <div class="icon">🔍</div>
-        <h3 data-i18n="extras.items.research.title">Market Research</h3>
-        <p data-i18n="extras.items.research.text">Quick research and useful reports for your business.</p>
-      </article>
+        <article class="card" data-icon="📘">
+          <h3 data-i18n="extras.items.templates.title">Templates & Playbooks</h3>
+          <p data-i18n="extras.items.templates.text">Checklists, brandbooks and step-by-step guides.</p>
+        </article>
 
-      <article class="card reveal" tabindex="0" style="--angle:210deg">
-        <div class="icon">🚀</div>
-        <h3 data-i18n="extras.items.seo.title">SEO Basics</h3>
-        <p data-i18n="extras.items.seo.text">Keywords, meta and optimization for better reach.</p>
-      </article>
+        <article class="card" data-icon="📱">
+          <h3 data-i18n="extras.items.social.title">Social Media Design</h3>
+          <p data-i18n="extras.items.social.text">Posts, stories, banners and ad creatives.</p>
+        </article>
 
-      <article class="card reveal" tabindex="0" style="--angle:240deg">
-        <div class="icon">🎬</div>
-        <h3 data-i18n="extras.items.video.title">Video Editing</h3>
-        <p data-i18n="extras.items.video.text">Short edits, reels and promo clips.</p>
-      </article>
+        <article class="card" data-icon="⚡">
+          <h3 data-i18n="extras.items.automation.title">Micro-automation</h3>
+          <p data-i18n="extras.items.automation.text">Bots, forms, Notion/CRM integrations.</p>
+        </article>
+
+        <article class="card" data-icon="✉️">
+          <h3 data-i18n="extras.items.email.title">Email Campaigns</h3>
+          <p data-i18n="extras.items.email.text">Branded newsletter templates and setup.</p>
+        </article>
+
+        <article class="card" data-icon="🖼️">
+          <h3 data-i18n="extras.items.aiimg.title">AI Images</h3>
+          <p data-i18n="extras.items.aiimg.text">Generated illustrations and photo edits.</p>
+        </article>
+
+        <article class="card" data-icon="💳">
+          <h3 data-i18n="extras.items.print.title">Business Cards & Print</h3>
+          <p data-i18n="extras.items.print.text">Cards, flyers, posters — press-ready.</p>
+        </article>
+
+        <article class="card" data-icon="🔍">
+          <h3 data-i18n="extras.items.research.title">Market Research</h3>
+          <p data-i18n="extras.items.research.text">Quick research and useful reports for your business.</p>
+        </article>
+
+        <article class="card" data-icon="🚀">
+          <h3 data-i18n="extras.items.seo.title">SEO Basics</h3>
+          <p data-i18n="extras.items.seo.text">Keywords, meta and optimization for better reach.</p>
+        </article>
+
+        <article class="card" data-icon="🎬">
+          <h3 data-i18n="extras.items.video.title">Video Editing</h3>
+          <p data-i18n="extras.items.video.text">Short edits, reels and promo clips.</p>
+        </article>
+      </div>
     </div>
 
     <p class="lead extras-note" data-i18n="extras.note">
@@ -455,38 +764,71 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section contact">
-      <div class="container contact-grid">
-        <div>
-          <h2 class="section-title" data-i18n="contact.title">Tell us about your project</h2>
-          <p data-i18n="contact.lead">We’ll reply within 24 hours with options and timelines.</p>
-          <ul class="contact-list">
-            <li>✉️ hello@designtaverna.com</li>
-            <li>🌍 Riga • Tallinn • London</li>
-          </ul>
-        </div>
+<section id="contact" class="section contact">
+  <div class="container">
+    <h2 class="section-title">Tell us about your project</h2>
+    <p class="section-lead">We’ll reply within 24 hours with options and timelines.</p>
 
-        <form class="contact-form" aria-label="Contact form" onsubmit="event.preventDefault(); alert(currentDict.form.sent);">
-          <label>
-            <span data-i18n="form.name">Your name</span>
-            <input required type="text" name="name" placeholder="John / Jana" />
-          </label>
-          <label>
-            <span data-i18n="form.email">Email</span>
-            <input required type="email" name="email" placeholder="you@example.com" />
-          </label>
-          <label>
-            <span data-i18n="form.budget">Budget (EUR)</span>
-            <input type="text" name="budget" placeholder="e.g. 1500" />
-          </label>
-          <label>
-            <span data-i18n="form.msg">Project details</span>
-            <textarea name="message" rows="4" placeholder="Scope, deadlines, languages…"></textarea>
-          </label>
-          <button class="btn btn-primary" type="submit" data-i18n="form.send">Send</button>
-        </form>
+    <div class="contact-grid">
+      <div>
+        <ul class="contact-list">
+          <li>✉️ <a href="mailto:hello@designtaverna.com">hello@designtaverna.com</a></li>
+          <li>🌍 Riga • Tallinn • London</li>
+        </ul>
       </div>
-    </section>
+
+      <form id="contactForm" class="contact-form" autocomplete="on">
+        <!-- Language -->
+        <label>
+          Language
+          <select name="lang" id="cfLang" required>
+            <option value="ENG">ENG</option>
+            <option value="RU">RU</option>
+            <option value="EE">EE</option>
+            <option value="LV">LV</option>
+          </select>
+        </label>
+
+        <!-- Your name -->
+        <label>
+          Your name
+          <input name="name" id="cfName" placeholder="John / Jana" required />
+        </label>
+
+        <!-- Email -->
+        <label>
+          Email
+          <input name="email" id="cfEmail" type="email" placeholder="you@example.com" required />
+        </label>
+
+        <!-- Budget -->
+        <label>
+          Budget (EUR)
+          <input name="budget" id="cfBudget" inputmode="numeric" placeholder="e.g. 1500" />
+        </label>
+
+        <!-- Subject / Title -->
+        <label>
+          Message title
+          <input name="title" id="cfTitle" placeholder="e.g. I want a website design" required />
+        </label>
+
+        <!-- Details -->
+        <label>
+          Project details
+          <textarea name="details" id="cfDetails" rows="6" placeholder="Tell us what you need, deadlines, references, links…" required></textarea>
+        </label>
+
+        <!-- honeypot (anti-spam) -->
+        <input type="text" name="company" id="cfCompany" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <button class="btn btn-primary" type="submit" id="cfBtn">Send</button>
+        <p class="lead" id="cfStatus" style="margin:8px 0 0"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
   </main>
 
   <footer class="site-footer">
@@ -536,7 +878,16 @@
           subtitle:"We create stunning, animated websites, build custom AI agents, and run performance marketing that actually converts.",
           cta_primary:"Get a quote", cta_secondary:"See work",
           point1:"Fast, optimized code", point2:"ROI-driven marketing", point3:"Production AI agents",
-          preview_desktop:"Desktop design", preview_phone:"Mobile with burger menu"
+          preview_desktop:"Desktop design", preview_phone:"Mobile with burger menu",
+          side:{
+            kicker:"Motion • UI • Dev",
+            brand:"designTaverna",
+            desc:"AI agents • Websites • Marketing",
+            p1:"4 languages",
+            p2:"Fast",
+            p3:"SEO",
+            p4:"Analytics"
+          }
         },
         services:{
           title:"What we can do for you",
@@ -554,33 +905,93 @@
           brand_title:"Designs • Sites turn-key",
           brand_text:"Identity, UI kits, motion, copy — and deployment on your domain."
         },
-        "packages": {
-  "title": "Packages",
-  "lead": "Choose a starting point — we customize each package to your goals. All include 1 language; extra languages can be added at a friendly cost.",
-  "starter": "Starter",
-  "pro": "Pro",
-  "elite": "Elite",
-  "popular": "Popular",
-  "cta": "Start",
-  "s1": "Landing 1–3 sections with animations",
-  "s2": "Basic SEO + analytics",
-  "s3": "1 language (extra languages optional)",
-  "s4": "One-time project, no ongoing support",
-  "p1": "Full site 6–10 sections + CMS",
-  "p2": "SEO optimization + performance audit",
-  "p3": "3 months support included",
-  "p4": "1 language (extra languages optional)",
-  "e1": "Custom design system + motion",
-  "e2": "Advanced AI automations",
-  "e3": "Growth marketing & SMM",
-  "e4": "3 months dedicated support",
-  "e5": "1 language (extra languages optional)"
+          packages:{
+            title:"Packages",
+            lead:"Choose a starting point — we customize each package to your goals. All include 1 language; extra languages are available at a friendly cost.",
+            badge1:"Starting points",
+            badge2:"Customizable",
+            badge3:"1 language included",
+            from:"from",
+
+            starter:"Starter",
+            pro:"Pro",
+            elite:"Elite",
+            popular:"Popular",
+            cta:"Start",
+
+            s_desc:"Best for quick launch & MVPs.",
+            s1:"Landing page (1–3 sections) with motion",
+            s2:"Responsive UI (desktop + mobile)",
+            s3:"Basic SEO + analytics setup",
+            s4:"One-time delivery (no subscription)",
+
+            p_desc:"Best for growing products & businesses.",
+            p1:"Full website (6–10 sections) + CMS",
+            p2:"Advanced animations & interactions",
+            p3:"SEO optimization + performance audit",
+            p4:"Up to 3 months support included",
+
+            e_desc:"Best for scale, automation & growth.",
+            e1:"Custom design system + motion language",
+            e2:"AI automations & integrations",
+            e3:"Growth marketing & SMM setup",
+            e4:"Dedicated support (3 months)",
+
+            langNote:"1 language included • extra languages optional",
+
+            task_title:"Need a specific task?",
+            task_text:"You can order single tasks: AI agents, landing pages, redesigns, integrations, audits, marketing setups.",
+            task_cta1:"Describe task",
+            task_cta2:"See examples",
+            chip1:"Starting points",
+chip2:"Customizable",
+chip3:"1 language included",
+from:"FROM",
+
+s_desc:"Best for quick launch & MVPs.",
+p_desc:"Best for growing products & businesses.",
+e_desc:"Best for scale, automation & growth.",
+
+lang_note:"1 language included • extra languages optional",
+
+task_title:"Need a specific task?",
+task_text:"You can order single tasks: AI agents, landing pages, redesigns, integrations, audits, marketing setups.",
+task_btn1:"Describe task",
+task_btn2:"See examples"
+          },
+        process:{
+  title:"How we build",
+  lead_v2:"Clear steps. Predictable delivery. Measurable results.",
+
+  d1:"Discover",
+  t1:"Goals, audience, languages, success metrics.",
+
+  d2:"Design",
+  t2:"Brand, UI, micro-interactions, copy, information architecture.",
+
+  d3:"Build",
+  t3:"Accessible, fast production code, CMS and integrations.",
+
+  d4:"Launch",
+  t4:"Domains, SEO, analytics, QA across all devices.",
+
+  d5:"Grow",
+  t5:"SMM, ads, A/B tests and continuous iteration with data.",
+  card:{
+  meta:"Deliverable",
+  step:"Step {n} / {total}",
+  buttons:{primary:"Start a project", secondary:"Pick a package"},
+  out:"Output", time:"Time", get:"You get",
+  k:{
+    s1:"Brief + scope",     s2:"1–2 days",  s3:"Plan + estimate",
+    d1:"UI kit + prototype",d2:"2–5 days",  d3:"Screens + motion",
+    b1:"Production build",  b2:"3–10 days", b3:"CMS + flows",
+    l1:"Live release",      l2:"1–2 days",  l3:"SEO + tracking",
+    g1:"Experiments",       g2:"Weekly",    g3:"Reports + wins"
+  }
+}
+
 },
-        process:{title:"How we build", d1:"Discover", d2:"Design", d3:"Build", d4:"Launch", d5:"Grow",
-          t1:"Goals, audience, languages, success metrics.", t2:"Brand, UI, micro-interactions, copy, IA.",
-          t3:"Accessible, fast code + CMS + integrations.", t4:"Domains, SEO, analytics, QA across devices.",
-          t5:"SMM, ads, A/B tests; iterate with data."
-        },
         portfolio:{title:"Selected work", lead:"A few recent builds. Motion-heavy, multi-language, SEO friendly."},
         testimonials:{title:"Loved by clients", q1:"“They shipped a beautiful site in two weeks and our conversion doubled.”", q2:"“AI agent answers 70% of chats. Support load went way down.”", q3:"“Multilingual content and SEO gave us traffic from 3 new markets.”"},
         contact:{title:"Tell us about your project", lead:"We’ll reply within 24 hours with options and timelines."},
@@ -616,7 +1027,16 @@ video:{title:"Video Editing", text:"Short edits, reels and promo clips."}
           subtitle:"Делаем красивые анимированные сайты, внедряем кастомных ИИ-агентов и запускаем маркетинг, который приносит прибыль.",
           cta_primary:"Получить смету", cta_secondary:"Смотреть работы",
           point1:"Быстрый оптимизированный код", point2:"Маркетинг под ROI", point3:"Боевые ИИ-агенты",
-          preview_desktop:"Десктоп-дизайн", preview_phone:"Мобильная версия с бургер-меню"
+          preview_desktop:"Десктоп-дизайн", preview_phone:"Мобильная версия с бургер-меню",
+          side:{
+            kicker:"Motion • UI • Dev",
+            brand:"designTaverna",
+            desc:"ИИ-агенты • Сайты • Маркетинг",
+            p1:"4 языка",
+            p2:"Скорость",
+            p3:"SEO",
+            p4:"Аналитика"
+          }
         },
         services:{
           title:"Что мы сделаем для вас",
@@ -634,33 +1054,92 @@ video:{title:"Video Editing", text:"Short edits, reels and promo clips."}
           brand_title:"Дизайн • Сайты под ключ",
           brand_text:"Айдентика, UI-киты, анимации, тексты — и выкладка на ваш домен."
         },
-        "packages": {
-  "title": "Пакеты",
-  "lead": "Выберите старт — мы адаптируем под ваши цели. Все включают 1 язык; дополнительные языки можно добавить за разумную цену.",
-  "starter": "Старт",
-  "pro": "Про",
-  "elite": "Элита",
-  "popular": "Хит",
-  "cta": "Начать",
-  "s1": "Лендинг 1–3 секции с анимацией",
-  "s2": "Базовые SEO + аналитика",
-  "s3": "1 язык (доп. языки опционально)",
-  "s4": "Разовый проект, без поддержки",
-  "p1": "Сайт 6–10 секций + CMS",
-  "p2": "SEO-оптимизация + аудит скорости",
-  "p3": "Поддержка 3 месяца",
-  "p4": "1 язык (доп. языки опционально)",
-  "e1": "Собственная дизайн-система + motion",
-  "e2": "Продвинутые автоматизации ИИ",
-  "e3": "Рост-маркетинг и SMM",
-  "e4": "3 месяца выделенной поддержки",
-  "e5": "1 язык (доп. языки опционально)"
+        packages: {
+    title: "Пакеты",
+    lead: "Выберите старт — мы адаптируем каждый пакет под ваши цели. Включён 1 язык; дополнительные языки можно добавить по дружелюбной цене.",
+    badge1: "Стартовые пакеты",
+    badge2: "Настраивается",
+    badge3: "1 язык включён",
+    from: "от",
+    starter: "Starter",
+    pro: "Pro",
+    elite: "Elite",
+    popular: "Популярный",
+    cta: "Начать",
+
+    s_desc: "Для быстрого старта и MVP.",
+    s1: "Лендинг (1–3 секции) с анимациями",
+    s2: "Адаптивный UI (desktop + mobile)",
+    s3: "Базовые SEO + аналитика",
+    s4: "Разовая сдача (без подписки)",
+
+    p_desc: "Для растущих продуктов и бизнеса.",
+    p1: "Полный сайт (6–10 секций) + CMS",
+    p2: "Продвинутые анимации и интерактив",
+    p3: "SEO-оптимизация + аудит скорости",
+    p4: "Поддержка до 3 месяцев включена",
+
+    e_desc: "Для масштабирования, автоматизаций и роста.",
+    e1: "Кастомная дизайн-система + motion",
+    e2: "AI-автоматизации и интеграции",
+    e3: "Growth-маркетинг и SMM",
+    e4: "Выделенная поддержка (3 месяца)",
+
+    langNote: "1 язык включён • доп. языки опционально",
+
+    task_title: "Нужна конкретная задача?",
+    task_text: "Можно заказать отдельные задачи: AI-агенты, лендинги, редизайн, интеграции, аудиты, настройка маркетинга.",
+    task_cta1: "Описать задачу",
+    task_cta2: "Смотреть примеры",
+    chip1:"Стартовые пакеты",
+chip2:"Настраиваем под вас",
+chip3:"1 язык включён",
+from:"ОТ",
+
+s_desc:"Для быстрого запуска и MVP.",
+p_desc:"Для роста продукта и бизнеса.",
+e_desc:"Для масштабирования, автоматизации и роста.",
+
+lang_note:"1 язык включён • доп. языки опционально",
+
+task_title:"Нужна конкретная задача?",
+task_text:"Можно заказать разовые задачи: ИИ-агенты, лендинги, редизайн, интеграции, аудиты, настройка маркетинга.",
+task_btn1:"Описать задачу",
+task_btn2:"Смотреть примеры"
+  },
+        process:{
+  title:"Как мы работаем",
+  lead_v2:"Понятные шаги. Предсказуемая доставка. Измеримые результаты.",
+
+  d1:"Исследуем",
+  t1:"Цели, аудитория, языки, метрики успеха.",
+
+  d2:"Проектируем",
+  t2:"Бренд, UI, микровзаимодействия, тексты, архитектура.",
+
+  d3:"Разрабатываем",
+  t3:"Быстрый доступный продакшн-код, CMS и интеграции.",
+
+  d4:"Запускаем",
+  t4:"Домены, SEO, аналитика, QA на всех устройствах.",
+
+  d5:"Растим",
+  t5:"SMM, реклама, A/B-тесты и постоянные итерации по данным.",
+  card:{
+  meta:"Результат",
+  step:"Шаг {n} / {total}",
+  buttons:{primary:"Начать проект", secondary:"Выбрать пакет"},
+  out:"Выход", time:"Срок", get:"Вы получите",
+  k:{
+    s1:"Бриф + объём",        s2:"1–2 дня",    s3:"План + смета",
+    d1:"UI-кит + прототип",   d2:"2–5 дней",   d3:"Экраны + motion",
+    b1:"Продакшн-сборка",     b2:"3–10 дней",  b3:"CMS + сценарии",
+    l1:"Публикация",          l2:"1–2 дня",    l3:"SEO + трекинг",
+    g1:"Эксперименты",        g2:"Еженедельно",g3:"Отчёты + рост"
+  }
+}
+
 },
-        process:{title:"Как мы работаем", d1:"Исследуем", d2:"Проектируем", d3:"Разрабатываем", d4:"Запускаем", d5:"Растим",
-          t1:"Цели, аудитория, языки, метрики успеха.", t2:"Бренд, UI, микровзаимодействия, контент, IA.",
-          t3:"Доступный быстрый код + CMS + интеграции.", t4:"Домены, SEO, аналитика, QA на устройствах.",
-          t5:"SMM, реклама, A/B-тесты. Дальше — итерации по данным."
-        },
         portfolio:{title:"Работы", lead:"Недавние проекты: много анимации, мультиязычность, дружественно к SEO."},
         testimonials:{title:"Нас любят клиенты", q1:"«За две недели выкатили красивый сайт — конверсия удвоилась.»", q2:"«ИИ-агент закрывает 70% чатов. Нагрузка на саппорт упала.»", q3:"«Мультиязычный контент дал трафик из 3 новых рынков.»"},
         contact:{title:"Расскажите о проекте", lead:"Ответим в течение 24 часов с вариантами и сроками."},
@@ -692,11 +1171,20 @@ video:{title:"Видеомонтаж", text:"Короткие ролики, Reel
       et: {
         nav:{home:"Avaleht",services:"Teenused",packages:"Paketid",process:"Protsess",portfolio:"Tööd",contact:"Kontakt"},
         hero:{
-          title:"Muudame sinu äri: AI + disain",
+          title:"Muudame sinu äri: AI +\ndisain",
           subtitle:"Loome animatsioonidega veebid, ehitame AI-agente ja teeme turundust, mis toob tulu.",
           cta_primary:"Küsi pakkumist", cta_secondary:"Vaata töid",
           point1:"Kiire optimeeritud kood", point2:"Tulemuspõhine turundus", point3:"Tootmiskõlblikud AI-agendid",
-          preview_desktop:"Töölaua disain", preview_phone:"Mobiil koos burger-menüüga"
+          preview_desktop:"Töölaua disain", preview_phone:"Mobiil koos burger-menüüga",
+          side:{
+            kicker:"Motion • UI • Dev",
+            brand:"designTaverna",
+            desc:"AI agendid • Veeb • Turundus",
+            p1:"4 keelt",
+            p2:"Kiirus",
+            p3:"SEO",
+            p4:"Analüütika"
+          }
         },
         services:{
           title:"Mida teeme",
@@ -714,33 +1202,92 @@ video:{title:"Видеомонтаж", text:"Короткие ролики, Reel
           brand_title:"Disain • Veeb võtmed-kätte",
           brand_text:"Identiteet, UI-komplektid, liikumine, copy – koos paigaldusega."
         },
-        "packages": {
-          "title": "Paketid",
-          "lead": "Vali alguspunkt — kohandame vastavalt sinu eesmärkidele. Kõik sisaldavad 1 keelt; lisakeeli saab soodsalt juurde lisada.",
-          "starter": "Starter",
-          "pro": "Pro",
-          "elite": "Eliit",
-          "popular": "Populaarne",
-          "cta": "Alusta",
-          "s1": "Landing 1–3 sektsiooni animatsioonidega",
-          "s2": "Põhiline SEO + analüütika",
-          "s3": "1 keel (lisakeeled valikuline)",
-          "s4": "Ühekordne projekt, ilma toeta",
-          "p1": "Täissait 6–10 sektsiooni + CMS",
-          "p2": "SEO optimeerimine + jõudluse audit",
-          "p3": "3 kuud tuge kaasas",
-          "p4": "1 keel (lisakeeled valikuline)",
-          "e1": "Kohandatud disainsüsteem + motion",
-          "e2": "Täiustatud AI automatiseerimised",
-          "e3": "Kasvuturundus & SMM",
-          "e4": "3 kuud pühendatud tuge",
-          "e5": "1 keel (lisakeeled valikuline)"
+        packages: {
+    title: "Paketid",
+    lead: "Vali alguspunkt — kohandame iga paketi sinu eesmärkidele. 1 keel on kaasas; lisakeeli saab soodsa hinnaga juurde.",
+    badge1: "Alguspunktid",
+    badge2: "Kohandatav",
+    badge3: "1 keel kaasas",
+    from: "alates",
+    starter: "Starter",
+    pro: "Pro",
+    elite: "Elite",
+    popular: "Populaarne",
+    cta: "Alusta",
+
+    s_desc: "Kiireks stardiks ja MVP-deks.",
+    s1: "Landing (1–3 sektsiooni) animatsioonidega",
+    s2: "Responsiivne UI (desktop + mobile)",
+    s3: "Põhiline SEO + analüütika",
+    s4: "Ühekordne valmimine (ilma kuutasuta)",
+
+    p_desc: "Kasvavatele toodetele ja ettevõtetele.",
+    p1: "Täisveeb (6–10 sektsiooni) + CMS",
+    p2: "Täpsemad animatsioonid ja interaktsioonid",
+    p3: "SEO optimeerimine + jõudlusaudit",
+    p4: "Kuni 3 kuud tuge kaasas",
+
+    e_desc: "Skaalaks, automatiseerimiseks ja kasvuks.",
+    e1: "Kohandatud disainsüsteem + motion",
+    e2: "AI automaatika ja integratsioonid",
+    e3: "Growth-turundus ja SMM",
+    e4: "Pühendatud tugi (3 kuud)",
+
+    langNote: "1 keel kaasas • lisakeeled valikulised",
+
+    task_title: "Vajad konkreetset ülesannet?",
+    task_text: "Võid tellida ka üksikuid töid: AI-agendid, landingud, ümberdisain, integratsioonid, auditid, turunduse seadistus.",
+    task_cta1: "Kirjelda ülesanne",
+    task_cta2: "Vaata näiteid",
+    chip1:"Alustamispunktid",
+chip2:"Kohandatav",
+chip3:"1 keel kaasas",
+from:"ALATES",
+
+s_desc:"Sobib kiireks stardiks ja MVP-deks.",
+p_desc:"Sobib kasvavatele toodetele ja ettevõtetele.",
+e_desc:"Sobib skaleerimiseks, automatiseerimiseks ja kasvuks.",
+
+lang_note:"1 keel kaasas • lisakeeled valikulised",
+
+task_title:"Vajad konkreetset ülesannet?",
+task_text:"Saad tellida üksiktöid: AI agendid, landing-lehed, redesign, integratsioonid, auditid, turunduse seadistus.",
+task_btn1:"Kirjelda ülesannet",
+task_btn2:"Vaata näiteid"
         },
-        process:{title:"Kuidas ehitame", d1:"Avastame", d2:"Disainime", d3:"Arendame", d4:"Käivitame", d5:"Kasvatame",
-          t1:"Eesmärgid, sihtgrupp, keeled, mõõdikud.", t2:"Bränd, UI, mikro-interaktsioonid, sisu.",
-          t3:"Kiire ja ligipääsetav kood + CMS + integratsioonid.", t4:"Domeenid, SEO, QA, analüütika.",
-          t5:"SMM, reklaamid, A/B testid ja iteratsioon."
-        },
+        process:{
+  title:"Kuidas me töötame",
+  lead_v2:"Selged sammud. Ennustatav teostus. Mõõdetavad tulemused.",
+
+  d1:"Analüüs",
+  t1:"Eesmärgid, sihtgrupp, keeled ja mõõdikud.",
+
+  d2:"Disain",
+  t2:"Bränd, UI, mikro-interaktsioonid, tekstid ja struktuur.",
+
+  d3:"Arendus",
+  t3:"Kiire ja ligipääsetav tootmiskood, CMS ja integratsioonid.",
+
+  d4:"Käivitamine",
+  t4:"Domeenid, SEO, analüütika ja kvaliteedikontroll.",
+
+  d5:"Kasv",
+  t5:"Sotsiaalmeedia, reklaamid, A/B testid ja andmepõhine iteratsioon.",
+  card:{
+  meta:"Tulemus",
+  step:"Samm {n} / {total}",
+  buttons:{primary:"Alusta projekti", secondary:"Vali pakett"},
+  out:"Väljund", time:"Aeg", get:"Sa saad",
+  k:{
+    s1:"Briif + ulatus",      s2:"1–2 päeva",  s3:"Plaan + hinnang",
+    d1:"UI kit + prototüüp",  d2:"2–5 päeva",  d3:"Ekraanid + motion",
+    b1:"Tootmisversioon",     b2:"3–10 päeva", b3:"CMS + vood",
+    l1:"Live lanss",          l2:"1–2 päeva",  l3:"SEO + mõõtmine",
+    g1:"Katsetused",          g2:"Iganädalaselt", g3:"Raportid + võidud"
+  }
+}
+
+},
         portfolio:{title:"Valik töid", lead:"Värsked projektid — palju liikumist, mitmekeelne, SEO-sõbralik."},
         testimonials:{title:"Kliendid kiidavad", q1:"“Kaunis sait kahe nädalaga; konversioon kahekordistus.”", q2:"“AI agent vastab 70% chatidest.”", q3:"“Mitmekeelsus tõi 3 uut turgu.”"},
         contact:{title:"Räägi oma projektist", lead:"Vastame 24 h jooksul."},
@@ -776,7 +1323,16 @@ video:{title:"Videomontaaž", text:"Lühiklipid, reelsid ja reklaamvideod."}
           subtitle:"Veidojam animētās mājaslapas, AI aģentus un veiktspējas mārketingu, kas konvertē.",
           cta_primary:"Saņemt piedāvājumu", cta_secondary:"Skatīt darbus",
           point1:"Ātrs, optimizēts kods", point2:"ROI mērķēts mārketings", point3:"Produkcijas AI aģenti",
-          preview_desktop:"Darbvirsmas dizains", preview_phone:"Mobilā versija ar burger-izvēlni"
+          preview_desktop:"Darbvirsmas dizains", preview_phone:"Mobilā versija ar burger-izvēlni",
+          side:{
+            kicker:"Motion • UI • Dev",
+            brand:"designTaverna",
+            desc:"AI aģenti • Mājaslapas • Mārketings",
+            p1:"4 valodas",
+            p2:"Ātrums",
+            p3:"SEO",
+            p4:"Analītika"
+          }
         },
         services:{
           title:"Ko mēs darām",
@@ -794,33 +1350,92 @@ video:{title:"Videomontaaž", text:"Lühiklipid, reelsid ja reklaamvideod."}
           brand_title:"Dizains • Lapas līdz atslēgai",
           brand_text:"Identitāte, UI komplekti, animācijas, copy – un izvietošana jūsu domēnā."
         },
-        "packages": {
-  "title": "Pakas",
-  "lead": "Izvēlies sākumpunktu — mēs pielāgosim taviem mērķiem. Visi ietver 1 valodu; papildu valodas var pievienot par pieņemamu cenu.",
-  "starter": "Start",
-  "pro": "Pro",
-  "elite": "Elites",
-  "popular": "Populāra",
-  "cta": "Sākt",
-  "s1": "Landing 1–3 sekcijas ar animāciju",
-  "s2": "Pamata SEO + analītika",
-  "s3": "1 valoda (papildu valodas iespējamas)",
-  "s4": "Vienreizējs projekts, bez atbalsta",
-  "p1": "Pilna lapa 6–10 sekcijas + CMS",
-  "p2": "SEO optimizācija + veiktspējas audits",
-  "p3": "Iekļauts 3 mēnešu atbalsts",
-  "p4": "1 valoda (papildu valodas iespējamas)",
-  "e1": "Pielāgota dizaina sistēma + motion",
-  "e2": "Uzlabotas AI automatizācijas",
-  "e3": "Growth mārketings & SMM",
-  "e4": "3 mēneši dedikēta atbalsta",
-  "e5": "1 valoda (papildu valodas iespējamas)"
+        packages: {
+    title: "Pakas",
+    lead: "Izvēlies sākumpunktu — katru paku pielāgojam taviem mērķiem. Iekļauta 1 valoda; papildu valodas pieejamas par draudzīgu cenu.",
+    badge1: "Sākuma pakas",
+    badge2: "Pielāgojams",
+    badge3: "1 valoda iekļauta",
+    from: "no",
+    starter: "Starter",
+    pro: "Pro",
+    elite: "Elite",
+    popular: "Populāra",
+    cta: "Sākt",
+
+    s_desc: "Ātram startam un MVP.",
+    s1: "Landing lapa (1–3 sadaļas) ar animācijām",
+    s2: "Responsīvs UI (desktop + mobile)",
+    s3: "Pamata SEO + analītika",
+    s4: "Vienreizēja piegāde (bez abonēšanas)",
+
+    p_desc: "Augošiem produktiem un biznesiem.",
+    p1: "Pilna mājaslapa (6–10 sadaļas) + CMS",
+    p2: "Paplašinātas animācijas un interakcijas",
+    p3: "SEO optimizācija + veiktspējas audits",
+    p4: "Iekļauts atbalsts līdz 3 mēnešiem",
+
+    e_desc: "Mērogošanai, automatizācijai un izaugsmei.",
+    e1: "Individuāla dizaina sistēma + motion",
+    e2: "AI automatizācijas un integrācijas",
+    e3: "Growth mārketings un SMM",
+    e4: "Dedikēts atbalsts (3 mēneši)",
+
+    langNote: "1 valoda iekļauta • papildu valodas pēc izvēles",
+
+    task_title: "Nepieciešams konkrēts uzdevums?",
+    task_text: "Var pasūtīt atsevišķus darbus: AI aģentus, landing lapas, pārdizainu, integrācijas, auditus, mārketinga uzstādīšanu.",
+    task_cta1: "Aprakstīt uzdevumu",
+    task_cta2: "Skatīt piemērus",
+    chip1:"Sākuma punkti",
+chip2:"Pielāgojams",
+chip3:"1 valoda iekļauta",
+from:"NO",
+
+s_desc:"Ātram startam un MVP.",
+p_desc:"Augošiem produktiem un biznesiem.",
+e_desc:"Mērogošanai, automatizācijai un izaugsmei.",
+
+lang_note:"1 valoda iekļauta • papildu valodas pēc izvēles",
+
+task_title:"Vajag konkrētu uzdevumu?",
+task_text:"Var pasūtīt atsevišķus darbus: AI aģenti, landing lapas, redizains, integrācijas, auditi, mārketinga uzstādīšana.",
+task_btn1:"Apraksti uzdevumu",
+task_btn2:"Skatīt piemērus"
 },
-        process:{title:"Kā veidojam", d1:"Izpēte", d2:"Dizains", d3:"Izstrāde", d4:"Palaišana", d5:"Izaugsme",
-          t1:"Mērķi, auditorija, valodas, KPI.", t2:"Zīmols, UI, mikro-mijiedarbības, saturs.",
-          t3:"Ātrs pieejams kods + CMS + integrācijas.", t4:"Domēni, SEO, analītika, QA.",
-          t5:"SMM, reklāmas, A/B testi, iterācijas."
-        },
+        process:{
+  title:"Kā mēs strādājam",
+  lead_v2:"Skaidri soļi. Prognozējama piegāde. Izmērāmi rezultāti.",
+
+  d1:"Izpēte",
+  t1:"Mērķi, auditorija, valodas un veiktspējas rādītāji.",
+
+  d2:"Dizains",
+  t2:"Zīmols, UI, mikro-interakcijas, teksti un struktūra.",
+
+  d3:"Izstrāde",
+  t3:"Ātrs, pieejams produkcijas kods, CMS un integrācijas.",
+
+  d4:"Palaišana",
+  t4:"Domēni, SEO, analītika un kvalitātes pārbaude.",
+
+  d5:"Izaugsme",
+  t5:"SMM, reklāmas, A/B testi un iterācijas, balstītas datos.",
+  card:{
+  meta:"Rezultāts",
+  step:"Solis {n} / {total}",
+  buttons:{primary:"Sākt projektu", secondary:"Izvēlēties paku"},
+  out:"Iznākums", time:"Laiks", get:"Jūs saņemsiet",
+  k:{
+    s1:"Brīfs + apjoms",        s2:"1–2 dienas",  s3:"Plāns + tāme",
+    d1:"UI komplekts + prototips", d2:"2–5 dienas", d3:"Ekrāni + motion",
+    b1:"Produkcijas būve",      b2:"3–10 dienas", b3:"CMS + plūsmas",
+    l1:"Publiska palaišana",    l2:"1–2 dienas",  l3:"SEO + mērījumi",
+    g1:"Eksperimenti",          g2:"Katru nedēļu", g3:"Atskaites + uzvaras"
+  }
+}
+
+},
         portfolio:{title:"Darbi", lead:"Pēdējie projekti — kustība, vairāk valodu, SEO-draudzīgi."},
         testimonials:{title:"Klienti mūs slavē", q1:"“Skaista lapa 2 nedēļās; konversija dubultojās.”", q2:"“AI aģents atbild 70% čatu.”", q3:"“Daudzvalodība atnesa 3 jaunus tirgus.”"},
         contact:{title:"Pastāsti par projektu", lead:"Atbildēsim 24 stundu laikā."},
@@ -868,6 +1483,7 @@ video:{title:"Video montāža", text:"Īsi klipi, reels un promo video."}
 
       document.querySelectorAll('.lang').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
       document.documentElement.lang = lang;
+      window.processSyncI18n && window.processSyncI18n();
     }
 
     // init lang
@@ -965,6 +1581,168 @@ video:{title:"Video montāža", text:"Īsi klipi, reels un promo video."}
     }
   })();
 
+// Extras script
+
+(() => {
+  const root = document.querySelector('[data-extras-stack]');
+  if (!root) return;
+
+  const sourceWrap = root.querySelector('[data-extras-source]');
+  const items = Array.from(sourceWrap.querySelectorAll('article.card'));
+  if (!items.length) return;
+
+  const active = root.querySelector('[data-active]');
+  const left = root.querySelector('[data-peek="left"]');
+  const right = root.querySelector('[data-peek="right"]');
+
+  const nowEl = root.querySelector('.extras-counter-now');
+  const totalEl = root.querySelector('.extras-counter-total');
+
+  const prevBtn = root.querySelector('[data-extras-prev]');
+  const nextBtn = root.querySelector('[data-extras-next]');
+
+  totalEl.textContent = String(items.length);
+
+  let idx = 0;
+  let timer = null;
+  const AUTOPLAY_MS = 4500;
+
+  function get(i) {
+    const n = items.length;
+    return items[(i % n + n) % n];
+  }
+
+  function renderCard(targetEl, itemEl) {
+    const icon = itemEl.getAttribute('data-icon') || '✨';
+    const h3 = itemEl.querySelector('h3');
+    const p = itemEl.querySelector('p');
+
+    targetEl.innerHTML = `
+      <div class="icon">${icon}</div>
+      ${h3 ? h3.outerHTML : ''}
+      ${p ? p.outerHTML : ''}
+    `;
+  }
+
+  function render() {
+    renderCard(active, get(idx));
+    renderCard(left, get(idx - 1));
+    renderCard(right, get(idx + 1));
+
+    // counter like "4/15"
+    nowEl.textContent = String(idx + 1);
+
+    // small blur pulse on center (CSS should animate .swap, but if not — still ok)
+    active.classList.remove('swap');
+    // force reflow to restart animation
+    void active.offsetWidth;
+    active.classList.add('swap');
+  }
+
+  function stop() {
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
+
+  function start() {
+    stop();
+    timer = setInterval(() => {
+      idx = (idx + 1) % items.length;
+      render();
+    }, AUTOPLAY_MS);
+  }
+
+  function next() {
+    idx = (idx + 1) % items.length;
+    render();
+    start();
+  }
+
+  function prev() {
+    idx = (idx - 1 + items.length) % items.length;
+    render();
+    start();
+  }
+
+  nextBtn?.addEventListener('click', next);
+  prevBtn?.addEventListener('click', prev);
+
+  // keyboard support on stage
+  root.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+  });
+
+  // pause on hover/focus
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  root.addEventListener('focusin', stop);
+  root.addEventListener('focusout', start);
+
+  render();
+  start();
+})();
+
+
+//Contact Us System
+
+ // 1) вставишь сюда URL твоего Apps Script Web App (см. шаги ниже)
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxvVZNOyJptsYOqfULghkJ6xS5kvf9xG7IaHeQ5yh1ooNhGC4CjMC_0tQDLuccm1ChOcg/exec";
+
+  const form = document.getElementById("contactForm");
+  const statusEl = document.getElementById("cfStatus");
+  const btn = document.getElementById("cfBtn");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    statusEl.textContent = "";
+    btn.disabled = true;
+    btn.style.opacity = "0.8";
+
+    // honeypot
+    if (document.getElementById("cfCompany").value.trim() !== "") {
+      btn.disabled = false;
+      btn.style.opacity = "1";
+      return;
+    }
+
+    const payload = {
+      lang: document.getElementById("cfLang").value,
+      name: document.getElementById("cfName").value.trim(),
+      email: document.getElementById("cfEmail").value.trim(),
+      budget: document.getElementById("cfBudget").value.trim(),
+      title: document.getElementById("cfTitle").value.trim(),
+      details: document.getElementById("cfDetails").value.trim(),
+      page: location.href,
+      ua: navigator.userAgent
+    };
+
+    try {
+      const res = await fetch(SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        mode: "cors"
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || "Failed to send.");
+      }
+
+      // data.subject пример: [EE] #106 — ...
+      statusEl.textContent = "✅ Sent! We’ll reply within 24 hours.";
+      form.reset();
+      document.getElementById("cfLang").value = payload.lang; // сохранить выбор языка
+    } catch (err) {
+      statusEl.textContent = "❌ Error. Please try again or email hello@designtaverna.com";
+    } finally {
+      btn.disabled = false;
+      btn.style.opacity = "1";
+    }
+  });
 
   </script>
 
