@@ -2362,3 +2362,101 @@ html[data-theme="light"] .extras-card.active{
   .extras-stack{ display:none; }
   /* your existing .extras-orbit list remains (you already have it) */
 }
+
+/* ====== Form field: label + select ====== */
+label {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.2;
+  color: rgba(255,255,255,.85);
+
+  /* если у тебя форма в сетке — удобно */
+  width: 100%;
+}
+
+label > span,
+label > b,
+label > strong {
+  font-weight: 600;
+}
+
+/* Текст "Language" (у тебя просто текст в label) */
+label {
+  font-weight: 600;
+}
+
+/* Сам select */
+select#cfLang {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 100%;
+  height: 44px;
+  padding: 10px 44px 10px 12px;
+
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+
+  color: rgba(255,255,255,.92);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .2px;
+
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .08s ease;
+  cursor: pointer;
+
+  /* кастомная стрелка */
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(255,255,255,.8) 50%),
+    linear-gradient(135deg, rgba(255,255,255,.8) 50%, transparent 50%),
+    linear-gradient(to right, rgba(255,255,255,.12), rgba(255,255,255,0));
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50%,
+    calc(100% - 42px) 50%;
+  background-size:
+    6px 6px,
+    6px 6px,
+    1px 22px;
+  background-repeat: no-repeat;
+}
+
+select#cfLang:hover {
+  border-color: rgba(0,179,255,.55);
+}
+
+select#cfLang:focus {
+  border-color: rgba(0,179,255,.9);
+  box-shadow: 0 0 0 4px rgba(0,179,255,.20);
+}
+
+select#cfLang:active {
+  transform: scale(.995);
+}
+
+/* Опции в выпадашке (частично зависит от браузера/ОС) */
+select#cfLang option {
+  background: #0b0f16;
+  color: rgba(255,255,255,.92);
+  font-weight: 600;
+}
+
+/* Визуал для required / invalid */
+select#cfLang:invalid {
+  border-color: rgba(255, 70, 70, .55);
+  box-shadow: none;
+}
+
+/* Если у тебя светлая тема — можно переключать классом */
+.light label { color: rgba(10,12,16,.85); }
+.light select#cfLang {
+  border: 1px solid rgba(10,12,16,.14);
+  background: rgba(10,12,16,.04);
+  color: rgba(10,12,16,.92);
+}
+.light select#cfLang option { background: #fff; color: #0a0c10; }
+
