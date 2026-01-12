@@ -1685,10 +1685,8 @@ video:{title:"Video montāža", text:"Īsi klipi, reels un promo video."}
 
   </script>
 
-      //Contact Us System
-
-      <script>
-  // Web App URL (ТВОЙ)
+<!-- Contact Us System (ОТДЕЛЬНЫЙ SCRIPT, НЕ ВНУТРИ ДРУГОГО) -->
+<script>
   const SCRIPT_URL =
     "https://script.google.com/macros/s/AKfycby8JXnwaFjXUoZa5C3WOcwzdajbKERUaWWY9311WaeA4rykYXjS3_E-KkY5mZQAmg_TeA/exec";
 
@@ -1696,55 +1694,52 @@ video:{title:"Video montāža", text:"Īsi klipi, reels un promo video."}
   const statusEl = document.getElementById("cfStatus");
   const btn = document.getElementById("cfBtn");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-    statusEl.textContent = "";
-    btn.disabled = true;
-    btn.style.opacity = "0.7";
+      statusEl.textContent = "";
+      btn.disabled = true;
+      btn.style.opacity = "0.7";
 
-    // honeypot (anti-spam)
-    if (document.getElementById("cfCompany").value.trim() !== "") {
-      btn.disabled = false;
-      btn.style.opacity = "1";
-      return;
-    }
+      // honeypot
+      if (document.getElementById("cfCompany").value.trim() !== "") {
+        btn.disabled = false;
+        btn.style.opacity = "1";
+        return;
+      }
 
-    const payload = {
-      lang: document.getElementById("cfLang").value,
-      name: document.getElementById("cfName").value.trim(),
-      email: document.getElementById("cfEmail").value.trim(),
-      budget: document.getElementById("cfBudget").value.trim(),
-      title: document.getElementById("cfTitle").value.trim(),
-      details: document.getElementById("cfDetails").value.trim(),
-      page: location.href,
-      ua: navigator.userAgent
-    };
+      const payload = {
+        lang: document.getElementById("cfLang").value,
+        name: document.getElementById("cfName").value.trim(),
+        email: document.getElementById("cfEmail").value.trim(),
+        budget: document.getElementById("cfBudget").value.trim(),
+        title: document.getElementById("cfTitle").value.trim(),
+        details: document.getElementById("cfDetails").value.trim(),
+        page: location.href,
+        ua: navigator.userAgent
+      };
 
-    try {
-      // 🔥 ВАЖНО: no-cors, НЕ читаем ответ
-      await fetch(SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-      });
+      try {
+        // Важно: Apps Script часто не дружит с CORS.
+        // Поэтому отправляем "простым" запросом без JSON header.
+        await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          body: JSON.stringify(payload)
+        });
 
-      // Если запрос ушёл — считаем успехом
-      statusEl.textContent = "✅ Sent! We’ll reply within 24 hours.";
-      form.reset();
-      document.getElementById("cfLang").value = payload.lang;
-
-    } catch (err) {
-      statusEl.textContent =
-        "❌ Error. Please try again or email info@designtaverna.com";
-    } finally {
-      btn.disabled = false;
-      btn.style.opacity = "1";
-    }
-  });
+        statusEl.textContent = "✅ Sent! We’ll reply within 24 hours.";
+        form.reset();
+        document.getElementById("cfLang").value = payload.lang;
+      } catch (err) {
+        statusEl.textContent = "❌ Error. Please try again or email info@designtaverna.com";
+      } finally {
+        btn.disabled = false;
+        btn.style.opacity = "1";
+      }
+    });
+  }
 </script>
 
   <!-- Back-to-top -->
