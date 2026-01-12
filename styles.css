@@ -132,12 +132,116 @@ body{ padding-top: var(--header-h); }
 }
 .theme:hover{ filter: brightness(1.06); }
 
-/* ========= Hero ========= */
-.hero{padding:96px 0 64px}
-.hero-inner{display:grid; grid-template-columns: 1.1fr .9fr; gap:42px; align-items:center}
-.hero h1{font-size: clamp(34px, 5.2vw, 64px); margin:.1em 0 .3em}
-.cta{display:flex; gap:14px; margin:18px 0 14px}
-.trust{list-style:none; display:flex; gap:14px; flex-wrap:wrap; padding:0; margin:10px 0 0; color:#cfe1ff}
+/* ========= Hero (VIDEO BACKGROUND) ========= */
+
+.hero h1 { white-space: pre-line; }
+
+.hero.hero-video{
+  position: relative;
+  padding: clamp(92px, 8vw, 130px) 0 clamp(60px, 6vw, 90px);
+  min-height: clamp(520px, 72vh, 760px);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+/* видео на фоне (контраст/читаемость) */
+.hero-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform: scale(1.03);
+  filter: saturate(1.05) contrast(1.10) brightness(.72);
+}
+
+/* затемнение для читаемости текста на любых кадрах */
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(900px 520px at 18% 30%, rgba(107,140,255,.16), transparent 62%),
+    radial-gradient(760px 520px at 85% 35%, rgba(0,209,255,.10), transparent 62%),
+    linear-gradient(180deg, rgba(6,8,14,.55), rgba(6,8,14,.80));
+}
+
+/* усиление читаемости текста */
+.hero.hero-video h1{
+  color:#fff;
+  text-shadow: 0 10px 28px rgba(0,0,0,.60), 0 2px 0 rgba(0,0,0,.28);
+}
+.hero.hero-video .lead{
+  color: rgba(255,255,255,.88);
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.973);
+}
+
+
+/* контент поверх видео */
+.hero-inner{
+  position: relative;
+  z-index: 2;
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 42px;
+  align-items:center;
+}
+
+.hero h1{font-size: clamp(36px, 5.2vw, 66px); margin:.1em 0 .3em}
+.hero .lead{max-width: 58ch}
+
+/* правая “стеклянная” карточка (опционально) */
+.hero-side{display:flex; justify-content:flex-end}
+.hero-side-card{
+  width: min(440px, 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 22px;
+  padding: 20px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.35);
+  backdrop-filter: blur(10px) saturate(140%);
+}
+/* HERO side card — текст всегда белый (обе темы) */
+.hero.hero-video .hero-side-card .big,
+.hero.hero-video .hero-side-card .mini{
+  color: #fff !important;
+}
+
+.hero-side-card .kicker{
+  color: rgba(255,255,255,.78);
+  font-size: 13px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.hero-side-card .big{
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+.hero-side-card .mini{color: var(--muted); margin-bottom: 14px}
+.hero-side-card .pills{
+  display:flex; flex-wrap:wrap; gap:10px;
+}
+.hero-side-card .pills span{
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.88);
+}
+
+/* адаптив */
+@media (max-width: 900px){
+  .hero-inner{grid-template-columns:1fr; gap: 22px}
+  .hero-side{justify-content:flex-start}
+}
+@media (max-width: 720px){
+  .hero.hero-video{min-height: 520px}
+  .hero-side-card{border-radius: 18px}
+}
+
 
 /* Buttons */
 .btn{--_bg:var(--panel-2); --_bd:rgba(255,255,255,.12); display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 18px; border-radius:14px; color:#fff; text-decoration:none; border:1px solid var(--_bd); background:var(--_bg); box-shadow:inset 0 -1px 0 rgba(255,255,255,.08)}
@@ -188,19 +292,38 @@ body{ padding-top: var(--header-h); }
 /* Pricing */
 .pricing{ grid-template-columns: repeat(3, 1fr); }
 .price-card{
-  background: var(--panel);
-  border: 1px solid rgba(255,255,255,.12);
-  padding: 24px; border-radius: 20px; position: relative;
-  display:flex; flex-direction:column; justify-content:flex-start;
+  position: relative;
+  padding-top: 36px;          /* место под бейдж */
+  overflow: hidden;
 }
 .price-card .price{ font-size:30px; font-weight:800; margin:8px 0 16px; }
 .price-card .features{ color:#cfe1ff; padding-left:18px; flex-grow:1; }
 .price-card .features li{ margin:6px 0; }
 .price-card .btn{ margin-top:auto; align-self:flex-start; }
+/* Popular — по центру сверху */
 .price-card .badge{
-  position:absolute; top:-12px; right:16px;
-  background:linear-gradient(135deg, var(--brand), var(--ok));
-  padding:6px 10px; border-radius:999px; font-size:12px;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+
+  padding: 6px 14px;
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  color: #fff;
+
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow:
+    0 12px 28px rgba(0,209,255,.22),
+    inset 0 1px 0 rgba(255,255,255,.35);
+
+  z-index: 3;
+  pointer-events: none;
 }
 .price-card.featured{ outline:2px solid #00d1ff55; box-shadow:0 30px 60px rgba(0, 209, 255, .2); }
 
@@ -1130,3 +1253,1112 @@ html[data-theme="light"] .extras-orbit .card{
 /* Глобально запрещаем горизонтальный скролл страницы,
    но НЕ трогаем вертикальный */
 html, body { min-height: 100%; }   /* даём расти по содержимому */
+
+/* =========================================================
+   HERO always dark (same look in light theme as in dark)
+   Put this block at the VERY END of styles.css
+   ========================================================= */
+html[data-theme="light"] .hero.hero-video{
+  color: #ecf3ff; /* как в тёмной теме */
+}
+
+/* Заголовки/текст внутри hero — всегда светлые */
+html[data-theme="light"] .hero.hero-video h1,
+html[data-theme="light"] .hero.hero-video .lead,
+html[data-theme="light"] .hero.hero-video .kicker,
+html[data-theme="light"] .hero.hero-video .big,
+html[data-theme="light"] .hero.hero-video .mini{
+  color: #ecf3ff !important;
+}
+
+/* Trust list — всегда светлая */
+html[data-theme="light"] .hero.hero-video .trust,
+html[data-theme="light"] .hero.hero-video .trust li,
+html[data-theme="light"] .hero.hero-video .trust span{
+  color: rgba(255,255,255,.92) !important;
+  text-shadow: 0 6px 18px rgba(0,0,0,.45);
+}
+
+/* Кнопки в hero — всегда как в тёмной теме */
+html[data-theme="light"] .hero.hero-video .btn{
+  color:#fff !important;
+}
+
+html[data-theme="light"] .hero.hero-video .btn-ghost{
+  background: transparent !important;
+  border-color: rgba(255,255,255,.22) !important;
+}
+
+html[data-theme="light"] .hero.hero-video .btn-outline{
+  background: transparent !important;
+  border-color: rgba(255,255,255,.35) !important;
+}
+
+/* Правая карточка — тоже “тёмная” */
+html[data-theme="light"] .hero.hero-video .hero-side-card{
+  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06)) !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  box-shadow: 0 30px 80px rgba(0,0,0,.35) !important;
+  backdrop-filter: blur(10px) saturate(140%);
+}
+
+html[data-theme="light"] .hero.hero-video .hero-side-card .pills span{
+  background: rgba(255,255,255,.08) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  color: rgba(255,255,255,.88) !important;
+}
+
+/* ================== PACKAGES (CLEAN ALIGN FIX) ================== */
+
+.packages-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:24px;
+  margin-bottom: 22px;
+}
+
+.packages-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:flex-end;
+  margin-top: 10px;
+}
+
+.chip{
+  font-size:13px;
+  color: rgba(255,255,255,.86);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 8px 12px;
+  border-radius: 999px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.chip-solid{
+  background: rgba(0,209,255,.12);
+  border-color: rgba(0,209,255,.22);
+}
+
+/* grid: одинаковые высоты */
+.pricing{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 22px;
+}
+
+/* card: одинаковая структура + футер вниз */
+.price-card{
+  position: relative;
+  display:flex;
+  flex-direction:column;
+  height: 100%;
+  padding: 22px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 20px 50px rgba(0,0,0,.28);
+  backdrop-filter: blur(10px) saturate(140%);
+}
+
+.price-card.featured{
+  border-color: rgba(0,209,255,.35);
+  box-shadow:
+    0 28px 70px rgba(0,209,255,.18),
+    0 18px 50px rgba(0,0,0,.28);
+}
+
+/* бейдж НЕ торчит и не съезжает */
+.price-card .badge{
+  position:absolute;
+  top: 14px;
+  right: 14px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  color:#fff;
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 10px 24px rgba(0,209,255,.18);
+}
+
+/* верх карточки: одинаковая сетка */
+.price-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap: 14px;
+  padding-top: 10px; /* чтобы badge сверху не давил */
+}
+
+.plan{
+  margin: 0 0 6px;
+  font-size: 20px;
+  letter-spacing: .2px;
+}
+
+.plan-desc{
+  margin: 0;
+  color: rgba(255,255,255,.72);
+  font-size: 14px;
+}
+
+.price-right{
+  text-align: right;
+  min-width: 140px;
+  z-index: 1;
+}
+
+.price-right .from{
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 6px;
+}
+
+.price-card .price{
+  font-size: 34px;
+  font-weight: 900;
+  margin: 0;
+}
+
+/* список: ровные маркеры */
+.price-card .features{
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+  flex: 1; /* тянем список, футер уходит вниз */
+}
+
+.price-card .features li{
+  display:flex;
+  gap: 10px;
+  color: rgba(255,255,255,.88);
+}
+
+.price-card .features li::before{
+  content:"•";
+  color: rgba(0,209,255,.9);
+  transform: translateY(-1px);
+}
+
+/* футер: плашка слева + кнопка справа всегда на одном уровне */
+.price-foot{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+
+.note-pill{
+  font-size: 12px;
+  color: rgba(255,255,255,.72);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  padding: 8px 10px;
+  border-radius: 999px;
+}
+
+.btn-fixed{
+  min-width: 110px;
+  justify-content:center;
+}
+
+/* нижняя “задача отдельно” — ровно и красиво */
+.task-card{
+  margin-top: 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 18px;
+  padding: 18px 18px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.task-title{ margin: 0 0 6px; font-size: 16px; }
+.task-text{ margin: 0; color: rgba(255,255,255,.75); }
+
+.task-actions{ display:flex; gap: 12px; flex-wrap:wrap; justify-content:flex-end; }
+
+/* адаптив */
+@media (max-width: 980px){
+  .packages-head{ flex-direction: column; }
+  .packages-chips{ justify-content:flex-start; }
+  .pricing{ grid-template-columns: 1fr; }
+  .price-right{ text-align:left; min-width: auto; }
+  .price-top{ flex-direction: column; align-items:flex-start; }
+  .price-card .badge{ right: 12px; top: 12px; }
+  .price-foot{ flex-direction: column; align-items: stretch; }
+  .btn-fixed{ width: 100%; }
+  .task-card{ flex-direction: column; align-items: stretch; }
+  .task-actions{ justify-content: stretch; }
+}
+
+/* ================== PACKAGES TOP (chips) ================== */
+.packages-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.packages-text{ max-width: 760px; }
+
+.packages-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:flex-end;
+  align-items:center;
+  margin-top: 8px;
+  max-width: 360px;          /* чтобы выглядело аккуратно как блок */
+}
+
+.chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  line-height: 1;
+  color: rgba(255,255,255,.88);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,.06);
+  backdrop-filter: blur(8px) saturate(140%);
+  white-space: nowrap;
+}
+
+.chip:hover{ filter: brightness(1.06); }
+
+.chip-accent{
+  color:#fff;
+  background: rgba(0,209,255,.14);
+  border-color: rgba(0,209,255,.35);
+  box-shadow:
+    0 12px 26px rgba(0,209,255,.12),
+    inset 0 -1px 0 rgba(255,255,255,.08);
+}
+
+/* mobile: chips under title, left aligned */
+@media (max-width: 900px){
+  .packages-head{ flex-direction: column; }
+  .packages-chips{
+    justify-content:flex-start;
+    max-width: none;
+    margin-top: 12px;
+  }
+}
+
+/* ================== PRICING CARD HEADER / BADGE FIX ================== */
+
+/* ================== PRICING: FIX POPULAR vs FROM ================== */
+
+/* даём месту сверху "дышать" */
+.price-card{
+  position: relative;
+  padding-top: 22px;      /* было 28px/и вообще несколько раз — сделаем аккуратно */
+  overflow: hidden;
+}
+
+/* Popular уводим ВЛЕВО, чтобы не конфликтовал с ценой */
+.price-card .badge{
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: auto;
+
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 1;
+
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 10px 24px rgba(0,209,255,.18);
+  z-index: 3;
+}
+
+/* сверху у price-top чуть больше воздуха, чтобы бейдж не давил */
+.price-top{
+  padding-top: 10px;
+}
+
+/* правый блок цены всегда чистый, без пересечений */
+.price-right{
+  text-align: right;
+  min-width: 140px;
+}
+
+/* FROM выглядит “дорого”, не кричит */
+.price-right .from{
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: rgba(255,255,255,.55);
+  margin: 0 0 6px;
+}
+
+.price-card .price{
+  font-size: 34px;
+  font-weight: 900;
+  margin: 0;
+}
+
+
+/* ================== PACKAGES HEADER: CLEAN + PREMIUM ================== */
+
+.packages-head{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: start;
+  margin-bottom: 22px;
+}
+
+.packages-text{ max-width: 760px; }
+
+/* chips выглядят как “метаданные”, а не как кнопки */
+.packages-chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 360px;
+
+  /* визуально отделяем от текста, но без лишней пестроты */
+  padding-top: 6px;
+}
+
+.chip{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  line-height: 1;
+
+  color: rgba(255,255,255,.78);
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,.06);
+
+  white-space: nowrap;
+  user-select: none;
+}
+
+.chip-accent{
+  color: rgba(255,255,255,.92);
+  background: rgba(0,209,255,.10);
+  border-color: rgba(0,209,255,.26);
+  box-shadow:
+    0 10px 22px rgba(0,209,255,.10),
+    inset 0 -1px 0 rgba(255,255,255,.08);
+}
+
+/* hover очень деликатный */
+.chip:hover{ filter: brightness(1.05); }
+
+/* адаптив: chips уходят вниз и влево — аккуратно */
+@media (max-width: 900px){
+  .packages-head{
+    grid-template-columns: 1fr;
+  }
+  .packages-chips{
+    justify-content: flex-start;
+    max-width: none;
+    padding-top: 0;
+    margin-top: 6px;
+  }
+}
+/* === PRICING: POPULAR centered + not clipped (FINAL OVERRIDE) === */
+.price-card{
+  padding-top: 54px;   /* больше места сверху, чтобы бейдж не лез на заголовок */
+  overflow: hidden;
+}
+
+/* бейдж строго по центру сверху */
+.price-card .badge{
+  top: 14px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%); /* и ТУТ это уже правильно */
+  z-index: 10;
+}
+
+/* заголовок/контент не под бейджем */
+.price-top{ padding-top: 0; }
+.plan{ margin-top: 0; }
+
+/* ================================
+   PRICING: LIGHT THEME FIX (FINAL)
+   Put at the VERY END
+   ================================ */
+
+html[data-theme="light"] .price-card{
+  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.82));
+  border: 1px solid rgba(13,25,54,.12);
+  box-shadow: 0 18px 50px rgba(13,25,54,.12);
+  color: #0a1020;
+}
+
+/* заголовки/описания/вся типографика */
+html[data-theme="light"] .price-card .plan{
+  color:#0a1020;
+}
+html[data-theme="light"] .price-card .plan-desc{
+  color:#455574; /* читаемый серо-синий */
+}
+html[data-theme="light"] .price-card .price{
+  color:#0a1020;
+}
+html[data-theme="light"] .price-right .from{
+  color: rgba(10,16,32,.55);
+}
+
+/* список фич */
+html[data-theme="light"] .price-card .features,
+html[data-theme="light"] .price-card .features li{
+  color:#2f3a52;
+}
+html[data-theme="light"] .price-card .features li::before{
+  color: rgba(0,182,255,.95);
+}
+
+/* нижняя плашка "1 language..." */
+html[data-theme="light"] .note-pill{
+  color:#455574;
+  background: rgba(13,25,54,.04);
+  border: 1px solid rgba(13,25,54,.12);
+}
+
+/* кнопки внутри карточек */
+html[data-theme="light"] .price-card .btn{
+  color:#0a1020;
+  border-color: rgba(13,25,54,.18);
+  background: rgba(255,255,255,.86);
+}
+html[data-theme="light"] .price-card .btn-primary{
+  color:#fff;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+}
+
+/* выделенная карточка (Pro) — аккуратный акцент */
+html[data-theme="light"] .price-card.featured{
+  border-color: rgba(0,182,255,.35);
+  box-shadow:
+    0 28px 70px rgba(0,182,255,.18),
+    0 18px 50px rgba(13,25,54,.14);
+}
+
+/* бейдж POPULARA читаемый всегда */
+html[data-theme="light"] .price-card .badge{
+  color:#fff;
+}
+/* ===== TASK CARD (single tasks) — LIGHT THEME FIX ===== */
+html[data-theme="light"] .task-card{
+  background: rgba(255,255,255,.86);
+  border: 1px solid rgba(13,25,54,.12);
+  box-shadow: 0 16px 40px rgba(13,25,54,.10);
+}
+
+html[data-theme="light"] .task-title{
+  color: #0a1020;
+}
+
+html[data-theme="light"] .task-text{
+  color: #455574; /* читаемый серо-синий */
+}
+
+/* кнопки в этом блоке */
+html[data-theme="light"] .task-card .btn{
+  color:#0a1020;
+  background: rgba(255,255,255,.90);
+  border-color: rgba(13,25,54,.18);
+}
+html[data-theme="light"] .task-card .btn-primary{
+  color:#fff;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+}
+/* =========================================================
+   PACKAGES / PRICING — LIGHT THEME FINAL FIX (PUT AT END)
+   ========================================================= */
+
+html[data-theme="light"] .packages-head .chip{
+  color: #2f3a52;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(13,25,54,.14);
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,.7);
+}
+html[data-theme="light"] .packages-head .chip-accent{
+  color: #0a1020;
+  background: rgba(0,182,255,.12);
+  border-color: rgba(0,182,255,.28);
+  box-shadow: 0 10px 22px rgba(0,182,255,.10), inset 0 -1px 0 rgba(255,255,255,.55);
+}
+
+/* cards */
+html[data-theme="light"] .price-card{
+  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.82));
+  border: 1px solid rgba(13,25,54,.12);
+  box-shadow: 0 18px 48px rgba(13,25,54,.10);
+  backdrop-filter: blur(10px) saturate(130%);
+}
+html[data-theme="light"] .price-card.featured{
+  border-color: rgba(0,182,255,.38);
+  box-shadow: 0 26px 70px rgba(0,182,255,.18), 0 18px 48px rgba(13,25,54,.10);
+}
+
+/* text inside pricing */
+html[data-theme="light"] .price-card .plan,
+html[data-theme="light"] .price-card .price{
+  color:#0a1020;
+}
+html[data-theme="light"] .price-card .plan-desc{
+  color:#455574;
+}
+html[data-theme="light"] .price-right .from{
+  color:#5a6a89;
+}
+html[data-theme="light"] .price-card .features li{
+  color:#2f3a52;
+}
+html[data-theme="light"] .price-card .features li::before{
+  color: var(--accent);
+}
+
+/* note pill: "1 language included" */
+html[data-theme="light"] .price-card .note-pill{
+  color:#455574;
+  background: rgba(255,255,255,.90);
+  border: 1px solid rgba(13,25,54,.14);
+}
+
+/* divider in footer */
+html[data-theme="light"] .price-foot{
+  border-top: 1px solid rgba(13,25,54,.10);
+}
+
+/* buttons in packages */
+html[data-theme="light"] .price-card .btn,
+html[data-theme="light"] .task-card .btn{
+  color:#0a1020 !important;
+  background: rgba(255,255,255,.92) !important;
+  border: 1px solid rgba(13,25,54,.18) !important;
+  box-shadow: 0 10px 24px rgba(13,25,54,.10);
+}
+html[data-theme="light"] .price-card .btn:hover,
+html[data-theme="light"] .task-card .btn:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+}
+
+/* primary button (blue gradient) stays premium */
+html[data-theme="light"] .price-card .btn-primary,
+html[data-theme="light"] .task-card .btn-primary{
+  color:#fff !important;
+  background: linear-gradient(135deg, var(--brand), var(--accent)) !important;
+  border-color: transparent !important;
+  box-shadow: 0 14px 34px rgba(0,182,255,.22);
+}
+
+/* badge centered stays fine */
+html[data-theme="light"] .price-card .badge{
+  color:#fff;
+}
+
+/* task card text (если снизу блок single tasks) */
+html[data-theme="light"] .task-title{ color:#0a1020; }
+html[data-theme="light"] .task-text{ color:#455574; }
+
+
+/* ===== NOTE PILL: PERFECT MULTILINE ALIGN ===== */
+.note-pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  line-height: 1.35;
+
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  white-space: normal;   /* разрешаем перенос */
+  max-width: 260px;      /* чтобы красиво ломалось */
+}
+
+/* =========================================================
+   PROCESS — “Canvas” (premium, filled, no confusing lines)
+   Put at VERY END
+   ========================================================= */
+
+.process-canvas .process-head{ margin-bottom: 18px; }
+
+.pc-wrap{
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* LEFT big stage */
+.pc-stage{
+  position: relative;
+  border-radius: 26px;
+  padding: 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 26px 90px rgba(0,0,0,.32);
+  overflow: hidden;
+  backdrop-filter: blur(10px) saturate(140%);
+  min-height: 260px;
+}
+
+.pc-glow{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background:
+    radial-gradient(380px 280px at 25% 30%, rgba(0,209,255,.22), transparent 65%),
+    radial-gradient(420px 320px at 75% 40%, rgba(107,140,255,.20), transparent 60%),
+    radial-gradient(420px 320px at 70% 110%, rgba(32,227,178,.14), transparent 60%);
+  filter: blur(10px);
+  opacity:.9;
+  pointer-events:none;
+}
+
+.pc-top{
+  position: relative;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 12px;
+  margin-bottom: 14px;
+  z-index: 2;
+}
+
+.pc-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+}
+.pc-dot{
+  width:10px; height:10px; border-radius:999px;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  box-shadow: 0 0 18px rgba(0,209,255,.35);
+}
+.pc-pill-text{
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.82);
+}
+.pc-meta{
+  font-size: 12px;
+  color: rgba(255,255,255,.62);
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.pc-title{
+  position: relative;
+  z-index: 2;
+  margin: 0 0 8px;
+  font-size: clamp(22px, 2.2vw, 30px);
+  letter-spacing: .2px;
+}
+
+.pc-text{
+  position: relative;
+  z-index: 2;
+  margin: 0 0 14px;
+  color: rgba(255,255,255,.84);
+  max-width: 70ch;
+}
+
+.pc-kpis{
+  position: relative;
+  z-index: 2;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.kpi{
+  border-radius: 16px;
+  padding: 12px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+}
+.kpi-k{
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.60);
+  margin-bottom: 6px;
+}
+.kpi-v{
+  font-weight: 800;
+  color: rgba(255,255,255,.92);
+  font-size: 14px;
+}
+
+.pc-cta{
+  position: relative;
+  z-index: 2;
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* RIGHT list */
+.pc-list{
+  border-radius: 26px;
+  padding: 10px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
+  overflow: hidden;
+}
+
+.pc-item{
+  width:100%;
+  text-align:left;
+  display:grid;
+  grid-template-columns: auto 1fr auto;
+  align-items:center;
+  gap: 12px;
+  padding: 14px 14px;
+  border-radius: 18px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text);
+  cursor:pointer;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.pc-item:hover{
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.10);
+}
+
+.pc-item.active{
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+  border-color: rgba(0,209,255,.22);
+  box-shadow: 0 18px 40px rgba(0,209,255,.10);
+  transform: translateY(-1px);
+}
+
+.pc-num{
+  width: 46px;
+  height: 34px;
+  display:grid;
+  place-items:center;
+  border-radius: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  font-size: 12px;
+  color: rgba(255,255,255,.92);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.pc-item.active .pc-num{
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  border-color: transparent;
+  box-shadow: 0 12px 26px rgba(0,209,255,.18);
+}
+
+.pc-item-body{ display:flex; flex-direction:column; gap: 4px; }
+
+.pc-item-title{
+  font-weight: 900;
+  letter-spacing: .2px;
+}
+.pc-item-sub{
+  font-size: 13px;
+  color: rgba(255,255,255,.70);
+  line-height: 1.35;
+}
+
+.pc-arrow{
+  opacity:.55;
+  font-weight: 900;
+  transform: translateX(0);
+  transition: transform .2s ease, opacity .2s ease;
+}
+.pc-item:hover .pc-arrow{ transform: translateX(2px); opacity:.85; }
+.pc-item.active .pc-arrow{ opacity:1; }
+
+/* Responsive */
+@media (max-width: 980px){
+  .pc-wrap{ grid-template-columns: 1fr; }
+  .pc-kpis{ grid-template-columns: 1fr; }
+}
+
+/* Light theme */
+html[data-theme="light"] .pc-stage{
+  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.82));
+  border: 1px solid rgba(13,25,54,.12);
+  box-shadow: 0 20px 60px rgba(13,25,54,.10);
+}
+html[data-theme="light"] .pc-pill-text{ color:#2f3a52; }
+html[data-theme="light"] .pc-meta{ color:#455574; background: rgba(13,25,54,.04); border-color: rgba(13,25,54,.10); }
+html[data-theme="light"] .pc-text{ color:#2f3a52; }
+html[data-theme="light"] .kpi-k{ color:#5a6a89; }
+html[data-theme="light"] .kpi-v{ color:#0a1020; }
+html[data-theme="light"] .pc-list{
+  background: rgba(13,25,54,.03);
+  border-color: rgba(13,25,54,.10);
+}
+html[data-theme="light"] .pc-item-sub{ color:#455574; }
+html[data-theme="light"] .pc-num{
+  color:#0a1020;
+  background: rgba(255,255,255,.90);
+  border-color: rgba(13,25,54,.12);
+}
+
+/*EXTRAS*/
+
+/* =========================================================
+   EXTRAS STACK (desktop) — 3 cards (left/center/right),
+   counter "4/15", arrows, auto-swap
+   ========================================================= */
+
+/* container block */
+.extras-stack{
+  position: relative;
+  margin-top: 22px;
+}
+
+/* top row: counter + arrows */
+.extras-stack-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+  margin: 10px 0 16px;
+}
+
+/* counter pill */
+.extras-counter{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
+  color: rgba(255,255,255,.86);
+  font-weight: 800;
+  letter-spacing: .02em;
+  backdrop-filter: blur(10px) saturate(140%);
+}
+.extras-counter-now{ font-size: 14px; }
+.extras-counter-sep{ opacity:.55; }
+.extras-counter-total{ opacity:.75; }
+
+/* arrows */
+.extras-arrows{
+  display:flex;
+  gap: 10px;
+}
+.extras-arrow{
+  width: 46px;
+  height: 42px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color:#fff;
+  font-size: 22px;
+  line-height: 1;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  box-shadow: 0 18px 40px rgba(0,0,0,.25);
+  transition: transform .18s ease, filter .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.extras-arrow:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  border-color: rgba(0,209,255,.28);
+  box-shadow: 0 24px 56px rgba(0,209,255,.16);
+}
+.extras-arrow:active{ transform: translateY(0); }
+.extras-arrow:focus-visible{ outline:none; box-shadow: var(--focus); }
+
+/* stage */
+.extras-stage{
+  position: relative;
+  height: clamp(340px, 34vw, 420px);
+  display:grid;
+  place-items:center;
+  overflow: visible;
+  isolation: isolate;
+}
+
+/* back stack cards (subtle under) */
+.extras-backstack{
+  position:absolute;
+  inset: 0;
+  display:grid;
+  place-items:center;
+  pointer-events:none;
+  z-index: 0;
+}
+.extras-backcard{
+  position:absolute;
+  width: min(760px, 92%);
+  height: min(280px, 80%);
+  border-radius: 26px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  box-shadow: 0 40px 120px rgba(0,0,0,.35);
+  filter: blur(.0px);
+  transform: translateY(28px) scale(.92);
+  opacity: .45;
+}
+.extras-backcard:nth-child(2){
+  transform: translateY(46px) scale(.86);
+  opacity: .28;
+}
+
+/* the 3 cards */
+.extras-card{
+  position: absolute;
+  width: min(640px, 86%);
+  height: auto;
+  min-height: 220px;
+
+  padding: 22px;
+  border-radius: 26px;
+
+  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 30px 90px rgba(0,0,0,.40);
+  backdrop-filter: blur(12px) saturate(140%);
+
+  transform-style: preserve-3d;
+  will-change: transform, filter, opacity;
+  transition: transform .28s ease, filter .28s ease, opacity .28s ease, box-shadow .28s ease, border-color .28s ease;
+  z-index: 2;
+}
+
+/* icon style inside stage cards (reuse your existing .card .icon look but tighter) */
+.extras-card .icon{
+  width:56px; height:56px; display:grid; place-items:center;
+  background:linear-gradient(135deg,var(--brand),var(--accent));
+  border-radius:14px;
+  font-weight:700;
+  font-size:24px;
+  margin-bottom:10px;
+  box-shadow:0 12px 28px rgba(0,0,0,.28);
+}
+.extras-card h3{ margin: 6px 0 8px; font-size: 18px; letter-spacing:.2px; }
+.extras-card p{ margin:0; color: rgba(255,255,255,.78); max-width: 62ch; }
+
+/* center active */
+.extras-card.active{
+  z-index: 3;
+  border-color: rgba(0,209,255,.22);
+  box-shadow: 0 36px 110px rgba(0,209,255,.16), 0 30px 90px rgba(0,0,0,.38);
+  transform: translateY(0) scale(1.0);
+}
+
+/* left/right peek */
+.extras-card.peek{
+  z-index: 2;
+  opacity: .70;
+  filter: blur(.6px) saturate(.92);
+  pointer-events:none;
+}
+.extras-card.peek.left{
+  transform: translateX(calc(-1 * clamp(160px, 18vw, 230px))) scale(.90);
+  opacity: .55;
+}
+.extras-card.peek.right{
+  transform: translateX(clamp(160px, 18vw, 230px)) scale(.90);
+  opacity: .55;
+}
+
+/* swap animation: quick blur->sharp */
+.extras-card.swap{
+  animation: extrasSwap .55s ease;
+}
+@keyframes extrasSwap{
+  0%   { filter: blur(3px) saturate(.9); opacity:.55; transform: translateY(6px) scale(.985); }
+  60%  { filter: blur(0px) saturate(1.02); opacity:1; }
+  100% { filter: none; opacity:1; transform: translateY(0) scale(1); }
+}
+
+/* Light theme version */
+html[data-theme="light"] .extras-counter{
+  background: rgba(255,255,255,.86);
+  border: 1px solid rgba(13,25,54,.12);
+  color: #0a1020;
+}
+html[data-theme="light"] .extras-arrow{
+  background: rgba(255,255,255,.86);
+  border: 1px solid rgba(13,25,54,.14);
+  color:#0a1020;
+  box-shadow: 0 18px 40px rgba(13,25,54,.12);
+}
+html[data-theme="light"] .extras-arrow:hover{
+  border-color: rgba(0,182,255,.28);
+  box-shadow: 0 24px 56px rgba(0,182,255,.16);
+}
+html[data-theme="light"] .extras-backcard{
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(13,25,54,.08);
+  box-shadow: 0 40px 120px rgba(13,25,54,.14);
+}
+html[data-theme="light"] .extras-card{
+  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.82));
+  border: 1px solid rgba(13,25,54,.12);
+  box-shadow: 0 28px 80px rgba(13,25,54,.14);
+}
+html[data-theme="light"] .extras-card p{
+  color:#455574;
+}
+html[data-theme="light"] .extras-card.active{
+  border-color: rgba(0,182,255,.28);
+  box-shadow: 0 36px 110px rgba(0,182,255,.14), 0 24px 70px rgba(13,25,54,.12);
+}
+
+/* MOBILE: keep your current “list” behavior, hide stack UI */
+@media (max-width: 720px){
+  .extras-stack{ display:none; }
+  /* your existing .extras-orbit list remains (you already have it) */
+}
