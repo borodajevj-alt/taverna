@@ -1686,8 +1686,10 @@ video:{title:"Video montāža", text:"Īsi klipi, reels un promo video."}
 
 //Contact Us System
 
- // 1) вставишь сюда URL твоего Apps Script Web App (см. шаги ниже)
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby8JXnwaFjXUoZa5C3WOcwzdajbKERUaWWY9311WaeA4rykYXjS3_E-KkY5mZQAmg_TeA/exec";
+<script>
+  // Web App URL (ТВОЙ)
+  const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycby8JXnwaFjXUoZa5C3WOcwzdajbKERUaWWY9311WaeA4rykYXjS3_E-KkY5mZQAmg_TeA/exec";
 
   const form = document.getElementById("contactForm");
   const statusEl = document.getElementById("cfStatus");
@@ -1698,9 +1700,9 @@ video:{title:"Video montāža", text:"Īsi klipi, reels un promo video."}
 
     statusEl.textContent = "";
     btn.disabled = true;
-    btn.style.opacity = "0.8";
+    btn.style.opacity = "0.7";
 
-    // honeypot
+    // honeypot (anti-spam)
     if (document.getElementById("cfCompany").value.trim() !== "") {
       btn.disabled = false;
       btn.style.opacity = "1";
@@ -1719,30 +1721,31 @@ video:{title:"Video montāža", text:"Īsi klipi, reels un promo video."}
     };
 
     try {
-      const res = await fetch(SCRIPT_URL, {
+      // 🔥 ВАЖНО: no-cors, НЕ читаем ответ
+      await fetch(SCRIPT_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-        mode: "cors"
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
       });
 
-      const data = await res.json().catch(() => ({}));
-
-      if (!res.ok || !data.ok) {
-        throw new Error(data.error || "Failed to send.");
-      }
-
-      // data.subject пример: [EE] #106 — ...
+      // Если запрос ушёл — считаем успехом
       statusEl.textContent = "✅ Sent! We’ll reply within 24 hours.";
       form.reset();
-      document.getElementById("cfLang").value = payload.lang; // сохранить выбор языка
+      document.getElementById("cfLang").value = payload.lang;
+
     } catch (err) {
-      statusEl.textContent = "❌ Error. Please try again or email info@designtaverna.com";
+      statusEl.textContent =
+        "❌ Error. Please try again or email info@designtaverna.com";
     } finally {
       btn.disabled = false;
       btn.style.opacity = "1";
     }
   });
+</script>
+
 
   </script>
 
