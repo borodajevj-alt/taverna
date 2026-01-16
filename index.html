@@ -907,6 +907,11 @@
 <button class="btn btn-primary" type="submit" id="cfBtn" data-i18n="ci.form.send">Send</button>
 <p class="lead" id="cfStatus" style="margin:8px 0 0" data-i18n="ci.form.status_idle"></p>
 
+<!-- honeypot (anti-spam) -->
+<input type="text" name="company" id="cfCompany" style="display:none" tabindex="-1" autocomplete="off" />
+
+</form>
+
 
 
     </div>
@@ -1914,7 +1919,9 @@ video:{title:"Video montāža", text:"Īsi klipi, reels un promo video."}
       btn.style.opacity = "0.7";
 
       // honeypot
-      if (document.getElementById("cfCompany").value.trim() !== "") {
+      const hp = document.getElementById("cfCompany");
+      if (hp && hp.value.trim() !== "") {
+
         btn.disabled = false;
         btn.style.opacity = "1";
         return;
