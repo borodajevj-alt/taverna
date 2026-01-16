@@ -1,11 +1,11 @@
 import nodemailer from "nodemailer";
 
-const SCRIPT_URL = process.env.SCRIPT_URL; // Apps Script /exec
-const TO_EMAIL   = process.env.TO_EMAIL;   // info@designtaverna.com
-const ZOHO_USER  = process.env.ZOHO_USER;  // info@designtaverna.com
-const ZOHO_PASS  = process.env.ZOHO_PASS;  // app password
-const ZOHO_HOST  = process.env.ZOHO_HOST || "smtp.zoho.eu";
-const ZOHO_PORT  = Number(process.env.ZOHO_PORT || "465");
+const SCRIPT_URL = process.env.SCRIPT_URL;          // Apps Script /exec
+const TO_EMAIL = process.env.TO_EMAIL || "info@designtaverna.com";
+const ZOHO_USER = process.env.ZOHO_USER || "info@designtaverna.com";
+const ZOHO_PASS = process.env.ZOHO_MAIL_PASS;       // <-- ВАЖНО: одно имя!
+const ZOHO_HOST = process.env.ZOHO_HOST || "smtp.zoho.eu";
+const ZOHO_PORT = Number(process.env.ZOHO_PORT || "465");
 
 function safeLang(lang) {
   const v = String(lang || "").toUpperCase();
@@ -24,9 +24,8 @@ function clientCopy(lang, name, idStr, title) {
 `Привет, ${name}!
 
 Спасибо за обращение в designTaverna 👋
-Мы получили ваше сообщение и уже взяли его в работу.
+Мы получили ваше сообщение и ответим в течение 24 часов.
 
-⏱ Ответим в течение 24 часов
 📌 Номер заявки: ${idStr}
 📝 Тема: ${title}
 
@@ -34,7 +33,6 @@ function clientCopy(lang, name, idStr, title) {
 Если вы всё же ответите, письмо придёт в нашу команду.
 
 — designTaverna
-Riga • Tallinn • London
 info@designtaverna.com`
   };
 
@@ -44,17 +42,14 @@ info@designtaverna.com`
 `Tere, ${name}!
 
 Aitäh, et kirjutasid designTaverna’le 👋
-Sinu sõnum on kätte saadud ja vaatame selle peagi üle.
+Vastame 24 tunni jooksul.
 
-⏱ Vastame 24 tunni jooksul
 📌 Päringu ID: ${idStr}
 📝 Teema: ${title}
 
-See on automaatne kinnitus — palun ära vasta sellele kirjale.
-Kui vastad, jõuab kiri meie tiimini.
+See on automaatne kiri — palun ära vasta.
 
 — designTaverna
-Riga • Tallinn • London
 info@designtaverna.com`
   };
 
@@ -63,18 +58,14 @@ info@designtaverna.com`
     body:
 `Sveiki, ${name}!
 
-Paldies, ka sazinājāties ar designTaverna 👋
-Mēs saņēmām jūsu ziņu un drīzumā to izskatīsim.
+Paldies! Atbildēsim 24 stundu laikā.
 
-⏱ Atbildēsim 24 stundu laikā
 📌 Pieteikuma ID: ${idStr}
 📝 Tēma: ${title}
 
-Šis ir automātisks apstiprinājums — lūdzu neatbildiet uz šo e-pastu.
-Ja atbildēsiet, ziņa nonāks mūsu komandai.
+Šis ir automātisks e-pasts — lūdzu neatbildiet.
 
 — designTaverna
-Riga • Tallinn • London
 info@designtaverna.com`
   };
 
@@ -83,18 +74,14 @@ info@designtaverna.com`
     body:
 `Hi ${name},
 
-Thank you for contacting designTaverna 👋
-We’ve received your message and will review it shortly.
+Thanks! We’ll reply within 24 hours.
 
-⏱ Expected response time: within 24 hours
 📌 Request ID: ${idStr}
 📝 Subject: ${title}
 
-This is an automated confirmation — please do not reply to this email.
-If you reply anyway, your message will reach our team.
+This is an automated email — please do not reply.
 
 — designTaverna
-Riga • Tallinn • London
 info@designtaverna.com`
   };
 }
@@ -104,9 +91,12 @@ export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   if (req.method === "OPTIONS") return res.status(200).end();
-  if (req.method !== "POST") return res.status(405).json({ ok:false, error:"Use POST" });
+  if (req.method !== "POST") return res.status(405).json({ ok: false, error: "Use POST" });
 
   try {
+    if (!SCRIPT_URL) throw new Error("Missing env: SCRIPT_URL");
+    if (!ZOHO_PASS) throw new Error("Missing env: ZOHO_MAIL_PASS");
+
     const body = req.body || {};
     const lang = safeLang(body.lang);
     const name = String(body.name || "").trim();
@@ -117,22 +107,29 @@ export default async function handler(req, res) {
     const page = String(body.page || "").trim();
     const ua = String(body.ua || "").trim();
 
-    if (!name || !email || !title || !details) return res.status(400).json({ ok:false, error:"Missing required fields" });
-    if (!isValidEmail(email)) return res.status(400).json({ ok:false, error:"Invalid email" });
+    if (!name || !email || !title || !details) {
+      return res.status(400).json({ ok: false, error: "Missing required fields" });
+    }
+    if (!isValidEmail(email)) {
+      return res.status(400).json({ ok: false, error: "Invalid email" });
+    }
 
-    // 1) получить ID + записать в Sheet
+    // 1) получить ID + записать в Sheet (Apps Script)
     const sheetResp = await fetch(SCRIPT_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ lang, name, email, budget, title, details, page, ua })
     });
+
     const sheetJson = await sheetResp.json();
-    if (!sheetJson?.ok) return res.status(500).json({ ok:false, error: sheetJson?.error || "Sheet error" });
+    if (!sheetJson?.ok) {
+      throw new Error("Sheet error: " + (sheetJson?.error || "unknown"));
+    }
 
     const id = sheetJson.id;
     const idStr = `#${id}`;
 
-    // 2) SMTP Zoho
+    // 2) Zoho SMTP
     const transporter = nodemailer.createTransport({
       host: ZOHO_HOST,
       port: ZOHO_PORT,
@@ -140,7 +137,7 @@ export default async function handler(req, res) {
       auth: { user: ZOHO_USER, pass: ZOHO_PASS }
     });
 
-    // 3) письмо ТЕБЕ (Reply-To = клиент)
+    // 3) письмо тебе
     await transporter.sendMail({
       from: `designTaverna <${ZOHO_USER}>`,
       to: TO_EMAIL,
@@ -164,7 +161,7 @@ UA: ${ua || "-"}`,
       replyTo: email
     });
 
-    // 4) автоответ клиенту (Reply-To = ты)
+    // 4) автоответ клиенту
     const cc = clientCopy(lang, name, idStr, title);
     await transporter.sendMail({
       from: `designTaverna <${ZOHO_USER}>`,
@@ -174,8 +171,9 @@ UA: ${ua || "-"}`,
       replyTo: TO_EMAIL
     });
 
-    return res.status(200).json({ ok:true, id });
+    return res.status(200).json({ ok: true, id });
   } catch (e) {
-    return res.status(500).json({ ok:false, error:String(e) });
+    console.error("CONTACT_API_ERROR:", e);
+    return res.status(500).json({ ok: false, error: String(e?.message || e) });
   }
 }
