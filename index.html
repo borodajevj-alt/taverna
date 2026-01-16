@@ -763,71 +763,156 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
+<!-- CONTACT -->
 <section id="contact" class="section contact">
   <div class="container">
-    <h2 class="section-title">Tell us about your project</h2>
-    <p class="section-lead">We’ll reply within 24 hours with options and timelines.</p>
+    <h2 class="section-title" data-i18n="contact.title">Tell us about your project</h2>
+    <p class="section-lead" data-i18n="contact.lead">We’ll reply within 24 hours with options and timelines.</p>
 
     <div class="contact-grid">
-      <div>
-        <ul class="contact-list">
-          <li>✉️ <a href="mailto:hello@designtaverna.com">info@designtaverna.com</a></li>
-          <li>🌍 Riga • Tallinn • London</li>
-        </ul>
-      </div>
 
-      <form id="contactForm" class="contact-form" autocomplete="on">
-        <!-- Language -->
-        <label>
-          Language
-          <select name="lang" id="cfLang" required>
-            <option value="ENG">ENG</option>
-            <option value="RU">RU</option>
-            <option value="EE">EE</option>
-            <option value="LV">LV</option>
-          </select>
-        </label>
+      <!-- LEFT: INFO -->
+      <aside class="contact-left">
+        <div class="contact-info ci-card">
 
-        <!-- Your name -->
-        <label>
-          Your name
-          <input name="name" id="cfName" placeholder="John / Jana" required />
-        </label>
+          <div class="ci-head">
+            <div class="ci-badge" data-i18n="ci.badge">Fast reply • 24h</div>
 
-        <!-- Email -->
-        <label>
-          Email
-          <input name="email" id="cfEmail" type="email" placeholder="you@example.com" required />
-        </label>
+            <div class="ci-head-right">
+              <div class="ci-h" data-i18n="ci.title">Contact information</div>
+              <div class="ci-sub" data-i18n="ci.sub">Choose any channel — we answer quickly.</div>
+            </div>
+          </div>
 
-        <!-- Budget -->
-        <label>
-          Budget (EUR)
-          <input name="budget" id="cfBudget" inputmode="numeric" placeholder="e.g. 1500" />
-        </label>
+          <div class="ci-grid ci-grid-list">
 
-        <!-- Subject / Title -->
-        <label>
-          Message title
-          <input name="title" id="cfTitle" placeholder="e.g. I want a website design" required />
-        </label>
+            <a class="ci-row" href="tel:+371XXXXXXXX" aria-label="Phone">
+              <span class="ci-ico">📞</span>
 
-        <!-- Details -->
-        <label>
-          Project details
-          <textarea name="details" id="cfDetails" rows="6" placeholder="Tell us what you need, deadlines, references, links…" required></textarea>
-        </label>
+              <span class="ci-col">
+                <span class="ci-label" data-i18n="ci.items.phone.label">Phone</span>
+                <span class="ci-value ci-mono">+371 XX XXX XXX</span>
+              </span>
 
-        <!-- honeypot (anti-spam) -->
-        <input type="text" name="company" id="cfCompany" style="display:none" tabindex="-1" autocomplete="off" />
+              <span class="ci-cta" data-i18n="ci.items.phone.cta">Call</span>
+            </a>
 
-        <button class="btn btn-primary" type="submit" id="cfBtn">Send</button>
-        <p class="lead" id="cfStatus" style="margin:8px 0 0"></p>
-      </form>
+            <a class="ci-row" href="https://wa.me/371XXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <span class="ci-ico">💬</span>
+
+              <span class="ci-col">
+                <span class="ci-label" data-i18n="ci.items.wa.label">WhatsApp</span>
+                <span class="ci-value" data-i18n="ci.items.wa.value">Chat anytime</span>
+              </span>
+
+              <span class="ci-cta" data-i18n="ci.items.wa.cta">Open</span>
+            </a>
+
+            <a class="ci-row" href="https://t.me/YOUR_TELEGRAM" target="_blank" rel="noopener" aria-label="Telegram">
+              <span class="ci-ico">✈️</span>
+
+              <span class="ci-col">
+                <span class="ci-label" data-i18n="ci.items.tg.label">Telegram</span>
+                <span class="ci-value ci-mono">@YOUR_TELEGRAM</span>
+              </span>
+
+              <span class="ci-cta" data-i18n="ci.items.tg.cta">Message</span>
+            </a>
+
+            <a class="ci-row" href="mailto:info@designtaverna.com" aria-label="Email">
+              <span class="ci-ico">✉️</span>
+
+              <span class="ci-col">
+                <span class="ci-label" data-i18n="ci.items.mail.label">Email</span>
+                <span class="ci-value ci-email ci-mono">info@designtaverna.com</span>
+              </span>
+
+              <span class="ci-cta" data-i18n="ci.items.mail.cta">Write</span>
+            </a>
+
+          </div>
+
+          <div class="ci-divider"></div>
+
+          <div class="ci-note">
+            <div class="ci-note-row">
+              <span class="ci-mini-ico">🗺️</span>
+              <span data-i18n="ci.note1">We work across <b>Estonia • Latvia • UK</b> (remote-friendly).</span>
+            </div>
+
+            <div class="ci-note-row">
+              <span class="ci-mini-ico">🧾</span>
+              <span data-i18n="ci.note2"><b>Fixed quote</b> after 3–5 clarifying questions.</span>
+            </div>
+
+            <div class="ci-note-row">
+              <span class="ci-mini-ico">🧩</span>
+              <span data-i18n="ci.note3">Web • AI agents • Marketing • SMM • Design systems.</span>
+            </div>
+          </div>
+
+          <div class="ci-tags" aria-label="Services tags">
+            <span class="ci-tag" data-i18n="ci.tags.web">Websites</span>
+            <span class="ci-tag" data-i18n="ci.tags.ai">AI Agents</span>
+            <span class="ci-tag" data-i18n="ci.tags.mkt">Marketing</span>
+            <span class="ci-tag" data-i18n="ci.tags.smm">SMM</span>
+            <span class="ci-tag" data-i18n="ci.tags.seo">SEO</span>
+            <span class="ci-tag" data-i18n="ci.tags.an">Analytics</span>
+          </div>
+
+        </div>
+      </aside>
+
+    <!-- RIGHT: FORM -->
+<form id="contactForm" class="contact-form" autocomplete="on">
+
+  <!-- Language -->
+  <!-- Language -->
+<label>
+  <span data-i18n="ci.form.lang">Language</span>
+  <select name="lang" id="cfLang" required>
+    <option value="ENG">ENG</option>
+    <option value="RU">RU</option>
+    <option value="EE">EE</option>
+    <option value="LV">LV</option>
+  </select>
+</label>
+
+<label>
+  <span data-i18n="ci.form.name_label">Your name</span>
+  <input name="name" id="cfName" data-i18n-ph="ci.form.name_ph" placeholder="John / Jana" required />
+</label>
+
+<label>
+  <span data-i18n="ci.form.email_label">Email</span>
+  <input name="email" id="cfEmail" type="email" data-i18n-ph="ci.form.email_ph" placeholder="you@example.com" required />
+</label>
+
+<label>
+  <span data-i18n="ci.form.budget_label">Budget (EUR)</span>
+  <input name="budget" id="cfBudget" inputmode="numeric" data-i18n-ph="ci.form.budget_ph" placeholder="e.g. 1500" />
+</label>
+
+<label>
+  <span data-i18n="ci.form.title_label">Message title</span>
+  <input name="title" id="cfTitle" data-i18n-ph="ci.form.title_ph" placeholder="e.g. I want a website design" required />
+</label>
+
+<label>
+  <span data-i18n="ci.form.details_label">Project details</span>
+  <textarea name="details" id="cfDetails" rows="6" data-i18n-ph="ci.form.details_ph"
+    placeholder="Tell us what you need, deadlines, references, links…" required></textarea>
+</label>
+
+<button class="btn btn-primary" type="submit" id="cfBtn" data-i18n="ci.form.send">Send</button>
+<p class="lead" id="cfStatus" style="margin:8px 0 0" data-i18n="ci.form.status_idle"></p>
+
+
+
     </div>
   </div>
 </section>
+
 
   </main>
 
@@ -995,8 +1080,41 @@ task_btn2:"See examples"
         portfolio:{title:"Selected work", lead:"A few recent builds. Motion-heavy, multi-language, SEO friendly."},
         testimonials:{title:"Loved by clients", q1:"“They shipped a beautiful site in two weeks and our conversion doubled.”", q2:"“AI agent answers 70% of chats. Support load went way down.”", q3:"“Multilingual content and SEO gave us traffic from 3 new markets.”"},
         contact:{title:"Tell us about your project", lead:"We’ll reply within 24 hours with options and timelines."},
-        form:{name:"Your name", email:"Email", budget:"Budget (EUR)", msg:"Project details", send:"Send", sent:"Thanks! We’ll get back to you shortly."},
-              // en
+        ci:{
+  badge:"Fast reply • 24h",
+  title:"Contact information",
+  sub:"Choose any channel — we answer quickly.",
+  items:{
+    phone:{label:"Phone", cta:"Call"},
+    wa:{label:"WhatsApp", value:"Chat anytime", cta:"Open"},
+    tg:{label:"Telegram", cta:"Message"},
+    mail:{label:"Email", cta:"Write"}
+  },
+  form:{
+  lang:"Language",
+  name_label:"Your name",     name_ph:"John / Jana",
+  email_label:"Email",        email_ph:"you@example.com",
+  budget_label:"Budget (EUR)",budget_ph:"e.g. 1500",
+  title_label:"Message title",title_ph:"e.g. I want a website design",
+  details_label:"Project details",
+  details_ph:"Tell us what you need, deadlines, references, links…",
+  send:"Send",
+  status_idle:"",
+  status_sent:"✅ Sent! We’ll reply within 24 hours.",
+  status_error:"❌ Error. Please try again or email info@designtaverna.com"
+},
+  note1:"We work across <b>Estonia • Latvia • UK</b> (remote-friendly).",
+  note2:"<b>Fixed quote</b> after 3–5 clarifying questions.",
+  note3:"Web • AI agents • Marketing • SMM • Design systems.",
+  tags:{
+    web:"Websites",
+    ai:"AI Agents",
+    mkt:"Marketing",
+    smm:"SMM",
+    seo:"SEO",
+    an:"Analytics"
+  }
+},
         team:{ title:"Our team", lead:"Senior designers, engineers and marketers working as one product crew." },
         extras:{
   title:"We also do",
@@ -1143,6 +1261,35 @@ task_btn2:"Смотреть примеры"
         portfolio:{title:"Работы", lead:"Недавние проекты: много анимации, мультиязычность, дружественно к SEO."},
         testimonials:{title:"Нас любят клиенты", q1:"«За две недели выкатили красивый сайт — конверсия удвоилась.»", q2:"«ИИ-агент закрывает 70% чатов. Нагрузка на саппорт упала.»", q3:"«Мультиязычный контент дал трафик из 3 новых рынков.»"},
         contact:{title:"Расскажите о проекте", lead:"Ответим в течение 24 часов с вариантами и сроками."},
+        ci:{
+  badge:"Ответ • до 24ч",
+  title:"Контактная информация",
+  sub:"Выберите любой канал — отвечаем быстро.",
+  items:{
+    phone:{label:"Телефон", cta:"Позвонить"},
+    wa:{label:"WhatsApp", value:"Пишите в любое время", cta:"Открыть"},
+    tg:{label:"Telegram", cta:"Написать"},
+    mail:{label:"Email", cta:"Письмо"}
+  },
+  form:{
+  lang:"Язык",
+  name_label:"Ваше имя",        name_ph:"Иван / Анна",
+  email_label:"Email",          email_ph:"you@example.com",
+  budget_label:"Бюджет (EUR)",  budget_ph:"например 1500",
+  title_label:"Тема сообщения", title_ph:"например: нужен сайт",
+  details_label:"Детали проекта",
+  details_ph:"Опишите задачу, сроки, референсы, ссылки…",
+  send:"Отправить",
+  status_idle:"",
+  status_sent:"✅ Отправлено! Ответим в течение 24 часов.",
+  status_error:"❌ Ошибка. Повторите или напишите на info@designtaverna.com"
+},
+  note1:"Работаем по <b>Эстонии • Латвии • UK</b> (удалённо тоже).",
+  note2:"<b>Фиксированная смета</b> после 3–5 уточняющих вопросов.",
+  note3:"Сайты • AI агенты • Маркетинг • SMM • Дизайн-системы.",
+  tags:{ web:"Сайты", ai:"AI агенты", mkt:"Маркетинг", smm:"SMM", seo:"SEO", an:"Аналитика" }
+},
+        
         form:{name:"Ваше имя", email:"Email", budget:"Бюджет (EUR)", msg:"О проекте", send:"Отправить", sent:"Спасибо! Скоро свяжемся."},
               // ru
         team:{ title:"Наша команда", lead:"Синьоры дизайнеры, инженеры и маркетологи — одна продуктовая команда." },
@@ -1291,6 +1438,34 @@ task_btn2:"Vaata näiteid"
         portfolio:{title:"Valik töid", lead:"Värsked projektid — palju liikumist, mitmekeelne, SEO-sõbralik."},
         testimonials:{title:"Kliendid kiidavad", q1:"“Kaunis sait kahe nädalaga; konversioon kahekordistus.”", q2:"“AI agent vastab 70% chatidest.”", q3:"“Mitmekeelsus tõi 3 uut turgu.”"},
         contact:{title:"Räägi oma projektist", lead:"Vastame 24 h jooksul."},
+        ci:{
+  badge:"Vastus • 24h",
+  title:"Kontaktinfo",
+  sub:"Vali sobiv kanal — vastame kiiresti.",
+  items:{
+    phone:{label:"Telefon", cta:"Helista"},
+    wa:{label:"WhatsApp", value:"Kirjuta igal ajal", cta:"Ava"},
+    tg:{label:"Telegram", cta:"Sõnum"},
+    mail:{label:"E-post", cta:"Kirjuta"}
+  },
+  form:{
+  lang:"Keel",
+  name_label:"Sinu nimi",        name_ph:"Juhan / Jana",
+  email_label:"E-post",          email_ph:"you@example.com",
+  budget_label:"Eelarve (EUR)",  budget_ph:"nt 1500",
+  title_label:"Sõnumi teema",    title_ph:"nt: vajan kodulehte",
+  details_label:"Projekti detailid",
+  details_ph:"Kirjelda vajadust, tähtaegu, viiteid, linke…",
+  send:"Saada",
+  status_idle:"",
+  status_sent:"✅ Saadetud! Vastame 24 tunni jooksul.",
+  status_error:"❌ Viga. Proovi uuesti või kirjuta info@designtaverna.com"
+},
+  note1:"Töötame üle <b>Eesti • Läti • UK</b> (ka kaugelt).",
+  note2:"<b>Fikshind</b> pärast 3–5 täpsustavat küsimust.",
+  note3:"Veeb • AI-agendid • Turundus • SMM • Disainsüsteemid.",
+  tags:{ web:"Veebilehed", ai:"AI agendid", mkt:"Turundus", smm:"SMM", seo:"SEO", an:"Analüütika" }
+},
         form:{name:"Nimi", email:"E-post", budget:"Eelarve (EUR)", msg:"Kirjeldus", send:"Saada", sent:"Aitäh! Võtame peagi ühendust."},
               // et
         team:{ title:"Meie tiim", lead:"Kogenud disainerid, arendajad ja turundajad ühes rütmis." },
@@ -1439,6 +1614,34 @@ task_btn2:"Skatīt piemērus"
         portfolio:{title:"Darbi", lead:"Pēdējie projekti — kustība, vairāk valodu, SEO-draudzīgi."},
         testimonials:{title:"Klienti mūs slavē", q1:"“Skaista lapa 2 nedēļās; konversija dubultojās.”", q2:"“AI aģents atbild 70% čatu.”", q3:"“Daudzvalodība atnesa 3 jaunus tirgus.”"},
         contact:{title:"Pastāsti par projektu", lead:"Atbildēsim 24 stundu laikā."},
+        ci:{
+  badge:"Atbilde • 24h",
+  title:"Kontaktinformācija",
+  sub:"Izvēlies jebkuru kanālu — atbildam ātri.",
+  items:{
+    phone:{label:"Tālrunis", cta:"Zvanīt"},
+    wa:{label:"WhatsApp", value:"Raksti jebkurā laikā", cta:"Atvērt"},
+    tg:{label:"Telegram", cta:"Ziņa"},
+    mail:{label:"E-pasts", cta:"Rakstīt"}
+  },
+  form:{
+  lang:"Valoda",
+  name_label:"Jūsu vārds",        name_ph:"Jānis / Jana",
+  email_label:"E-pasts",          email_ph:"you@example.com",
+  budget_label:"Budžets (EUR)",   budget_ph:"piem., 1500",
+  title_label:"Ziņojuma tēma",    title_ph:"piem.: vajag mājaslapu",
+  details_label:"Projekta detaļas",
+  details_ph:"Apraksti vajadzības, termiņus, piemērus, saites…",
+  send:"Sūtīt",
+  status_idle:"",
+  status_sent:"✅ Nosūtīts! Atbildēsim 24 stundu laikā.",
+  status_error:"❌ Kļūda. Mēģini vēlreiz vai raksti info@designtaverna.com"
+},
+  note1:"Strādājam <b>Igaunijā • Latvijā • UK</b> (arī attālināti).",
+  note2:"<b>Fiksēts piedāvājums</b> pēc 3–5 precizējošiem jautājumiem.",
+  note3:"Web • AI aģenti • Mārketings • SMM • Dizaina sistēmas.",
+  tags:{ web:"Mājaslapas", ai:"AI aģenti", mkt:"Mārketings", smm:"SMM", seo:"SEO", an:"Analītika" }
+},
         form:{name:"Vārds", email:"E-pasts", budget:"Budžets (EUR)", msg:"Apraksts", send:"Sūtīt", sent:"Paldies! Drīz sazināsimies."},
               // lv
         team:{ title:"Mūsu komanda", lead:"Senioru dizaineri, inženieri un mārketeri — viena komanda." },
@@ -1478,8 +1681,17 @@ video:{title:"Video montāža", text:"Īsi klipi, reels un promo video."}
         const path = node.getAttribute('data-i18n').split('.');
         let val = dict[lang];
         for (const k of path) val = val?.[k];
-        if (typeof val === 'string') node.textContent = val;
+        if (typeof val === 'string') node.innerHTML = val;
       });
+
+            // placeholders (inputs/textarea)
+      document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const path = el.getAttribute('data-i18n-ph').split('.');
+        let val = dict[lang];
+        for (const k of path) val = val?.[k];
+        if (typeof val === 'string') el.setAttribute('placeholder', val);
+      });
+
 
       document.querySelectorAll('.lang').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
       document.documentElement.lang = lang;
@@ -1729,11 +1941,14 @@ video:{title:"Video montāža", text:"Īsi klipi, reels un promo video."}
           body: JSON.stringify(payload)
         });
 
-        statusEl.textContent = "✅ Sent! We’ll reply within 24 hours.";
+        const uiLang = document.documentElement.lang || 'en';
+statusEl.textContent = dict?.[uiLang]?.ci?.form?.status_sent || "✅ Sent! We’ll reply within 24 hours.";
         form.reset();
         document.getElementById("cfLang").value = payload.lang;
       } catch (err) {
-        statusEl.textContent = "❌ Error. Please try again or email info@designtaverna.com";
+        const uiLang = document.documentElement.lang || 'en';
+statusEl.textContent = dict?.[uiLang]?.ci?.form?.status_error || "❌ Error. Please try again or email info@designtaverna.com";
+
       } finally {
         btn.disabled = false;
         btn.style.opacity = "1";
