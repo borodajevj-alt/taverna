@@ -2363,3 +2363,1055 @@ html[data-theme="light"] .extras-card.active{
   /* your existing .extras-orbit list remains (you already have it) */
 }
 
+/* =========================
+   CONTACT: Layout upgrade
+========================= */
+.contact-grid{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:24px;
+  align-items:start;
+}
+
+@media (max-width: 980px){
+  .contact-grid{ grid-template-columns: 1fr; }
+}
+
+/* LEFT block */
+.contact-left{
+  position:relative;
+  padding:18px;
+  border-radius:18px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(10px);
+  overflow:hidden;
+}
+
+.contact-left::before{
+  content:"";
+  position:absolute;
+  inset:-40% -20% auto -20%;
+  height:220px;
+  background: radial-gradient(circle at 30% 40%, rgba(0,179,255,.35), transparent 60%);
+  filter: blur(10px);
+  pointer-events:none;
+}
+
+.contact-intro{ position:relative; margin-bottom:14px; }
+.contact-kicker{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  opacity:.85;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+}
+.contact-head{
+  margin:12px 0 6px;
+  font-size:22px;
+  line-height:1.15;
+}
+.contact-sub{
+  margin:0;
+  opacity:.82;
+  max-width:52ch;
+}
+
+/* Cards */
+.contact-cards{
+  display:grid;
+  gap:14px;
+  margin-top:14px;
+}
+
+.contact-card{
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.20);
+  padding:14px;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.contact-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(0,179,255,.35);
+  background: rgba(0,0,0,.28);
+}
+
+.contact-card.featured{
+  border-color: rgba(0,179,255,.35);
+  box-shadow: 0 0 0 1px rgba(0,179,255,.10) inset;
+}
+
+/* Card header */
+.cc-top{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.cc-flag{
+  width:36px;
+  height:36px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  font-size:18px;
+}
+
+.cc-title{ flex:1; }
+.cc-country{ font-weight:700; line-height:1.1; }
+.cc-city{ font-size:12px; opacity:.75; margin-top:2px; }
+
+.cc-badge{
+  font-size:11px;
+  opacity:.85;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  white-space:nowrap;
+}
+
+/* list */
+.cc-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:8px;
+}
+
+.cc-list li{
+  display:grid;
+  grid-template-columns: 22px 92px 1fr;
+  gap:10px;
+  align-items:center;
+  padding:8px 10px;
+  border-radius:12px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+}
+
+.cc-ico{ opacity:.95; }
+.cc-label{ font-size:12px; opacity:.78; }
+.cc-link{
+  color: inherit;
+  text-decoration:none;
+  font-weight:600;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.cc-link:hover{ text-decoration:underline; }
+
+/* actions */
+.cc-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+/* mini info */
+.contact-mini{
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px solid rgba(255,255,255,.10);
+  display:grid;
+  gap:10px;
+}
+.mini-row{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  opacity:.9;
+}
+.mini-ico{
+  width:22px;
+  height:22px;
+  display:grid;
+  place-items:center;
+  border-radius:8px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+}
+
+/* =========================
+   FORM: nicer labels & fields
+========================= */
+.contact-form label{
+  display:grid;
+  gap:8px;
+  font-size:12px;
+  letter-spacing:.02em;
+  opacity:.92;
+  margin-bottom:12px;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select{
+  width:100%;
+  border-radius:14px;
+  padding:12px 12px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.25);
+  color: inherit;
+  outline:none;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.contact-form textarea{ resize: vertical; min-height: 140px; }
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus{
+  border-color: rgba(0,179,255,.55);
+  box-shadow: 0 0 0 4px rgba(0,179,255,.12);
+  background: rgba(0,0,0,.32);
+}
+
+/* =========================
+   SELECT: Beautiful Language
+========================= */
+.contact-form select{
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  padding-right:44px; /* место под стрелку */
+  cursor:pointer;
+}
+
+/* custom arrow */
+.contact-form label:has(select){
+  position:relative;
+}
+
+.contact-form label:has(select)::after{
+  content:"";
+  position:absolute;
+  right:14px;
+  top: 36px;             /* подстроено под лейбл + поле */
+  width:10px;
+  height:10px;
+  border-right:2px solid rgba(255,255,255,.70);
+  border-bottom:2px solid rgba(255,255,255,.70);
+  transform: rotate(45deg);
+  pointer-events:none;
+  opacity:.9;
+}
+
+.contact-form label:has(select)::before{
+  content:"";
+  position:absolute;
+  right:10px;
+  top: 28px;
+  width:32px;
+  height:32px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+  pointer-events:none;
+}
+
+/* option colors (some browsers limit styling) */
+.contact-form option{
+  background: #0b0f14;
+  color: #fff;
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px){
+  .cc-list li{ grid-template-columns: 22px 84px 1fr; }
+  .contact-head{ font-size:20px; }
+}
+
+/* =========================
+   CONTACT: EE/LV combined card
+========================= */
+.contact-card.combo{ padding:14px; }
+
+.combo-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:14px;
+  margin-top:12px;
+}
+
+.combo-col{
+  padding:12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+}
+
+.combo-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.combo-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+  font-size:12px;
+  font-weight:700;
+}
+
+.combo-note{
+  font-size:12px;
+  opacity:.75;
+  white-space:nowrap;
+}
+
+.contact-card.combo .cc-actions{
+  margin-top:10px;
+}
+
+/* stack on mobile */
+@media (max-width: 680px){
+  .combo-grid{ grid-template-columns: 1fr; }
+  .combo-note{ white-space:normal; }
+}
+/* =========================
+   CONTACT: shared EE/LV footer
+========================= */
+.contact-card.shared .cc-foot{
+  margin-top:12px;
+  padding-top:10px;
+  border-top:1px solid rgba(255,255,255,.10);
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+}
+
+.cc-foot-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  font-size:12px;
+  font-weight:700;
+}
+
+.cc-foot-note{
+  font-size:12px;
+  opacity:.75;
+}
+
+/* =========================
+   One beautiful Contact Info block
+========================= */
+.contact-info{
+  margin-top:14px;
+  padding:16px;
+  border-radius:18px;
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.10);
+  position:relative;
+  overflow:hidden;
+}
+
+.contact-info::before{
+  content:"";
+  position:absolute;
+  inset:-60px -60px auto -60px;
+  height:220px;
+  background: radial-gradient(circle at 30% 30%, rgba(0,179,255,.28), transparent 60%);
+  filter: blur(10px);
+  pointer-events:none;
+}
+
+.ci-top{
+  position:relative;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+.ci-badge{
+  display:inline-flex;
+  align-items:center;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  opacity:.9;
+  white-space:nowrap;
+}
+
+.ci-h{
+  font-size:18px;
+  font-weight:800;
+  line-height:1.1;
+}
+
+.ci-sub{
+  margin-top:4px;
+  font-size:13px;
+  opacity:.78;
+}
+
+.ci-grid{
+  position:relative;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:10px;
+}
+
+@media (max-width: 520px){
+  .ci-grid{ grid-template-columns: 1fr; }
+}
+
+.ci-item{
+  display:grid;
+  grid-template-columns: 34px 1fr auto;
+  grid-template-rows: auto auto;
+  column-gap:10px;
+  row-gap:2px;
+  align-items:center;
+
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.22);
+  color: inherit;
+  text-decoration:none;
+
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.ci-item:hover{
+  transform: translateY(-1px);
+  border-color: rgba(0,179,255,.35);
+  background: rgba(0,0,0,.30);
+}
+
+.ci-ico{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
+  background: radial-gradient(circle at 30% 30%, rgba(0,179,255,.32), rgba(0,0,0,.35));
+  grid-row: 1 / span 2;
+}
+
+.ci-label{
+  font-size:12px;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  opacity:.7;
+}
+
+.ci-value{
+  font-weight:700;
+  white-space:normal;        /* ✅ */
+  overflow:visible;          /* ✅ */
+  word-break:break-word;     /* ✅ */
+  line-height:1.2;
+}
+
+
+.ci-arrow{
+  grid-row: 1 / span 2;
+  opacity:.65;
+  margin-left:8px;
+}
+
+.ci-note{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid rgba(255,255,255,.10);
+  display:grid;
+  gap:8px;
+  position:relative;
+}
+
+.ci-note-row{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  line-height:1.35;
+  opacity:.9;
+}
+
+.ci-mini-ico{
+  width:22px;
+  height:22px;
+  display:grid;
+  place-items:center;
+  border-radius:8px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+  flex: 0 0 22px;
+}
+
+.ci-tags{
+  margin-top:12px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  position:relative;
+}
+
+.ci-tag{
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  font-size:12px;
+  opacity:.9;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:24px;
+  align-items:stretch; /* 🔴 ВАЖНО */
+}
+.contact-left{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+
+.contact-info{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+.ci-grid{
+  margin-top:14px;
+}
+
+.ci-note{
+  margin-top:auto;   /* 🔥 уводит инфо вниз */
+  padding-top:16px;
+}
+/* =========================
+   CONTACT INFO: neat 2x2 cards
+   - value stays on ONE line
+   - email no wrap, no ugly 2 lines
+========================= */
+
+/* grid stays 2x2 on desktop */
+.ci-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+  margin-top:14px;
+}
+
+@media (max-width: 520px){
+  .ci-grid{ grid-template-columns: 1fr; }
+}
+
+/* card */
+.ci-item{
+  display:grid;
+  grid-template-columns: 44px 1fr 18px;   /* icon | text | arrow */
+  grid-template-rows: auto auto;
+  column-gap:12px;
+  row-gap:3px;
+
+  align-items:center;
+  padding:14px 14px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.22);
+  color: inherit;
+  text-decoration:none;
+
+  min-height:72px;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.ci-item:hover{
+  transform: translateY(-1px);
+  border-color: rgba(0,179,255,.35);
+  background: rgba(0,0,0,.30);
+}
+
+/* icon */
+.ci-ico{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background: radial-gradient(circle at 30% 30%, rgba(0,179,255,.30), rgba(0,0,0,.35));
+  grid-row: 1 / span 2;
+}
+
+/* arrow */
+.ci-arrow{
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  justify-self:end;
+  opacity:.65;
+}
+
+/* label (small) */
+.ci-label{
+  grid-column: 2;
+  grid-row: 1;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  opacity:.72;
+  line-height:1.1;
+}
+
+/* value (big, ONE LINE) */
+.ci-value{
+  grid-column: 2;
+  grid-row: 2;
+
+  font-weight:800;
+  font-size:15px;
+  line-height:1.15;
+
+  white-space:nowrap;        /* ✅ never wrap */
+  overflow:hidden;           /* ✅ keep inside */
+  text-overflow:ellipsis;    /* ✅ nice "..." if too long */
+  max-width: 100%;
+}
+
+/* make Email a bit smaller so it fits better */
+.ci-item[href^="mailto:"] .ci-value{
+  font-size:14px;
+  letter-spacing:.01em;
+}
+
+/* make Telegram also fit */
+.ci-item[href*="t.me"] .ci-value{
+  font-size:14px;
+}
+
+/* optional: give PHONE more "solid" look */
+.ci-item[href^="tel:"] .ci-value{
+  letter-spacing:.02em;
+}
+/* =========================
+   CONTACT INFO: list layout (NO broken email)
+========================= */
+.ci-grid.ci-grid-list{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:12px;
+  margin-top:14px;
+}
+
+/* one row */
+.ci-row{
+  display:grid;
+  grid-template-columns: 48px 1fr auto;
+  gap:12px;
+  align-items:center;
+
+  padding:14px 14px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.22);
+  color: inherit;
+  text-decoration:none;
+
+  min-height:76px;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.ci-row:hover{
+  transform: translateY(-1px);
+  border-color: rgba(0,179,255,.35);
+  background: rgba(0,0,0,.30);
+}
+
+/* icon */
+.ci-row .ci-ico{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background: radial-gradient(circle at 30% 30%, rgba(0,179,255,.30), rgba(0,0,0,.35));
+}
+
+/* middle text column */
+.ci-col{
+  display:grid;
+  gap:4px;
+  min-width:0; /* important for ellipsis control */
+}
+
+.ci-row .ci-label{
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  opacity:.72;
+  line-height:1.1;
+}
+
+/* value always stays inside */
+.ci-row .ci-value{
+  font-weight:800;
+  font-size:15px;
+  line-height:1.15;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* email gets a tiny font reduction to fit */
+.ci-row .ci-email{
+  font-size:14px;
+  letter-spacing:.01em;
+}
+
+/* CTA pill */
+.ci-cta{
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  font-size:12px;
+  font-weight:800;
+  opacity:.92;
+  white-space:nowrap;
+}
+
+/* mobile: CTA becomes smaller */
+@media (max-width: 520px){
+  .ci-row{ grid-template-columns: 44px 1fr auto; }
+  .ci-row .ci-ico{ width:44px; height:44px; border-radius:12px; }
+  .ci-cta{ padding:9px 10px; font-size:11px; }
+}
+/* ===== CONTACT LEFT PREMIUM CARD ===== */
+.contact .contact-grid{
+  display:grid;
+  grid-template-columns: 1.08fr .92fr;
+  gap:24px;
+  align-items:stretch;
+}
+@media (max-width: 980px){
+  .contact .contact-grid{ grid-template-columns:1fr; }
+}
+
+/* outer card */
+.ci-card{
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.10);
+  background:
+    radial-gradient(1200px 500px at 15% 0%, rgba(0,179,255,.18), rgba(0,0,0,0)),
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  box-shadow: 0 18px 50px rgba(0,0,0,.35);
+  padding:18px;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+
+/* header */
+.ci-head{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  justify-content:space-between;
+  padding:6px 6px 10px;
+}
+.ci-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+  font-size:12px;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.ci-head-right{ min-width:0; }
+.ci-h{
+  font-size:18px;
+  font-weight:900;
+  line-height:1.15;
+}
+.ci-sub{
+  margin-top:4px;
+  opacity:.75;
+  font-size:13px;
+  line-height:1.35;
+}
+
+/* list layout */
+.ci-grid.ci-grid-list{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin-top:10px;
+}
+
+/* row */
+.ci-row{
+  display:grid;
+  grid-template-columns: 54px 1fr auto;
+  gap:12px;
+  align-items:center;
+  padding:14px 14px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.20);
+  text-decoration:none;
+  color:inherit;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.ci-row:hover{
+  transform: translateY(-1px);
+  background: rgba(0,0,0,.28);
+  border-color: rgba(0,179,255,.35);
+}
+
+/* icon */
+.ci-ico{
+  width:54px;
+  height:54px;
+  display:grid;
+  place-items:center;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.12);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(0,179,255,.35), rgba(0,0,0,.35));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.05);
+}
+
+/* middle col */
+.ci-col{ display:grid; gap:4px; min-width:0; }
+.ci-label{
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  opacity:.70;
+  line-height:1.1;
+}
+.ci-value{
+  font-weight:900;
+  font-size:15px;
+  line-height:1.15;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.ci-mono{
+  font-variant-numeric: tabular-nums;
+  letter-spacing:.01em;
+}
+.ci-email{
+  font-size:14px; /* email fits better */
+}
+
+/* CTA pill */
+.ci-cta{
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+  font-size:12px;
+  font-weight:900;
+  white-space:nowrap;
+  opacity:.95;
+}
+.ci-row:hover .ci-cta{
+  border-color: rgba(0,179,255,.35);
+}
+
+/* divider + notes */
+.ci-divider{
+  height:1px;
+  background: rgba(255,255,255,.10);
+  margin:16px 6px 12px;
+}
+.ci-note{
+  display:grid;
+  gap:10px;
+  padding:0 6px;
+}
+.ci-note-row{
+  display:grid;
+  grid-template-columns: 18px 1fr;
+  gap:10px;
+  align-items:start;
+  opacity:.92;
+}
+.ci-mini-ico{ opacity:.9; }
+
+/* tags */
+.ci-tags{
+  margin-top:auto;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:14px 6px 2px;
+}
+.ci-tag{
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  font-size:12px;
+  font-weight:800;
+  opacity:.92;
+}
+/* ===== ровные строки контактов ===== */
+.ci-row{
+  grid-template-columns: 54px minmax(0, 1fr) 112px; /* фикс ширина кнопки */
+  align-items: center;
+}
+
+/* центральная колонка: фикс высота и выравнивание */
+.ci-col{
+  display: grid;
+  grid-template-rows: 14px 20px; /* одинаковые ряды */
+  row-gap: 6px;
+  min-width: 0;
+  align-content: center; /* чтобы блок всегда был по центру строки */
+}
+
+/* label всегда одинаковый */
+.ci-label{
+  height: 14px;
+  line-height: 14px;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .70;
+  display: block;
+}
+
+/* value всегда одинаковый */
+.ci-value{
+  height: 20px;
+  line-height: 20px;
+  font-weight: 900;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+/* чтобы EMAIL не выглядел меньше и не проваливался */
+.ci-email{
+  font-size: 15px;       /* одинаково с остальными */
+  letter-spacing: .01em;
+}
+
+/* кнопки одинаковые */
+.ci-cta{
+  width: 112px;          /* одинаковая ширина */
+  height: 38px;          /* одинаковая высота */
+  display: grid;
+  place-items: center;   /* текст по центру */
+  padding: 0;            /* чтобы не плясало */
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+/* если хочешь прям супер-ровно по вертикали */
+.ci-ico{
+  width: 54px;
+  height: 54px;
+}
+/* ===== HARD ALIGN FIX: всё начинается с одной линии ===== */
+.ci-grid-list{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ci-row{
+  display: grid;
+  grid-template-columns: 56px 1fr 112px; /* иконка | текст | кнопка */
+  gap: 14px;
+  align-items: center;
+  padding: 14px 14px;
+}
+
+/* ВАЖНО: текст всегда слева */
+.ci-col,
+.ci-label,
+.ci-value{
+  text-align: left !important;
+  justify-self: start !important;
+  align-self: center;
+}
+
+/* label и value всегда блоки на всю ширину колонки */
+.ci-col{
+  min-width: 0;
+}
+
+.ci-label{
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.ci-value{
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* фикс одинаковой структуры строк */
+.ci-col{
+  display: grid;
+  grid-template-rows: 14px 20px;
+  row-gap: 6px;
+}
+
+/* CTA одинаковая */
+.ci-cta{
+  width: 112px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  justify-self: end; /* кнопка всегда справа ровно */
+  padding: 0;
+}
+
+/* чтобы ничего не влияло */
+.ci-row *{
+  box-sizing: border-box;
+}
