@@ -1899,8 +1899,7 @@ video:{title:"Video montāža", text:"Īsi klipi, reels un promo video."}
 
 <!-- Contact Us System (ОТДЕЛЬНЫЙ SCRIPT, НЕ ВНУТРИ ДРУГОГО) -->
 <script>
-  const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycby8JXnwaFjXUoZa5C3WOcwzdajbKERUaWWY9311WaeA4rykYXjS3_E-KkY5mZQAmg_TeA/exec";
+  const API_URL = "https://taverna-eight.vercel.app/api/contact";
 
   const form = document.getElementById("contactForm");
   const statusEl = document.getElementById("cfStatus");
@@ -1933,22 +1932,28 @@ video:{title:"Video montāža", text:"Īsi klipi, reels un promo video."}
       };
 
       try {
-        // Важно: Apps Script часто не дружит с CORS.
-        // Поэтому отправляем "простым" запросом без JSON header.
-        await fetch(SCRIPT_URL, {
+        const r = await fetch(API_URL, {
           method: "POST",
-          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         });
 
+        const j = await r.json();
+        if (!j.ok) throw new Error(j.error || "Request failed");
+
         const uiLang = document.documentElement.lang || 'en';
-statusEl.textContent = dict?.[uiLang]?.ci?.form?.status_sent || "✅ Sent! We’ll reply within 24 hours.";
+        statusEl.textContent =
+          dict?.[uiLang]?.ci?.form?.status_sent ||
+          "✅ Sent! We’ll reply within 24 hours.";
+
         form.reset();
         document.getElementById("cfLang").value = payload.lang;
+
       } catch (err) {
         const uiLang = document.documentElement.lang || 'en';
-statusEl.textContent = dict?.[uiLang]?.ci?.form?.status_error || "❌ Error. Please try again or email info@designtaverna.com";
-
+        statusEl.textContent =
+          dict?.[uiLang]?.ci?.form?.status_error ||
+          "❌ Error. Please try again or email info@designtaverna.com";
       } finally {
         btn.disabled = false;
         btn.style.opacity = "1";
@@ -1956,6 +1961,7 @@ statusEl.textContent = dict?.[uiLang]?.ci?.form?.status_error || "❌ Error. Ple
     });
   }
 </script>
+
 
   <!-- Back-to-top -->
 <button id="toTop" class="to-top" aria-label="Back to top" title="Back to top">
